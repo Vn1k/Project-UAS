@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Navbar-homepage
+Route::get('aktivitas', [FrontController::class, 'aktivitas'])->name('Aktivitas');
+Route::get('galleri', [FrontController::class, 'galleri'])->name('Galleri');
+Route::get('tentang-kami', [FrontController::class, 'tentangKami'])->name('');
+
+
