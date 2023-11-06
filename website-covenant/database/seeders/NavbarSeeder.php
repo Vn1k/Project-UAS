@@ -26,7 +26,7 @@ class NavbarSeeder extends Seeder
             ],
             [
                 'name'=> 'Tentang Kami',
-                'route' => 'tentang-kami',
+                'route' => 'tentangKami',
                 'ordering' => 3,
             ],
             [
