@@ -16,32 +16,33 @@ class NavbarSeeder extends Seeder
         $links = [
             [
                 'name' => 'Home', 
-                'route_name' => 'home'
+                'route' => 'home',
+                'ordering' => 1,
             ],
             [
                 'name' => 'Aktivitas',
                 'route' => 'aktivitas',
-                'ordering' => 1,
+                'ordering' => 2,
             ],
             [
                 'name' => 'Galleri',
                 'route'=> 'galleri',
-                'ordering' => 2,
+                'ordering' => 3,
             ],
             [
                 'name'=> 'Tentang Kami',
                 'route' => 'tentangKami',
-                'ordering' => 3,
+                'ordering' => 4,
             ],
             [
                 'name'=> 'Sukarelawan',
                 'route' => 'sukarelawan',
-                'ordering' => 4,
+                'ordering' => 5,
             ],
             [
                 'name' => 'Dukungan',
                 'route' => 'dukungan',
-                'ordering' => 5,
+                'ordering' => 6,
             ]
         ];
         foreach($links as $key => $navbarHome){

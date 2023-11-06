@@ -16,8 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Navbar-homepage
-Route::get('aktivitas', [FrontController::class, 'aktivitas'])->name('Aktivitas');
-Route::get('galleri', [FrontController::class, 'galleri'])->name('Galleri');
+Route::get('home', [FrontController::class, 'home'])->name('home');
+Route::get('aktivitas', [FrontController::class, 'aktivitas'])->name('aktivitas');
+Route::get('galleri', [FrontController::class, 'galleri'])->name('galleri');
 Route::get('tentang-kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
+Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
+Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 
