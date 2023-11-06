@@ -15,6 +15,10 @@ class NavbarSeeder extends Seeder
     {
         $links = [
             [
+                'name' => 'Home', 
+                'route_name' => 'home'
+            ],
+            [
                 'name' => 'Aktivitas',
                 'route' => 'aktivitas',
                 'ordering' => 1,
