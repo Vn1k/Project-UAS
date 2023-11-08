@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\GalleriController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,4 +24,7 @@ Route::get('tentang-kami', [FrontController::class, 'tentangKami'])->name('tenta
 Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
 Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
+//end
 
+//galleri route
+Route::post('/image-compress', [GalleriController::class, 'compressImage']);
