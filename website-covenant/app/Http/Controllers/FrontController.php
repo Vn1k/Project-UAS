@@ -9,7 +9,6 @@ class FrontController extends Controller
     {
         return view('home');
     }
-  
     /**
      * Display a listing of the resource.
      *
