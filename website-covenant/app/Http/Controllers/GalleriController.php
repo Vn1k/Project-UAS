@@ -7,6 +7,10 @@ use App\Models\Galleri;
 
 class GalleriController extends Controller
 {
+    public function galleri() {
+        return $this->hasMany(Galleri::class);
+    }
+    
     /**
      * Display a listing of the resource.
      */
