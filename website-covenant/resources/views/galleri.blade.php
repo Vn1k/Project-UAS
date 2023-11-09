@@ -8,6 +8,9 @@
                 <div class="card-header">Galleri</div>
                 <div class="card-body">
                     <p>You are in Products Page</p>
+                    <form action="/image-compress" method="post">
+                        <button type="submit">submit</button>
+                    </form>
                 </div>
             </div>
         </div>

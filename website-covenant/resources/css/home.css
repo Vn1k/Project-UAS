@@ -3,5 +3,12 @@ body {
     padding: 0;
     height: 100vh;
     overflow-x: hidden;
-    background-color: red;
+}
+
+nav {
+    color: blue;
+}
+
+.card {
+    color: blueviolet;
 }
