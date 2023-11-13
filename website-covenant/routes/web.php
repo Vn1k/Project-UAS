@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
+use App\Http\Controllers\KegiatanController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 //Navbar-homepage
 Route::get('home', [FrontController::class, 'home'])->name('home');
-Route::get('aktivitas', [FrontController::class, 'aktivitas'])->name('aktivitas');
+Route::get('kegiatan', [FrontController::class, 'kegiatan'])->name('kegiatan');
 Route::get('galleri', [FrontController::class, 'galleri'])->name('galleri');
 Route::get('tentang-kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
 Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
@@ -28,3 +29,6 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
+
+//acd
+Route::resource('kegiatans', KegiatanController::class);
