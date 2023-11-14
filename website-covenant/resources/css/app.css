@@ -7,5 +7,10 @@ body {
     padding: 0;
     height: 100vh;
     overflow-x: hidden;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+}
+
+.kegiatan {
+    width: 100%;
 }
