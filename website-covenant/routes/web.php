@@ -28,3 +28,5 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
+
+//supporter route
