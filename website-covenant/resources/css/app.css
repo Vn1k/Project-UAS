@@ -5,6 +5,7 @@
 body {
     margin: 0;
     padding: 0;
+    width: 100vw;
     height: 100vh;
     overflow-x: hidden;
     display: flex;
@@ -13,4 +14,77 @@ body {
 
 .kegiatan {
     width: 100%;
+}
+
+.containerKegiatan
+{
+    width: 100vw;
+    position: relative;
+    padding: 50px;
+}
+
+.formKegiatan
+{
+    width: 203%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardForm
+{
+    width: 50%;
+    height: 180%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 24%;
+}
+
+.tableKegiatan
+{
+    position: absolute;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    top: 300%;
+    left: 10%;
+}
+
+.formOleh
+{
+    width: 40%;
+    position: absolute;
+    left: 56.5%;
+}
+
+.formWaktu
+{
+    width: 25%;
+    position: absolute;
+    left: 29.5%;
+}
+
+.formTanggal
+{
+    width: 25%;
+    position: absolute;
+}
+
+.formDesc
+{
+    position: absolute;
+    width: 46%;
+    left: 50.5%;
+}
+
+.formLokasi
+{
+    position: absolute;
+    width: 46%;
+}
+
+.btnFormKegiatan
+{
+    position: absolute;
+    left: 45%;
 }
