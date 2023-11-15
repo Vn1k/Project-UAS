@@ -30,7 +30,7 @@ class SponsorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'instansi' => 'required|max:50',
+            'instansi' => 'required|max:255',
             'penanggung_jawab' => 'required|max:50'
         ]);
 
