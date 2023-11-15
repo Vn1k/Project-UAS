@@ -91,12 +91,7 @@ class VolunteerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $volunteer = Volunteer::findOrFail($id);
-        $volunteer->nama = $request->nama;
-        $volunteer->asal = $request->asal;
-        $volunteer->no_telepon = $request->no_telepon;
-        $volunteer->save();
-        return redirect('/admin');
+        //
     }
 
     /**

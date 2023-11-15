@@ -21,7 +21,7 @@ class SponsorController extends Controller
      */
     public function create()
     {
-        return view('sponsor.create');
+        //
     }
 
     /**
@@ -74,11 +74,7 @@ class SponsorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $sponsor = Sponsor::findOrFail($id);
-        $sponsor->instansi = $request->instansi;
-        $sponsor->penanggung_jawab = $request->penanggung_jawab;
-        $sponsor->save();
-        return redirect('/admin');
+        //
     }
 
     /**
