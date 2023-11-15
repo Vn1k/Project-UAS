@@ -21,7 +21,7 @@ class SponsorController extends Controller
      */
     public function create()
     {
-        return view('sponsor.create');
+        //
     }
 
     /**
@@ -30,7 +30,7 @@ class SponsorController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'instansi' => 'required|max:255',
+            'instansi' => 'required|max:50',
             'penanggung_jawab' => 'required|max:50'
         ]);
 
