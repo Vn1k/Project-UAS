@@ -12,8 +12,4 @@
     Penanggung Jawab <input type="text" name="penanggung_jawab" value="{{$sponsor->penanggung_jawab}}" /><br />
     <button type="submit">SUBMIT</button>
 </form>
-<form action="/sponsor/{{$sponsor->id}}" method="post">
-    @method('DELETE')
-    @csrf
-    <button type="submit">DELETE</button>
-</form>
+

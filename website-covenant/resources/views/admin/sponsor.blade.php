@@ -30,6 +30,13 @@
             <td>
                 <a href="/sponsor/{{$sponsor->id}}/show">EDIT</a>
             </td>
+            <td>
+                <form action="/sponsor/{{$sponsor->id}}" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit">DELETE</button>
+                </form>
+            </td>
         </tr>
         @endforeach
 
