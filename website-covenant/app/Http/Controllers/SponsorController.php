@@ -12,7 +12,8 @@ class SponsorController extends Controller
      */
     public function index()
     {
-        //
+        $sponsor = Sponsor::all();
+        return view('admin.sponsor', ['sponsors' => $sponsor]);
     }
 
     /**
@@ -20,7 +21,7 @@ class SponsorController extends Controller
      */
     public function create()
     {
-        //
+        return view('sponsor.create');
     }
 
     /**
@@ -28,7 +29,18 @@ class SponsorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'instansi' => 'required|max:255',
+            'penanggung_jawab' => 'required|max:50'
+        ]);
+
+        $sponsor = new Sponsor();
+        $sponsor->instansi = $request->instansi;
+        $sponsor->penanggung_jawab = $request->penanggung_jawab;
+        $sponsor->save();
+
+        return redirect('/sponsor');
+
     }
 
     /**
@@ -36,15 +48,25 @@ class SponsorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $sponsor = Sponsor::findOrFail($id);
+        return view('admin.editsponsor', ['sponsor' => $sponsor]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'instansi' => 'required|max:255',
+            'penanggung_jawab' => 'required|max:50'
+        ]);
+
+        $sponsor = Sponsor::findOrFail($id);
+        $sponsor->instansi = $request->instansi;
+        $sponsor->penanggung_jawab = $request->penanggung_jawab;
+        $sponsor->save();
+        return redirect('/sponsor');
     }
 
     /**
@@ -52,7 +74,11 @@ class SponsorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $sponsor = Sponsor::findOrFail($id);
+        $sponsor->instansi = $request->instansi;
+        $sponsor->penanggung_jawab = $request->penanggung_jawab;
+        $sponsor->save();
+        return redirect('/admin');
     }
 
     /**
@@ -60,6 +86,8 @@ class SponsorController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $sponsor = Sponsor::findOrFail($id);
+        $sponsor->delete();
+        return redirect('/sponsor');
     }
 }
