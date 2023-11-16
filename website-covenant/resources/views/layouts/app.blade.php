@@ -9,20 +9,6 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar-main">
-            <div class="container">  
-                <div class="navbar-mini id="navbarSupportedContent">
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-item">
-                        @foreach ($navbars as $navbarItem)
-                            <li class="nav-items">
-                                <a class="nav-link" href="{{ route($navbarItem->route) }}">{{ $navbarItem->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </nav>
   
         <main class="py-4">
             @yield('content')
