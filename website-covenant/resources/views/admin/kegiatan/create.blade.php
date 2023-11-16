@@ -8,6 +8,8 @@
     Oleh: <input type="text" name="penyelenggara" /><br />
     Lokasi: <input type="text" name="lokasi" /><br />
     Deskripsi: <textarea name="deskripsi"></textarea><br />
+    Sukarelawan: <input type="text" name="sukarelawan" /><br />
+    Sponsor: <input type="text" name="sponsor" /><br />
     <!-- Foto: <input type="file" name="foto"><br/> -->
     <button type="submit">Submit</button>
 </form>

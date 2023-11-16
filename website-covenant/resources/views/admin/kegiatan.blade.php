@@ -14,14 +14,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Products</div>
-                <div class="card-body">
+                <div class="titleKegiatan card-header">Kegiatan</div>
+                <!-- <div class="card-body">
                     <p>You are in Kegiatan Page</p>
-                </div>
+                </div> -->
             </div>
             <!-- <a href="/kegiatans/create">Create new kegiatan</a> -->
             <!-- Blade Template for Kegiatan -->
-<h1>Kegiatan</h1>
+<!-- <h1>Kegiatan</h1> -->
 <form action="/kegiatans" method="post" enctype="multipart/form-data">
     @csrf
     <a class="cardForm block m-10 p-6 bg-white border border-gray-200 rounded-lg shadow ">
@@ -65,6 +65,22 @@
                 </div>
             </div>
         </div>
+
+        <div class="containerSS flex mb-10">
+            <div class="grid mb-6 md:grid-cols-2">
+                <div>
+                    <label for="sukarelawan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                    <input type="text" id="sukarelawan" name="sukarelawan" class="formRelawan bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Sukarelawan" required>
+                </div>
+            </div>
+
+            <div class="grid mb-6 md:grid-cols-2">
+                <div>
+                    <label for="sponsor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                    <input type="text" id="sponsor" name="sponsor" class="formDesc bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Sponsor" required>
+                </div>
+            </div>
+        </div>
         
 
         <!-- Add other fields similar to the example provided -->
@@ -97,6 +113,12 @@
                                 Deskripsi
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Sukarelawan
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Sponsor
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
@@ -121,6 +143,12 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $event->deskripsi }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$volunteer->nama}}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{$sponsor->instansi}}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="/kegiatans/{{ $event->id }}" class="font-medium text-white hover:underline">SHOW</a> |

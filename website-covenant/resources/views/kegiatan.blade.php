@@ -20,6 +20,8 @@
         <th>Oleh</th>
         <th>Lokasi</th>
         <th>Deskripsi</th>
+        <th>Sukarelawan</th>
+        <tn>Sponsor</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -31,6 +33,8 @@
         <td>{{$event->penyelenggara}}</td>
         <td>{{$event->lokasi}}</td>
         <td>{{$event->deskripsi}}</td>
+        <td>{{$volunteer->nama}}</td>
+        <td>{{$sponsor->instansi}}</td>
         <td>
             <a href="/kegiatans/{{$event->id}}">SHOW</a> |
             <a href="/kegiatans/{{$event->id}}/edit">EDIT</a> |

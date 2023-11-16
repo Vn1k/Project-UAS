@@ -7,5 +7,7 @@
         Oleh: {{$kegiatan->penyelenggara}}<br />
         Lokasi: {{$kegiatan->lokasi}}<br />
         Deskripsi: {{$kegiatan->deskripsi}}<br />
+        Sukarelawan: {{$volunteer->nama}}<br />
+        Sponsor: {{$sponsor->instansi}}<br />
         Photo: <img src="{{asset($photo)}}" />
         Cover: <img src="{{asset($photo)}}" />

@@ -12,6 +12,15 @@ body {
     justify-content: center;
 }
 
+.titleKegiatan
+{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+}
+
 .kegiatan {
     width: 100%;
 }
@@ -33,7 +42,7 @@ body {
 .cardForm
 {
     width: 50%;
-    height: 180%;
+    height: 260%;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -46,7 +55,7 @@ body {
     width: 80%;
     justify-content: center;
     align-items: center;
-    top: 300%;
+    top: 370%;
     left: 10%;
 }
 
@@ -78,6 +87,12 @@ body {
 }
 
 .formLokasi
+{
+    position: absolute;
+    width: 46%;
+}
+
+.formRelawan
 {
     position: absolute;
     width: 46%;
