@@ -145,10 +145,10 @@
                                 {{ $event->deskripsi }}
                             </td>
                             <td class="px-6 py-4">
-                                {{$volunteer->nama}}
+                                {{$volunteer->volunteer_id}}
                             </td>
                             <td class="px-6 py-4">
-                                {{$sponsor->instansi}}
+                                {{$sponsor->sponsor_id}}
                             </td>
                             <td class="px-6 py-4">
                                 <a href="/kegiatans/{{ $event->id }}" class="font-medium text-white hover:underline">SHOW</a> |
