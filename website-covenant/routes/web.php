@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //end
 
 //galleri route
-Route::post('/image-compress', [GalleriController::class, 'compressImage']);
+Route::resource('galleri', GalleriController::class)->except(['show','edit','update','delete']);
 
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
