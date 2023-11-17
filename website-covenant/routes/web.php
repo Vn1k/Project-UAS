@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
+use App\Http\Controllers\SupporterController;
+use App\Models\Supporter;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,3 +32,4 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 
 //supporter route
+Route::resource('supporters', SupporterController::class);

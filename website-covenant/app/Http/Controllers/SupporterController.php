@@ -12,7 +12,8 @@ class SupporterController extends Controller
      */
     public function index()
     {
-        //
+        $supporters = Supporter::all();
+        return view('admin.supporter', ['supporters'=> $supporters]);
     }
 
     /**
@@ -20,7 +21,7 @@ class SupporterController extends Controller
      */
     public function create()
     {
-        //
+        return 'ini create';
     }
 
     /**
