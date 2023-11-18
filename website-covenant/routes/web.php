@@ -32,7 +32,7 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 //end
 
 //galleri route
-Route::post('/image-compress', [GalleriController::class, 'compressImage']);
+Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
 
 //acd
 Route::resource('kegiatans', KegiatanController::class);
