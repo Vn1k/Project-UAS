@@ -148,7 +148,7 @@
         <div class="bottom"></div>
         <div class="center">
             <!-- Tambahkan form dengan metode POST -->
-            <form action="/login" method="post">
+            <form action="{{ route('admin.login') }}" method="post">
                 <!-- csrf token untuk perlindungan form Laravel -->
                 @csrf
                 <h2>Please Sign In</h2>
