@@ -43,6 +43,7 @@ class KegiatanController extends Controller
         $kegiatan->volunteer_id = $request->volunteer_id;
         $kegiatan->sponsor_id = $request->sponsor_id ;
         // $kegiatan->photo = $path;
+        //test
         $kegiatan->save();
 
         return redirect('/kegiatans');
