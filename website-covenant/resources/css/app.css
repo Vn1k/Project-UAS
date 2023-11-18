@@ -5,9 +5,108 @@
 body {
     margin: 0;
     padding: 0;
+    width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+<<<<<<< HEAD
+
+=======
+    display: flex;
+    justify-content: center;
 }
+
+.titleKegiatan
+{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+}
+
+.kegiatan {
+    width: 100%;
+}
+
+.containerKegiatan
+{
+    width: 100vw;
+    position: relative;
+    padding: 50px;
+}
+
+.formKegiatan
+{
+    width: 203%;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardForm
+{
+    width: 50%;
+    height: 260%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 24%;
+}
+
+.tableKegiatan
+{
+    position: absolute;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    top: 370%;
+    left: 10%;
+}
+
+.formOleh
+{
+    width: 40%;
+    position: absolute;
+    left: 56.5%;
+}
+
+.formWaktu
+{
+    width: 25%;
+    position: absolute;
+    left: 29.5%;
+}
+
+.formTanggal
+{
+    width: 25%;
+    position: absolute;
+}
+
+.formDesc
+{
+    position: absolute;
+    width: 46%;
+    left: 50.5%;
+}
+
+.formLokasi
+{
+    position: absolute;
+    width: 46%;
+}
+
+.formRelawan
+{
+    position: absolute;
+    width: 46%;
+}
+
+.btnFormKegiatan
+{
+    position: absolute;
+    left: 45%;
+}
+>>>>>>> 6d14961f5657fec501e3796af7a22edd4d90c033
 @font-face {
     font-family: "Kanit-Regular";
     src: local("Kanit-Regular"),

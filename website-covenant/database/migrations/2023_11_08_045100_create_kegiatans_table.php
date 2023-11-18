@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama_kegiatan', 50);
             $table->string('penyelenggara', 20);
-            $table->date('jadwal');
+            $table->date('tanggal');
             $table->time('waktu');
             $table->string('cover')->nullable();
             $table->string('photo')->nullable();
