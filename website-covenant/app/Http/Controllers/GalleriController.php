@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Galleri;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class GalleriController extends Controller
 {
@@ -81,6 +82,18 @@ class GalleriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $image = Galleri::findOrFail($id);
+
+        $imagepath = public_path('storage/images/' . $image->image);
+        if(File::exists($imagepath)) {
+            File::delete($imagepath);
+        }
+
+        $image->delete();
+
+        return redirect()->back()->with([
+            'message' => 'Image has been deleted',
+            'status' => 'success'
+        ]);
     }
 }

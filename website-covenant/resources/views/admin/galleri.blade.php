@@ -47,6 +47,7 @@
                     <td>
                         @if($item->image)
                         <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 500px; width: 500px;">
+                        <a href="{{ route('galleri.destroy') }}">Delete</a>
                         @else
                         <span>No image found!</span>
                         @endif

@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //end
 
 //galleri route
-Route::resource('galleri', GalleriController::class)->except(['show','edit','update','delete']);
+Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
 
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
