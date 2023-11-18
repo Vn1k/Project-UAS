@@ -34,7 +34,7 @@
             <th>{{$volunteer->nama}}</th>
             <th>{{$volunteer->asal}}</th>
             <th>{{$volunteer->no_telepon}}</th>
-            <th>photo</th>
+            <th><img src="{{asset('storage/' . $volunteer->photo)}}" style="width: 300px"/></th>
             <td>
                 <a href="/volunteer/{{$volunteer->id}}/show">EDIT</a>
             </td>
