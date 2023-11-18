@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\VolunteerController;
@@ -20,13 +21,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Navbar-homepage
+Route::get('home', [FrontController::class, 'home'])->name('home');
+Route::get('kegiatan', [FrontController::class, 'kegiatan'])->name('kegiatan');
+Route::get('galleri', [FrontController::class, 'galleri'])->name('galleri');
+Route::get('tentang-kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
+Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
+Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
+
 //end
 
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 
+//acd
 Route::resource('kegiatans', KegiatanController::class);
-
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
 Route::get('volunteer/{id}/show', [VolunteerController::class, 'show']);

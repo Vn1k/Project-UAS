@@ -14,7 +14,7 @@ class KegiatanController extends Controller
     public function index()
     {
         $kegiatans = Kegiatan::all();
-        return view('kegiatan', ['kegiatan' => $kegiatans]);
+        return view('admin.kegiatan', ['kegiatan' => $kegiatans]);
     }
 
     /**
@@ -22,7 +22,7 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        return view('kegiatan\create');
+        
     }
 
     /**
@@ -43,6 +43,7 @@ class KegiatanController extends Controller
         $kegiatan->volunteer_id = $request->volunteer_id;
         $kegiatan->sponsor_id = $request->sponsor_id ;
         // $kegiatan->photo = $path;
+        //test
         $kegiatan->save();
 
         return redirect('/kegiatans');
