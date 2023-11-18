@@ -22,6 +22,23 @@ use Illuminate\Support\Facades\Route;
 
 //end
 
+/*===== ROUTE USER PAGE ======*/
+Route::get('/', function (){
+    return view('home');
+});
+Route::get('/aktivitas', function (){
+    return view('aktivitas');
+});
+Route::get('/galleri', function (){
+    return view('galleri');
+});
+Route::get('/tentangkami', function (){
+    return view('tentangKami');
+});
+Route::get('/sukarelawan', function (){
+    return view('sukarelawan');
+});
+
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 

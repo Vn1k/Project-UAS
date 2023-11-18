@@ -6,7 +6,15 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors:{
+        utama : '#FAF096',
+        second : '#D7CB6D'
+      },
+      fontFamily:{
+        Kanit: ["Kanit-Regular"]
+      }
+    },
   },
   plugins: [
       require('flowbite/plugin')

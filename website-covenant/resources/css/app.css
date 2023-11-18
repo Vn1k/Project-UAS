@@ -7,5 +7,9 @@ body {
     padding: 0;
     height: 100vh;
     overflow-x: hidden;
-    background-color: red;
+}
+@font-face {
+    font-family: "Kanit-Regular";
+    src: local("Kanit-Regular"),
+        url(../Font/Kanit-Regular.ttf) format("truetype");
 }
