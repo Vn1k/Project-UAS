@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
+use App\Http\Controllers\LoginAdmin;
+use App\Http\Controllers\LoginAdminController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\VolunteerController;
@@ -21,6 +23,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //end
+
+//login admin
+Route::resource('admin/login', LoginAdminController::class);
 
 //galleri route
 Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
