@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 
+Route::resource('kegiatans', KegiatanController::class);
+
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
 Route::get('volunteer/{id}/show', [VolunteerController::class, 'show']);
