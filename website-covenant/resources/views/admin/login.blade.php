@@ -37,13 +37,13 @@
                     &:after {
                         margin-left: 200px;
                         transform-origin: -200px 50%;
-                        transition-delay: 0.5s;
+                        transition-delay: 0.4s;
                     }
                 }
 
                 .center {
                     opacity: 1;
-                    transition-delay: 0.6s;
+                    transition-delay: 0.5s;
                 }
             }
         }
