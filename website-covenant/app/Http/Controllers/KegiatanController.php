@@ -13,8 +13,9 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $kegiatans = Kegiatan::all();
-        return view('kegiatan', ['kegiatan' => $kegiatans]);
+        $kegiatan = Kegiatan::with(['volunteers', 'sponsors'])->get();
+        return view('admin.kegiatan', ['kegiatans' => $kegiatan]);
+        // var_dump($kegiatan);
     }
 
     /**
@@ -40,8 +41,6 @@ class KegiatanController extends Controller
         $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->volunteer_id = $request->volunteer_id;
-        $kegiatan->sponsor_id = $request->sponsor_id ;
         // $kegiatan->photo = $path;
         $kegiatan->save();
 
@@ -54,8 +53,7 @@ class KegiatanController extends Controller
     public function show(string $id)
     {
         $kegiatan = Kegiatan::findOrFail($id);
-        $photo = Storage::url($kegiatan->photo);
-        return view('kegiatans.show', ['kegiatan' => $kegiatan, 'photo' => $kegiatan]);
+        return view('kegiatans.show', ['kegiatan' => $kegiatan]);
     }
 
     /**
@@ -76,7 +74,6 @@ class KegiatanController extends Controller
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->tanggal = $request->tanggal;
         $kegiatan->waktu = $request->waktu;
-        $kegiatan->oleh = $request->oleh;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
         $kegiatan->save();
