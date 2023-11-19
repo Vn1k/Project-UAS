@@ -29,7 +29,7 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -109,7 +109,7 @@ class KegiatanController extends Controller
         KegiatanSponsor::where('kegiatan_id', $id)->delete();
         KegiatanVolunteer::where('kegiatan_id', $id)->delete();
         $kegiatan = Kegiatan::find($id);
-        $kegiatan -> delete();
+        $kegiatan->delete();
         return redirect('/kegiatan');
     }
 }
