@@ -7,18 +7,21 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
-    <div id="app" class="flex flex-col min-h-screen">
+    <div id="app" class="flex flex-col">
+        {{-- NAVBAR --}}
         @include('partials.navbar')
-  
-        <main class="py-4 flex-1">
+        
+        {{-- CONTENT PER PAGE  --}}
+        <main class="flex-1">
             @yield('content')
         </main>
-
-
+        
+        {{-- FOOTER --}}
         <footer class="bg-utama text-black font-Kanit py-6 2xl:py-16">
             <div class="container mx-auto flex flex-wrap items-center justify-between">
-        
+                
                 <!-- Logo Area -->
                 <a class="flex ml-5 2xl:ml-36" href="/">
                     <img class="h-12 w-12 2xl:w-32 2xl:h-32" src="{{ asset('images/logo.png') }}" alt="Logo">
@@ -26,7 +29,7 @@
 
                 <!-- Konten Tengah -->
                 <div class="text-left w-40 mx-3 flex-grow 2xl:mx-12 2xl:ml-20">
-                    <h1 class="text-sm font-bold 2xl:text-2xl ">Panti Asuhan Rumah Belajar Covenant</h1>
+                    <h1 class="text-sm font-bold 2xl:text-2xl">Panti Asuhan Rumah Belajar Covenant</h1>
                     <div class="my-4 border w-28 rounded-sm border-black 2xl:w-72 2xl:border-2"></div>
                     <p class="text-xs 2xl:text-lg 2xl:my-4">
                         Ruko Kencana Bunda No. 88 CC RT/RW. 004, Jl. Kalindra II No. 009,

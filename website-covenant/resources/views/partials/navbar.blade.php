@@ -1,6 +1,6 @@
 
 
-<nav class="font-Kanit p-2 bg-white shadow-lg md:flex md:items-center md:justify-between">
+<nav class="font-Kanit p-2 w-screen bg-white shadow-lg md:flex md:items-center md:justify-between">
     <div class="flex justify-between items-center ">
       <a class="" href="/">
         <img class="cursor-pointer ml-14 h-14 inline"
@@ -12,12 +12,12 @@
       </span>
     </div>
 
-    <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+    <ul class="md:flex md:items-center z-[1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
       <li class="mx-4 my-6 md:my-0">
         <a href="/aktivitas" class="text-lg hover:text-second duration-500">Aktivitas</a>
       </li>
       <li class="mx-4 my-6 md:my-0">
-        <a href="/galleri" class="text-lg hover:text-second duration-500">Galleri</a>
+        <a href="/gallery" class="text-lg hover:text-second duration-500">Galleri</a>
       </li>
       <li class="mx-4 my-6 md:my-0">
         <a href="/tentangkami" class="text-lg hover:text-second duration-500">Tentang Kami</a>

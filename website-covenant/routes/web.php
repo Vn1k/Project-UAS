@@ -38,7 +38,7 @@ Route::get('/', function (){
 Route::get('/aktivitas', function (){
     return view('aktivitas');
 });
-Route::get('/galleri', function (){
+Route::get('/gallery', function (){
     return view('galleri');
 });
 Route::get('/tentangkami', function (){

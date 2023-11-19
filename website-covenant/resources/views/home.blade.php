@@ -11,10 +11,10 @@
 @extends('layouts.app')
   
   @section('content')
-  <div class="container">
+  <div class="">
       {{-- BANNER AREA --}}
  
-        <div class="mx-auto max-w-screen-md py-12">
+        <div class="py-12 ">
             <h2 class="mb-2 block font-sans text-4xl font-semibold leading-[1.3] tracking-normal text-blue-gray-900 antialiased">
               INI HOME PAGE!!!
             </h2>
