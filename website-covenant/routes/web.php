@@ -53,4 +53,5 @@ Route::get('kegiatan', [KegiatanController::class, 'index']);
 Route::get('kegiatan/{id}/show', [KegiatanController::class, 'show']);
 Route::post('kegiatan', [KegiatanController::class, 'store']);
 Route::post('kegiatan/{id}', [KegiatanController::class, 'edit']);
+Route::get('kegiatan/{id}', [KegiatanController::class, 'edit']);
 Route::delete('kegiatan/{id}', [KegiatanController::class, 'destroy']);
