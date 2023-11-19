@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Kegiatan extends Model
 {
     use HasFactory;
+
+    public function volunteers(){
+        return $this->belongsToMany(Volunteer::class);
+    }
+    public function sponsors(){
+        return $this->belongsToMany(Sponsor::class);
+    }
 }
