@@ -14,9 +14,9 @@
             @yield('content')
         </main>
 
-        <footer>
+        <!-- <footer>
             Footer Section Goes Here...
-        </footer>
+        </footer> -->
     </div>
 </body>
 </html>

@@ -23,7 +23,7 @@ class KegiatanController extends Controller
      */
     public function create()
     {
-        return view('kegiatan\create');
+        
     }
 
     /**
@@ -42,6 +42,7 @@ class KegiatanController extends Controller
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
         // $kegiatan->photo = $path;
+        //test
         $kegiatan->save();
 
         return redirect('/kegiatans');
