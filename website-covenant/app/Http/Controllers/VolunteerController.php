@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Volunteer;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 class VolunteerController extends Controller
@@ -34,10 +35,18 @@ class VolunteerController extends Controller
             'nama' => 'required|max:50',
             'asal' => 'required|max:20',
             'no_telepon' => 'required|max:13',
+            'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
-        $path = $request->file('photo')->storePublicly('photos', 'public');
-        $ext = $request->file('photo')->extension();
+        $photo= $request->file('photo');
+        $filename = time() . '.' . $photo->extension();
+    
+        // Process and compress the image
+        $compressedImage = Image::make($photo)->encode('jpg', 75);
+    
+        // Save the compressed image
+        $path = 'photos/' . $filename;
+        $compressedImage->save(public_path('storage/' . $path));
 
         $volunteer = new Volunteer();
         $volunteer->nama = $request->nama;
@@ -69,6 +78,7 @@ class VolunteerController extends Controller
             'nama' => 'required|max:50',
             'asal' => 'required|max:20',
             'no_telepon' => 'required|max:13',
+            'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         if($request->file('photo')!=null){
