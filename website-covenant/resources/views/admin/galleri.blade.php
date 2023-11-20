@@ -40,24 +40,29 @@
         <table class="table-responsive" style="width: 100%">
             <thead>
                 <th>Images</th>
+                <th>Action</th>
             </thead>
             <tbody>
-                @foreach($image as $item)
-                <tr>
+            @foreach($image as $item)
                     <td>
                         @if($item->image)
                         <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 500px; width: 500px;">
-                        <a href="{{ route('galleri.destroy') }}">Delete</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('galleri.destroy', ['galleri' => $item->id]) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="border: none; background-color: transparent; color: red; text-decoration: underline; cursor: pointer;">Delete</button>
+                            </form>
+                        </td>
                         @else
                         <span>No image found!</span>
                         @endif
-                    </td>
+                        </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
-    </div>
     </div>
 </body>
 </html>
