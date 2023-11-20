@@ -128,21 +128,23 @@
         align-items: center;
         z-index: 9999;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.5s ease-in-out; /* Modified transition */
     }
 
     .popup-image {
+        height: 80vh;
+        width: auto;
         display: none;
         max-width: 80%;
         max-height: 80%;
         border-radius: 5px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         opacity: 0;
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Modified transition */
         transform: scale(0.8);
     }
 
-    .popup-overlay.active,.popup-image.active {
+    .popup-overlay.active, .popup-image.active {
         display: flex;
         opacity: 1;
     }
@@ -174,7 +176,7 @@
 
     <!-- ini si pop up image nya yeah -->
     <div class="popup-overlay" id="popupOverlay">
-        <img src="{{ asset('img/jseo.jpg') }}" class="popup-image" id="popupImage" alt="Popup Image">
+        <img src="{{ asset('storage/image/picturelogo.jpg') }}" class="popup-image" id="popupImage" alt="Popup Image">
     </div>
     
     
@@ -228,7 +230,7 @@
                                 {{$supporter->pesan}}
                             </div>
                             <div class="photo-cell">
-                                {{$supporter->photo}} <img src="{{ asset('img/jseo.jpg') }}" alt="Photo">
+                                {{$supporter->photo}} <img src="{{ asset('storage/image/picturelogo.jpg') }}" alt="Photo">
                             </div>
                         </div>
                     </td>
@@ -240,17 +242,16 @@
 
     </div>
 
-    <script>
-        //                                                                          //
-        // fungsi untuk mengambil gambar dari database dan menampilkannya di popup  //
-        // 
-                                                                                 //
-        const photoLinks = document.querySelectorAll('.photo-cell img');
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const photoCells = document.querySelectorAll('.photo-cell');
 
-        photoLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
+        photoCells.forEach(cell => {
+            const image = cell.querySelector('img');
+
+            image.addEventListener('click', function (event) {
                 event.preventDefault();
-                const imageUrl = this.previousSibling.textContent.trim(); // Assuming the image URL is in the text content before the <a> tag
+                const imageUrl = this.src; // Get the clicked image URL
                 showPopup(imageUrl);
             });
         });
@@ -275,7 +276,123 @@
 
             popupOverlay.removeEventListener('click', closePopup);
         }
+
+        let currentPage = 1; // Initialize current page
+        const rowsPerPage = 10; // Change rows per page to 11
+
+        // Function to show rows based on page
+        function showPage(page) {
+            const tableRows = document.querySelectorAll('#supporterTable tr');
+
+            tableRows.forEach((row, index) => {
+                if (index === 0 || (index >= ((page - 1) * rowsPerPage) + 1 && index <= page * rowsPerPage)) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Function to show the previous page
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        // Function to show the next page
+        function nextPage() {
+            const tableRows = document.querySelectorAll('#supporterTable tr');
+            const totalRows = tableRows.length - 1; // Exclude header row
+
+            const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        // Show the initial page
+        showPage(currentPage);
+    });
+
+    </script> -->
+
+
+    <script>
+        //                                                                          //
+        // fungsi untuk mengambil gambar dari database dan menampilkannya di popup  //
+        // 
+                                                                                 //
+        // const photoLinks = document.querySelectorAll('.photo-cell img');
+
+        // photoLinks.forEach(link => {
+        //     link.addEventListener('click', function(event) {
+        //         event.preventDefault();
+        //         const imageUrl = this.previousSibling.textContent.trim(); // Assuming the image URL is in the text content before the <a> tag
+        //         showPopup(imageUrl);
+        //     });
+        // });
+
+        // function showPopup(imageUrl) {
+        //     const popupOverlay = document.getElementById('popupOverlay');
+        //     const popupImage = document.getElementById('popupImage');
+
+        //     popupImage.src = imageUrl;
+        //     popupOverlay.classList.add('active');
+        //     popupImage.classList.add('active');
+
+        //     popupOverlay.addEventListener('click', closePopup);
+        // }
+
+        // function closePopup() {
+        //     const popupOverlay = document.getElementById('popupOverlay');
+        //     const popupImage = document.getElementById('popupImage');
+
+        //     popupOverlay.classList.remove('active');
+        //     popupImage.classList.remove('active');
+
+        //     popupOverlay.removeEventListener('click', closePopup);
+        // }
         
+        document.addEventListener('DOMContentLoaded', function () {
+        const photoCells = document.querySelectorAll('.photo-cell');
+
+        photoCells.forEach(cell => {
+            const image = cell.querySelector('img');
+
+            image.addEventListener('click', function (event) {
+                event.preventDefault();
+                const imageUrl = this.src; // Get the clicked image URL
+                showPopup(imageUrl);
+            });
+        });
+
+        function showPopup(imageUrl) {
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupImage = document.getElementById('popupImage');
+
+            popupImage.src = imageUrl;
+            popupOverlay.classList.add('active');
+            popupImage.classList.add('active');
+
+            popupOverlay.addEventListener('click', closePopup);
+        }
+
+        function closePopup() {
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupImage = document.getElementById('popupImage');
+
+            popupOverlay.classList.remove('active');
+            popupImage.classList.remove('active');
+
+            popupOverlay.removeEventListener('click', closePopup);
+        }
+    });
+
+
         //                          //
         // fungsi button kiri kanan //
         //                          //
