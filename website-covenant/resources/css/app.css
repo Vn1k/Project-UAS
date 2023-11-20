@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 body {
     margin: 0;
@@ -8,7 +9,7 @@ body {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
 }
 
@@ -102,4 +103,87 @@ body {
 {
     position: absolute;
     left: 45%;
+}
+
+.contGAL
+{
+    width: 50vw;
+}
+
+.tableGal
+{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 25%;
+}
+
+.titleGal
+{
+    margin-top: 10%;
+    font-size: 1.3rem;
+    text-align: center;
+    background-color: #FAF096;
+}
+
+.inputIMG
+{
+    justify-content: center;
+    position: relative;
+    left: 21%;
+}
+
+.logoBIN
+{
+    justify-content: center;
+    align-items: start;
+    position: relative;
+    left: -20%;
+}
+
+.formGAL
+{
+    justify-content: center;
+    position: relative;
+    left: 35%;
+}
+
+.cardGAL
+{
+    width: 30vw;
+    height: 20vh;
+    border-radius: 10%;
+    position: relative;
+    left: 20%;
+}
+
+.fileGAL
+{
+    position: relative;
+    left: 25%;
+    
+}
+
+.nameGAL
+{
+    font-size: x-large;
+}
+
+.btnFormGalleri
+{
+    position: absolute;
+    left: 45%;
+    top: 60%;
+}
+
+.titlegalleri
+{
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    left: 34%;
 }
