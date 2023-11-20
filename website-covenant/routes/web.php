@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DukunganController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
 use App\Http\Controllers\SupporterController;
@@ -31,5 +32,8 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 
-//supporter route
+//ADMIN: supporter route
 Route::resource('supporters', SupporterController::class);
+
+//USER: dukungan route
+Route::get('/dukungan', DukunganController::class);
