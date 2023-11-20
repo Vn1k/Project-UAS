@@ -38,10 +38,10 @@ class KegiatanController extends Controller
     public function store(Request $request)
     {
 
-        $path = $request->file('cover')->storePublicly('photos', 'public');
+        $pathCover = $request->file('cover')->storePublicly('covers', 'public');
         $ext = $request->file('cover')->extension();
         
-        $path = $request->file('photo')->storePublicly('photos', 'public');
+        $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
         $ext = $request->file('photo')->extension();
 
         $kegiatan = new Kegiatan();
@@ -51,8 +51,8 @@ class KegiatanController extends Controller
         $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->cover = $path;
-        $kegiatan->photo = $path;
+        $kegiatan->cover = $pathCover;
+        $kegiatan->photo = $pathPhoto;
         $kegiatan->save();
 
         $kegiatanvolunteer = new KegiatanVolunteer();
@@ -86,10 +86,10 @@ class KegiatanController extends Controller
      */
     public function edit(Request $request, string $id)
     {
-        $path = $request->file('cover')->storePublicly('photos', 'public');
+        $pathCover = $request->file('cover')->storePublicly('covers', 'public');
         $ext = $request->file('cover')->extension();
 
-        $path = $request->file('photo')->storePublicly('photos', 'public');
+        $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
         $ext = $request->file('photo')->extension();
 
         $kegiatan = Kegiatan::findOrFail($id);
@@ -98,8 +98,8 @@ class KegiatanController extends Controller
         $kegiatan->waktu = $request->waktu;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->cover = $path;
-        $kegiatan->photo = $path;
+        $kegiatan->cover = $pathCover;
+        $kegiatan->photo = $pathPhoto;
         $kegiatan->save();
         return redirect('/kegiatan');
     }
