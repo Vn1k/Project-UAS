@@ -44,9 +44,13 @@
             </thead>
             <tbody>
             @foreach($image as $item)
-                    <td>
-                        @if($item->image)
-                        <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 500px; width: 500px;">
+                    <tr>
+                        <td>
+                            @if($item->image)
+                                <img src="{{ asset('storage/images/'.$item->image) }}" style="height: 500px; width: 500px;">
+                            @else
+                                <span>No image found!</span>
+                            @endif
                         </td>
                         <td>
                             <form action="{{ route('galleri.destroy', ['galleri' => $item->id]) }}" method="POST" style="display: inline;">
@@ -55,14 +59,11 @@
                                 <button type="submit" style="border: none; background-color: transparent; color: red; text-decoration: underline; cursor: pointer;">Delete</button>
                             </form>
                         </td>
-                        @else
-                        <span>No image found!</span>
-                        @endif
-                        </td>
-                </tr>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
 </body>
+
 </html>
