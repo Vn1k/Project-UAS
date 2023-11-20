@@ -11,8 +11,7 @@
 @extends('layouts.app')
   
   @section('content')
-  <div class="">
-      {{-- BANNER AREA --}}
+  <div class="min-h-screen">
  
         <div class="py-12 ">
             <h2 class="mb-2 block font-sans text-4xl font-semibold leading-[1.3] tracking-normal text-blue-gray-900 antialiased">

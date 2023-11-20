@@ -19,7 +19,7 @@
         </main>
         
         {{-- FOOTER --}}
-        <footer class="bg-utama text-black font-Kanit py-6 2xl:py-16">
+        <footer class="bg-utama text-black font-Kanit mt-5 py-6 2xl:py-8">
             <div class="container mx-auto flex flex-wrap items-center justify-between">
                 
                 <!-- Logo Area -->
