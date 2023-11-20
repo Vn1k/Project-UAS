@@ -32,8 +32,7 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 //galleri route
 Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 
-//ADMIN: supporter route
+//supporter route
 Route::resource('supporters', SupporterController::class);
+Route::get('dukungan-selesai', [SupporterController::class, 'showSupporter'])->name('dukungan-selesai');
 
-//USER: dukungan route
-Route::get('/dukungan', DukunganController::class);
