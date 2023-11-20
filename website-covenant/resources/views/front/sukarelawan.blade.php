@@ -4,7 +4,6 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css">
     <title>Document</title>
 </head>
 <body>
@@ -33,24 +32,6 @@
         </section>
         
     </div>
-    {{-- <section class="bg-center bg-no-repeat bg-opacity-50 bg-blend-multiply flex" style="background-image: url('{{ asset('images/bannersv.jpg') }}')">
-        <div class="ml-24 py-72 w-1/2">
-            <div class="bg-gradient-to-r  from-utama to-transparent w-32">
-
-            </div>
-            <h1 class="mb-4 text-left text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl">
-                THESE ARE <br> OUR VOLUNTEERS
-            </h1>
-            <h3 class="text-xl text-left sh">
-                Who We Are
-            </h3>
-            <p class="text-left text-lg font-normal lg:text-xl">
-                Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.
-            </p>
-            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
-            </div>
-        </div>
-    </section> --}}
 
     {{-- CONTAINER GEDE --}}
     <div class="w-screen flex flex-col justify-center my-24">

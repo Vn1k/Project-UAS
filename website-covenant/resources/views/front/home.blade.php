@@ -4,8 +4,8 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css">
-    <title>Document</title>
+    <link rel="icon" type="png" href="{{ asset('images/logo.png') }}">
+    <title>Home</title>
 </head>
 <body>
 @extends('layouts.app')
