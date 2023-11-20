@@ -58,7 +58,7 @@
                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
                                     <input type="text" id="penyelenggara" name="penyelenggara"
                                         class="formOleh bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Oleh" required>
+                                        placeholder="Penyelenggara" required>
                                 </div>
                             </div>
 
@@ -115,6 +115,9 @@
                         <thead class="text-xs text-black uppercase bg-yellow-100 dark:text-white">
                             <tr>
                                 <th scope="col" class="px-6 py-3">
+                                    No.
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Nama Kegiatan
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -124,7 +127,7 @@
                                     Waktu
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Oleh
+                                    Penyelenggara
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Lokasi
@@ -139,13 +142,22 @@
                                     Sponsor - Penanggung Jawab
                                 </th>
                                 <th scope="col" class="px-6 py-3">
+                                    Cover
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Foto
+                                </th>
+                                <th scope="col" class="px-6 py-3">
                                     Action
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($kegiatans as $event)
+                            @foreach($kegiatans as $index => $event)
                             <tr class="bg-blue-500 border-b border-blue-400">
+                                <td class="px-6 py-4">
+                                    {{ $index + 1}}
+                                </td>
                                 <td class="px-6 py-4 font-medium text-blue-50 whitespace-nowrap dark:text-blue-100">
                                     {{ $event->nama_kegiatan }}
                                 </td>
@@ -176,9 +188,15 @@
                                     <br />
                                     @endforeach
                                 </td>
+                                <td class="px-6 py-4">
+                                <img src="{{asset('storage/' . $event->cover)}}" style="width: 300px"/>
+                                </td>
+                                <td class="px-6 py-4">
+                                <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px"/>
+                                </td>
 
                                 <td class="px-6 py-4">
-                                    <a href="/kegiatan/{{ $event->id }}/show"
+                                    <a href="/kegiatan/{{ $event->id }}/edit"
                                         class="font-medium text-white hover:underline">EDIT</a> |
                                     <form action="/kegiatan/{{ $event->id }}" method="post">
                                         @method('DELETE')

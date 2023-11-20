@@ -37,6 +37,13 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
+
+        $path = $request->file('cover')->storePublicly('photos', 'public');
+        $ext = $request->file('cover')->extension();
+        
+        $path = $request->file('photo')->storePublicly('photos', 'public');
+        $ext = $request->file('photo')->extension();
+
         $kegiatan = new Kegiatan();
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->tanggal = $request->jadwal;
@@ -44,6 +51,8 @@ class KegiatanController extends Controller
         $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
+        $kegiatan->cover = $path;
+        $kegiatan->photo = $path;
         $kegiatan->save();
 
         $kegiatanvolunteer = new KegiatanVolunteer();
@@ -67,7 +76,9 @@ class KegiatanController extends Controller
         $kegiatan = Kegiatan::findOrFail($id);
         $volunteer = Volunteer::all();
         $sponsor = Sponsor::all();
-        return view('admin.kegiatan.edit', ['kegiatan' => $kegiatan, 'volunteers' => $volunteer, 'sponsors' => $sponsor]);
+        $cover = Storage::url($kegiatan->cover);
+        $photo = Storage::url($kegiatan->photo);
+        return view('admin.kegiatan.edit', ['kegiatan' => $kegiatan, 'volunteers' => $volunteer, 'sponsors' => $sponsor, 'cover' => $cover, 'photo' => $photo]);
     }
 
     /**
@@ -75,12 +86,20 @@ class KegiatanController extends Controller
      */
     public function edit(Request $request, string $id)
     {
+        $path = $request->file('cover')->storePublicly('photos', 'public');
+        $ext = $request->file('cover')->extension();
+
+        $path = $request->file('photo')->storePublicly('photos', 'public');
+        $ext = $request->file('photo')->extension();
+
         $kegiatan = Kegiatan::findOrFail($id);
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->tanggal = $request->tanggal;
         $kegiatan->waktu = $request->waktu;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
+        $kegiatan->cover = $path;
+        $kegiatan->photo = $path;
         $kegiatan->save();
         return redirect('/kegiatan');
     }

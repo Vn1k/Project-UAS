@@ -22,13 +22,13 @@
         <th>Instansi</th>
         <th>Penanggung Jawab</th>
         </tr>
-        @foreach($sponsors as $sponsor)
+        @foreach($sponsors as $index => $sponsor)
         <tr>
-            <th>{{$sponsor->id}}</th>
+            <th>{{$index + 1}}</th>
             <th>{{$sponsor->instansi}}</th>
             <th>{{$sponsor->penanggung_jawab}}</th>
             <td>
-                <a href="/sponsor/{{$sponsor->id}}/show">EDIT</a>
+                <a href="/sponsor/{{$sponsor->id}}/edit">EDIT</a>
             </td>
             <td>
                 <form action="/sponsor/{{$sponsor->id}}" method="post">
