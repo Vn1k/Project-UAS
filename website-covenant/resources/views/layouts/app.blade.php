@@ -51,7 +51,7 @@
                 </div>
         
                 <!-- Social Media -->
-                <div class="flex-shrink-0 mr-4">
+                <div class="flex-shrink-0 mr-4 md:mr-10">
                     <div class="flex flex-col space-y-3 text-right">
                         <a href="" class="hover:transform hover:-translate-y-1 transition-transform duration-700">
                             <img class="h-6 w-6 2xl:h-12 2xl:w-12" src="{{ asset('images/instagram.png') }}" alt="Logo">

@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       colors:{
         utama : '#FAF096',
-        second : '#D7CB6D'
+        second : '#D7CB6D',
+        third : '#D9D5B8'
       },
       fontFamily:{
         Kanit: ["Kanit-Regular"]
