@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
 use App\Http\Controllers\KegiatanController;
@@ -31,8 +32,12 @@ Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 //end
 
+// Login admin
+Route::get('admin/login', [AdminAuthController::class, 'index'])->name('admin.login');
+
+
 //galleri route
-Route::post('/image-compress', [GalleriController::class, 'compressImage']);
+Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
 
 //acd
 Route::resource('kegiatans', KegiatanController::class);

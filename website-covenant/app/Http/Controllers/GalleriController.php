@@ -1,48 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Models\Galleri;
 use Intervention\Image\Facades\Image;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class GalleriController extends Controller
 {
-    public function galleri()
-    {
-        return $this->hasMany(Galleri::class);
-    }
-
-    public function compressPhoto(Request $request)
-    {
-        $this->validate($request, [
-            'photo' => 'required|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
-        ]);
-
-        $photo = $request->file('photo');
-        /* 
-            Note: Use $photo = base64_decode($request['photo'])
-            if the photo is sent as a base64 encoded photo.
-        */
-        $photo_name = time() . '_' . $photo->getClientOriginalName();
-        $path = public_path('uploads/') . "/" . $photo_name;
-
-        Image::make($photo->getRealPath())->resize(150, 150)->save($path);
-
-        return response()->json(
-            [
-                'data' => 'Photo compressed and added'
-            ],
-            201
-        );
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $image = Galleri::query()->latest()->paginate(10);
+        return view('admin.galleri', compact('image'));
     }
 
     /**
@@ -50,7 +22,7 @@ class GalleriController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -58,7 +30,27 @@ class GalleriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:10240'
+        ]);
+
+        $image = $request->file('image');
+        $filename = time() . '.' . $request->image->extension();
+
+        //proses kompress gambar
+        $compressImage = Image::make($image)->encode('jpg', 75);
+
+        //save gambar kompress
+        $compressImage->save(public_path('storage/images/' . $filename));
+
+        $image = new Galleri;
+        $image->image = $filename;
+        $image->save();
+
+        return redirect()->back()->with([
+            'message'=> 'Image added successfully',
+            'status'=>'success'
+        ]);
     }
 
     /**
@@ -90,6 +82,18 @@ class GalleriController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $image = Galleri::findOrFail($id);
+
+        $imagepath = public_path('storage/images/' . $image->image);
+        if(File::exists($imagepath)) {
+            File::delete($imagepath);
+        }
+
+        $image->delete();
+
+        return redirect()->back()->with([
+            'message' => 'Image has been deleted',
+            'status' => 'success'
+        ]);
     }
 }
