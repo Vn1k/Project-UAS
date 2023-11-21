@@ -139,7 +139,12 @@ body {
     justify-content: center;
     align-items: start;
     position: relative;
-    left: -20%;
+    left: -19%;
+}
+
+.imgBIN img
+{
+    scale: 30%;
 }
 
 .formGAL

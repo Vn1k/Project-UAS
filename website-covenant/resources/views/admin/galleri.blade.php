@@ -17,9 +17,7 @@
                 <div class="card-body">
                 <div class="card">
                 <div class="titlegalleri card-header mt-10">Upload Galleri</div>
-                <!-- <div class="card-body">
-                    <p>You are in Kegiatan Page</p>
-                </div> -->
+            
             </div>
             <form class="formGAL w-px-500 p-3 p-md-3" action="{{ route('galleri.store') }}" method="post" enctype="multipart/form-data">
                 <a class="cardGAL block m-10 p-10 bg-white border border-gray-200 rounded-lg shadow">
@@ -36,7 +34,6 @@
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
 
 
                                 <div class="row mb-3">
@@ -81,8 +78,8 @@
                     <form action="{{ route('galleri.destroy', ['galleri' => $item->id]) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" >
-                            <i class="fa-solid fa-trash"></i>
+                        <button type="submit" class="imgBIN">
+                            <img src="{{ asset('storage/aset/bin.png') }}" style="height: 100px; width: 100px;">
                         </button>
                     </form>
                     @endif
