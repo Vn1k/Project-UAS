@@ -23,9 +23,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//galleri route
-Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
-
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
 Route::get('volunteer/{id}/show', [VolunteerController::class, 'show']);
@@ -51,9 +48,14 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::get('/admin', function () {
+    return redirect()->route('admin.dashboard');
+});
 
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+
+Route::resource('/admin/galleri', GalleriController::class)->middleware(['auth:admin', 'verified']);
 
 require __DIR__.'/adminauth.php';
