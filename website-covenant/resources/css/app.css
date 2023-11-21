@@ -192,3 +192,70 @@ body {
     position: relative;
     left: 34%;
 }
+
+.titleSPONSOR
+{
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.contSPONS
+{
+    border-radius: 100px;
+}
+
+.tableSPONS
+{
+    width: 60vw;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
+}
+
+.tabsSPONS
+{
+    width: 60vw;
+    border-radius: 10px;
+}
+
+.colSPONS
+{
+    border-radius: 10px;
+    margin: 20%;
+    
+}
+
+.imgEDIT
+{
+    position: relative;
+    left: 20%;
+}
+
+.imgDEL
+{
+    position: relative;
+    left: -135%;
+}
+
+.cardSPONS
+{
+    width: 35vw;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 30%;
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+.btnSUBMITspons
+{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 45%;
+}

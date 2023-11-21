@@ -72,8 +72,8 @@
                     @else
                     <span>No image found!</span>
                     @endif
-                </td>
-                <td class="logoBIN px-6 py-4 text-right">
+                <!-- </td>
+                <td class="logoBIN px-6 py-4 text-right"> -->
                     @if($item->image)
                     <form action="{{ route('galleri.destroy', ['galleri' => $item->id]) }}" method="POST" style="display: inline;">
                         @csrf
