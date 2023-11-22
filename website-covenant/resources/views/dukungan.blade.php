@@ -87,6 +87,23 @@
                     <span style="color: red;">{{ $message }}</span>
                 @enderror
             </div>
+            
+            <div class="form-group">
+                <label for="alamat">Alamat:</label>
+                <textarea name="alamat">{{ old('alamat') }}</textarea>
+                @error('alamat')
+                    <span style="color: red;">{{ $message }}</span>
+                @enderror
+            </div>
+            
+            <div class="form-group">
+                <label for="no_telepon">Nomor Telepon:</label>
+                <input type="text" name="no_telepon" value="{{ old('no_telepon') }}">
+                @error('no_telepon')
+                    <span style="color: red;">{{ $message }}</span>
+                @enderror
+            </div>
+
             <!-- Other form fields -->
             <div class="form-group">
                 <label for="bentuk_donasi">Bentuk Donasi:</label>

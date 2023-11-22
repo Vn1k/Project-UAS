@@ -9,7 +9,7 @@
 <style>
     body {
         font-family: 'Kanit', sans-serif;
-        background-color: #f4f4f4;
+        background-color: white;
     }
 
     .container {
@@ -176,7 +176,7 @@
 
     <!-- ini si pop up image nya yeah -->
     <div class="popup-overlay" id="popupOverlay">
-        <img src="{{ asset('storage/image/picturelogo.jpg') }}" class="popup-image" id="popupImage" alt="Popup Image">
+        <img src="{{ asset('storage/fotobukti/$student->photo') }}" class="popup-image" id="popupImage" alt="Popup Image">
     </div>
     
     
@@ -230,7 +230,7 @@
                                 {{$supporter->pesan}}
                             </div>
                             <div class="photo-cell">
-                                {{$supporter->photo}} <img src="{{ asset('storage/image/picturelogo.jpg') }}" alt="Photo">
+                                <img src="{{ asset('storage/fotobukti/fotobukti_' . $supporter->id . '.jpg') }}" alt="Photo" class="popup-trigger">
                             </div>
                         </div>
                     </td>
@@ -241,7 +241,7 @@
 
 
     </div>
-
+picture
     <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
         const photoCells = document.querySelectorAll('.photo-cell');
