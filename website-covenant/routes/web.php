@@ -5,6 +5,7 @@ use App\Http\Controllers\GalleriController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\VolunteerController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\Sponsor;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
@@ -37,17 +38,8 @@ Route::post('sponsor', [SponsorController::class, 'store']);
 Route::post('sponsor/{id}', [SponsorController::class, 'edit']);
 Route::delete('sponsor/{id}', [SponsorController::class, 'destroy']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::redirect('/login', '/admin/login');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__.'/auth.php';
 Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
 });
@@ -57,5 +49,7 @@ Route::get('/admin/dashboard', function () {
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 
 Route::resource('/admin/galleri', GalleriController::class)->middleware(['auth:admin', 'verified']);
+
+Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
 require __DIR__.'/adminauth.php';
