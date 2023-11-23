@@ -39,18 +39,24 @@ Route::get('admin/login', [AdminAuthController::class, 'index'])->name('admin.lo
 //galleri route
 Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
 
-//acd
-Route::resource('kegiatans', KegiatanController::class);
 //volunteer route
 Route::get('volunteer', [VolunteerController::class, 'index']);
-Route::get('volunteer/{id}/show', [VolunteerController::class, 'show']);
+Route::get('volunteer/{id}/edit', [VolunteerController::class, 'show']);
 Route::post('volunteer', [VolunteerController::class, 'store']);
 Route::post('volunteer/{id}', [VolunteerController::class, 'edit']);
 Route::delete('volunteer/{id}', [VolunteerController::class, 'destroy']);
 
 //sponsor route
 Route::get('sponsor', [SponsorController::class, 'index']);
-Route::get('sponsor/{id}/show', [SponsorController::class, 'show']);
+Route::get('sponsor/{id}/edit', [SponsorController::class, 'show']);
 Route::post('sponsor', [SponsorController::class, 'store']);
 Route::post('sponsor/{id}', [SponsorController::class, 'edit']);
 Route::delete('sponsor/{id}', [SponsorController::class, 'destroy']);
+
+//kegiatan route
+Route::get('kegiatan', [KegiatanController::class, 'index']);
+Route::get('kegiatan/{id}/edit', [KegiatanController::class, 'show']);
+Route::post('kegiatan', [KegiatanController::class, 'store']);
+Route::post('kegiatan/{id}', [KegiatanController::class, 'edit']);
+// Route::get('kegiatan/{id}', [KegiatanController::class, 'edit']);
+Route::delete('kegiatan/{id}', [KegiatanController::class, 'destroy']);
