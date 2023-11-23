@@ -8,6 +8,8 @@
 </head>
 
 <body>
+    @extends('layouts.navigation')
+    @section('content')
     <div class="container">
         <div class="col-md-6">
             <div class="card">
@@ -64,6 +66,7 @@
             </tbody>
         </table>
     </div>
+    @endsection
 </body>
 
 </html>
