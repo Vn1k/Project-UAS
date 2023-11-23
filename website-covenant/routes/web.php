@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GalleriController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\VolunteerController;
@@ -62,6 +63,12 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::post('admin/sponsor', [SponsorController::class, 'store'])->name('admin.sponsor.store');
     Route::post('admin/sponsor/{id}', [SponsorController::class, 'edit'])->name('admin.sponsor.edit');
     Route::delete('admin/sponsor/{id}', [SponsorController::class, 'destroy'])->name('admin.sponsor.destroy');
+
+    Route::get('kegiatan', [KegiatanController::class, 'index']);
+    Route::get('kegiatan/{id}/edit', [KegiatanController::class, 'show']);
+    Route::post('kegiatan', [KegiatanController::class, 'store']);
+    Route::post('kegiatan/{id}', [KegiatanController::class, 'edit']);
+    Route::delete('kegiatan/{id}', [KegiatanController::class, 'destroy']);
 });
 
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
