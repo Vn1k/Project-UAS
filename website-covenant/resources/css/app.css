@@ -56,7 +56,7 @@ body {
     width: 80%;
     justify-content: center;
     align-items: center;
-    top: 370%;
+    top: 65%;
     left: 10%;
 }
 
@@ -345,4 +345,45 @@ body {
 {
     margin-right: -15%;
     font-weight: 500;
+}
+
+.cardKEGIATAN
+{
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 24%;
+    margin-top: 100px;
+}
+
+.btnSUBMITkegiatan
+{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 45%;
+    margin-top: 40px;
+}
+.jadwalKEG
+{
+    margin-right: 30px;
+    width: 50%;
+    height: 30px;
+}
+
+.dateKEG
+{
+    height: 44px;
+}
+
+.lokasiKEG
+{
+    height: 43px;
+}
+
+.labelVOL
+{
+    margin-right: 47%;
 }
