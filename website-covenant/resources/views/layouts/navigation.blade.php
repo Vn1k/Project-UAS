@@ -39,9 +39,6 @@
                             </form>
 
                             <!-- Galleri Link -->
-                            <x-responsive-nav-link :href="route('admin.galleri.index')" :active="request()->routeIs('admin.galleri.index')">
-                                {{ __('Galleri') }}
-                            </x-responsive-nav-link>
 
                         </x-slot>
                     </x-dropdown>
