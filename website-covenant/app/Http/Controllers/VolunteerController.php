@@ -46,7 +46,7 @@ class VolunteerController extends Controller
     
         // Save the compressed image
         $path = 'photos/' . $filename;
-        $compressedImage->save(public_path('storage/' . $path));
+        $compressedImage->save(public_path('storage/photos' . $path));
 
         $volunteer = new Volunteer();
         $volunteer->nama = $request->nama;

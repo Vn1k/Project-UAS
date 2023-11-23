@@ -41,9 +41,9 @@
             </form>
 
 
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <div class="relative overflow-x-auto rounded-xl">
+                <table class="tabVOL text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+                    <thead class="TABLEvol text-xs text-gray-700 uppercase bg-yellow-200 dark:bg-gray-700 dark:text-gray-400 rounded-xl shadow-2xl">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 No.
@@ -83,12 +83,18 @@
                             <td class="px-6 py-4">
                                 Photo
                             </td>
-                            <td class="px-6 py-4">
-                                <a href="/volunteer/{{$volunteer->id}}/show" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <td class="px-6 py-4 whitespace-nowrap flex">
+                                <a href="/volunteer/{{$volunteer->id}}/show" class="text-blue-600 dark:text-blue-500 hover:underline">
+                                <img src="{{ asset('storage/aset/editing.png') }}" style="height: 25px; width: 25px; margin-right: 50px" >
+                                </a>
+                            <!-- </td>
+                            <td class="px-6 py-4 whitespace-nowrap"> -->
                                 <form action="/volunteer/{{$volunteer->id}}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">DELETE</button>
+                                    <button type="submit" class="imgDEL text-red-600 dark:text-red-500 hover:underline">                            
+                                        <img src="{{ asset('storage/aset/bin.png') }}" style="height: 25px; width: 25px;">
+                                    </button>
                                 </form>
                             </td>
                         </tr>
