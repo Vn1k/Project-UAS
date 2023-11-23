@@ -91,7 +91,7 @@
         </tbody>
     </table>
 </div>
-
+@endsection
 </body>
 
 </html>

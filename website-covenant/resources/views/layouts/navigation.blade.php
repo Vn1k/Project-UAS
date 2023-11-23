@@ -15,9 +15,11 @@
             <div class="flex justify-between h-16">
                 <!-- dashboard -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
+                     @auth
                     <div>
                         <a href="{{ route('admin.dashboard') }}">{{ Auth::user()->name }}</a>
                     </div>
+                    @endauth
                 </div>
                 <!-- volunter -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -61,7 +63,7 @@
             <!-- Responsive Settings Options -->
             <div class="pt-4 pb-1 border-t border-gray-200">
                 <div class="px-4">
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+                    <a href="{{ route('admin.dashboard') }}">{{ Auth::user()->name }}</a>
                 </div>
 
                 <div class="mt-3 space-y-1">
