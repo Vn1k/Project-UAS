@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
-    <title>Document</title>
+    <title>Sponsor</title>
 </head>
 <body>
             @if($errors)
@@ -18,7 +18,7 @@
         @endif
         <div class="titleSPONSOR card-header">Upload Data Sponsor</div>
         <form  action="/sponsor" method="post" enctype="multipart/form-data">
-            <a class="cardSPONS block m-10 p-10 bg-white border border-gray-500 rounded-xl shadow">
+            <a class="cardSPONS block m-10 p-10 bg-white border border-gray-500 rounded-xl shadow-xl">
                 @csrf 
                 <div class="mb-6">
                     <input type="text" name="instansi" placeholder="Instansi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -31,7 +31,7 @@
         </form>
 
             <div class="tableSPONS overflow-x-auto">
-            <table class="tabsSPONS w-100 text-sm text-center text-gray-900 bg-yellow-200 border border-yellow-200 shadow">
+            <table class="tabsSPONS w-100 text-sm text-center text-gray-900 bg-yellow-200 border border-grey-800 shadow-xl">
             <thead class="w-100 text-lg text-gray-700 uppercase bg-yellow-200 rounded-3xl">
                 <tr>
                     <th scope="col" class="px-6 py-3">

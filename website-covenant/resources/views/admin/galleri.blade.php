@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
-    <title>Document</title>
+    <title>Galleri</title>
 </head>
 
 <body>
@@ -20,7 +20,7 @@
             
             </div>
             <form class="formGAL w-px-500 p-3 p-md-3" action="{{ route('galleri.store') }}" method="post" enctype="multipart/form-data">
-                <a class="cardGAL block m-10 p-10 bg-white border border-gray-200 rounded-lg shadow">
+                <a class="cardGAL block m-10 p-10 bg-white border border-gray-200 rounded-lg shadow-xl">
                     
                         @csrf
                         
