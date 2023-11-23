@@ -79,12 +79,10 @@
                     </tr>
                     @endforeach
                 </tbody>
-            
-            
         </thead>
         </table>
     </div>
-
+@endsection
 </body>
 </html>
 
