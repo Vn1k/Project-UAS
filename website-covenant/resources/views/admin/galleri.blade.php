@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                 <div class="card">
-                <div class="titlegalleri card-header mt-10">Upload Galleri</div>
+                <div class="titleSPONSOR card-header">Upload Galleri</div>
             
             </div>
             <form class="formGAL w-px-500 p-3 p-md-3" action="{{ route('galleri.store') }}" method="post" enctype="multipart/form-data">
