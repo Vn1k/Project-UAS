@@ -44,11 +44,24 @@ Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+Route::middleware(['auth:admin', 'verified'])->group(function () {
+    // Admin Dashboard
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
 
-Route::resource('/admin/galleri', GalleriController::class)->middleware(['auth:admin', 'verified']);
+    // Galleri Resource Routes
+    Route::resource('/admin/galleri', GalleriController::class)->names([
+        'index' => 'admin.galleri.index',
+        'create' => 'admin.galleri.create',
+        'store' => 'admin.galleri.store',
+        'show' => 'admin.galleri.show',
+        'edit' => 'admin.galleri.edit',
+        'update' => 'admin.galleri.update',
+        'destroy' => 'admin.galleri.destroy',
+    ]);
+});
+
 
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 

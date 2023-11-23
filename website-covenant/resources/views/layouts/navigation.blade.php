@@ -37,11 +37,12 @@
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
-
-                            <!-- Galleri Link -->
-
                         </x-slot>
                     </x-dropdown>
+                </div>
+
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <a href="{{ route('galleri.index') }}" class="text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">Galleri</a>
                 </div>
 
                 <!-- Hamburger -->
@@ -80,7 +81,7 @@
         </div>
     </nav>
     <main>
-    @yield('content')
+        @yield('content')
     </main>
 </body>
 
