@@ -52,18 +52,21 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         'update' => 'galleri.update',
         'destroy' => 'galleri.destroy',
     ]);
+    //Volunteer Resource Routes
     Route::get('admin/volunteer', [VolunteerController::class, 'index'])->name('admin.volunteer.index');
     Route::get('admin/volunteer/{id}/show', [VolunteerController::class, 'show'])->name('admin.volunteer.show');
     Route::post('admin/volunteer', [VolunteerController::class, 'store'])->name('admin.volunteer.store');
     Route::post('admin/volunteer/{id}', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
     Route::delete('admin/volunteer/{id}', [VolunteerController::class, 'destroy'])->name('admin.volunteer.destroy');
 
+    //sponsor Resource Routes
     Route::get('admin/sponsor', [SponsorController::class, 'index'])->name('admin.sponsor.index');
     Route::get('admin/sponsor/{id}/show', [SponsorController::class, 'show'])->name('admin.sponsor.show');
     Route::post('admin/sponsor', [SponsorController::class, 'store'])->name('admin.sponsor.store');
     Route::post('admin/sponsor/{id}', [SponsorController::class, 'edit'])->name('admin.sponsor.edit');
     Route::delete('admin/sponsor/{id}', [SponsorController::class, 'destroy'])->name('admin.sponsor.destroy');
 
+    //kegiatan Resource Routes
     Route::get('kegiatan', [KegiatanController::class, 'index']);
     Route::get('kegiatan/{id}/edit', [KegiatanController::class, 'show']);
     Route::post('kegiatan', [KegiatanController::class, 'store']);
