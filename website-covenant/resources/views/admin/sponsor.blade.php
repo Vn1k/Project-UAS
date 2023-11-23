@@ -1,3 +1,5 @@
+@extends('layouts.navigation')
+@section('content')
 @if($errors)
     <ul>
         @foreach($errors->all() as $error)
@@ -41,3 +43,4 @@
         @endforeach
 
 </table>
+@endsection

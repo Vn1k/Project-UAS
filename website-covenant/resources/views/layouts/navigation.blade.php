@@ -13,12 +13,28 @@
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-                <!-- Settings Dropdown -->
+                <!-- dashboard -->
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
                     <div>
                         <a href="{{ route('admin.dashboard') }}">{{ Auth::user()->name }}</a>
                     </div>
                 </div>
+                <!-- volunter -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <a href="{{ route('admin.volunteer.index') }}" class="text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">Volunteer</a>
+                </div>
+
+                <!-- sponsor -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <a href="{{ route('admin.sponsor.index') }}" class="text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">Sponsor</a>
+                </div>
+
+                <!-- galleri  -->
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <a href="{{ route('galleri.index') }}" class="text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">Galleri</a>
+                </div>
+                
+                <!-- logout -->
                 <form method="POST" action="{{ route('admin.logout') }}" class="hidden sm:flex sm:items-center sm:ms-6">
                     @csrf
                     <x-dropdown-link :href="route('admin.logout')" onclick="event.preventDefault();
@@ -26,10 +42,6 @@
                         {{ __('Log Out') }}
                     </x-dropdown-link>
                 </form>
-                <div class="hidden sm:flex sm:items-center sm:ms-6">
-                    <a href="{{ route('galleri.index') }}" class="text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">Galleri</a>
-                </div>
-
                 <!-- Hamburger -->
                 <div class="-me-2 flex items-center sm:hidden">
                     <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">

@@ -25,18 +25,8 @@ Route::get('/', function () {
 })->name('home');
 
 //volunteer route
-Route::get('volunteer', [VolunteerController::class, 'index']);
-Route::get('volunteer/{id}/show', [VolunteerController::class, 'show']);
-Route::post('volunteer', [VolunteerController::class, 'store']);
-Route::post('volunteer/{id}', [VolunteerController::class, 'edit']);
-Route::delete('volunteer/{id}', [VolunteerController::class, 'destroy']);
 
 //sponsor route
-Route::get('sponsor', [SponsorController::class, 'index']);
-Route::get('sponsor/{id}/show', [SponsorController::class, 'show']);
-Route::post('sponsor', [SponsorController::class, 'store']);
-Route::post('sponsor/{id}', [SponsorController::class, 'edit']);
-Route::delete('sponsor/{id}', [SponsorController::class, 'destroy']);
 
 Route::redirect('/login', '/admin/login');
 
@@ -44,6 +34,7 @@ Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
 });
 
+//yang berhubungan dengan admin masukin sini 
 Route::middleware(['auth:admin', 'verified'])->group(function () {
     // Admin Dashboard
     Route::get('/admin/dashboard', function () {
@@ -52,17 +43,27 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
 
     // Galleri Resource Routes
     Route::resource('/admin/galleri', GalleriController::class)->names([
-        'index' => 'admin.galleri.index',
-        'create' => 'admin.galleri.create',
-        'store' => 'admin.galleri.store',
-        'show' => 'admin.galleri.show',
-        'edit' => 'admin.galleri.edit',
-        'update' => 'admin.galleri.update',
-        'destroy' => 'admin.galleri.destroy',
+        'index' => 'galleri.index',
+        'create' => 'galleri.create',
+        'store' => 'galleri.store',
+        'show' => 'galleri.show',
+        'edit' => 'galleri.edit',
+        'update' => 'galleri.update',
+        'destroy' => 'galleri.destroy',
     ]);
-});
+    Route::get('admin/volunteer', [VolunteerController::class, 'index'])->name('admin.volunteer.index');
+    Route::get('admin/volunteer/{id}/show', [VolunteerController::class, 'show'])->name('admin.volunteer.show');
+    Route::post('admin/volunteer', [VolunteerController::class, 'store'])->name('admin.volunteer.store');
+    Route::post('admin/volunteer/{id}', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
+    Route::delete('admin/volunteer/{id}', [VolunteerController::class, 'destroy'])->name('admin.volunteer.destroy');
 
+    Route::get('admin/sponsor', [SponsorController::class, 'index'])->name('admin.sponsor.index');
+    Route::get('admin/sponsor/{id}/show', [SponsorController::class, 'show'])->name('admin.sponsor.show');
+    Route::post('admin/sponsor', [SponsorController::class, 'store'])->name('admin.sponsor.store');
+    Route::post('admin/sponsor/{id}', [SponsorController::class, 'edit'])->name('admin.sponsor.edit');
+    Route::delete('admin/sponsor/{id}', [SponsorController::class, 'destroy'])->name('admin.sponsor.destroy');
+});
 
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
-require __DIR__.'/adminauth.php';
+require __DIR__ . '/adminauth.php';
