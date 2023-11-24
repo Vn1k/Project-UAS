@@ -14,7 +14,18 @@
     @extends('layouts.app')
 
     @section('content')
-    <div class="titleSPONSOR card-header">Kegiatan</div>
+    <div class="containerKegiatan">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="titleKegiatan card-header"><h2>UPLOAD DATA KEGIATAN</h2></div>
+                    <!-- <div class="card-body">
+                    <p>You are in Kegiatan Page</p>
+                </div> -->
+                </div>
+                <!-- <a href="/kegiatans/create">Create new kegiatan</a> -->
+                <!-- Blade Template for Kegiatan -->
+                <!-- <h1>Kegiatan</h1> -->
                 <form action="/kegiatan" method="post" enctype="multipart/form-data">
                 <a class="cardKEGIATAN block m-10 p-10 bg-white border border-gray-500 rounded-xl shadow-xl">
                     @csrf 
@@ -133,7 +144,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     @foreach($event->volunteers as $one_volunteer)
-                                    {{ $one_volunteer->nama }} 
+                                    {{ $one_volunteer->nama }}
                                     <br />
                                     @endforeach
                                 </td>
@@ -144,10 +155,10 @@
                                     @endforeach
                                 </td>
                                 <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->cover)}}" style="width: 300px"/>
+                                    <img src="{{asset('storage/' . $event->cover)}}" style="width: 300px" />
                                 </td>
                                 <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px"/>
+                                    <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px" />
                                 </td>
 
                                 <td class="px-6 py-4">
