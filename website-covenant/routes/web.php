@@ -77,3 +77,8 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
 require __DIR__ . '/adminauth.php';
+
+//supporter route
+Route::resource('supporters', SupporterController::class);
+Route::get('dukungan-selesai', [SupporterController::class, 'showSupporter'])->name('dukungan-selesai');
+
