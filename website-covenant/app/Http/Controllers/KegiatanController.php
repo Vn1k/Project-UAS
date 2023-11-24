@@ -38,11 +38,7 @@ class KegiatanController extends Controller
     public function store(Request $request)
     {
 
-        $pathCover = $request->file('cover')->storePublicly('covers', 'public');
-        $ext = $request->file('cover')->extension();
-        
-        $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
-        $ext = $request->file('photo')->extension();
+
 
         $kegiatan = new Kegiatan();
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
@@ -51,8 +47,7 @@ class KegiatanController extends Controller
         $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->cover = $pathCover;
-        $kegiatan->photo = $pathPhoto;
+
         $kegiatan->save();
 
         $kegiatanvolunteer = new KegiatanVolunteer();
