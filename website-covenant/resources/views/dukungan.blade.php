@@ -1,3 +1,4 @@
+User
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,10 +67,39 @@
         button[type="submit"]:hover {
             background-color: #45a049;
         }
+
+
+        .rekening-info {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center; /* Center-align text */
+        }
+
+        .rekening-info h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center; /* Center-align text */
+        }
+
+        .rekening-info p {
+            margin-bottom: 5px;
+            font-size: 16px;
+            text-align: center; /* Center-align text */
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        
+        <div class="rekening-info">
+            <h3>Nomor Rekening untuk Donasi:</h3>
+            <p>096301047892539 - Bank BRI</p>
+            <p>Rumah Belajar Covenant</p>
+        </div>
+
         <h2 class="text-center mt-5 mb-5">Support</h2>
         <form action="{{ route('supporters.store') }}" method="post" enctype="multipart/form-data">
             @csrf
