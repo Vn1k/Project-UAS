@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="titleKegiatan card-header">Kegiatan</div>
+                    <div class="titleKegiatan card-header"><h2>UPLOAD DATA KEGIATAN</h2></div>
                     <!-- <div class="card-body">
                     <p>You are in Kegiatan Page</p>
                 </div> -->
@@ -178,7 +178,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     @foreach($event->volunteers as $one_volunteer)
-                                    {{ $one_volunteer->nama }} 
+                                    {{ $one_volunteer->nama }}
                                     <br />
                                     @endforeach
                                 </td>
@@ -189,10 +189,10 @@
                                     @endforeach
                                 </td>
                                 <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->cover)}}" style="width: 300px"/>
+                                    <img src="{{asset('storage/' . $event->cover)}}" style="width: 300px" />
                                 </td>
                                 <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px"/>
+                                    <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px" />
                                 </td>
 
                                 <td class="px-6 py-4">
