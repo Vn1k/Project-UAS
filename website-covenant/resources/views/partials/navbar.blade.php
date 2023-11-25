@@ -4,11 +4,11 @@
     <div class="flex justify-between items-center ">
       <a class="" href="home">
         <img class="cursor-pointer ml-14 h-14 inline"
-          src="{{ asset('images/logo.png') }}">
+          src="{{ asset('storage/local_images/logo.png') }}">
       </a>
 
       <span class="text-3xl cursor-pointer mx-2 md:hidden block">
-        <img src="{{ asset('images/menu.png') }}" style="width: 35px; height: 35px;" alt="Menu" onclick="Menu(this)">
+        <img src="{{ asset('storage/local_images/menu.png') }}" style="width: 35px; height: 35px;" alt="Menu" onclick="Menu(this)">
       </span>
     </div>
 
@@ -39,12 +39,12 @@
     function Menu(imgElement) {
       let list = document.querySelector('ul');
       
-      if (imgElement.getAttribute('src') === '{{ asset('images/menu.png') }}') {
-        imgElement.setAttribute('src', '{{ asset('images/close.png') }}');
+      if (imgElement.getAttribute('src') === '{{ asset('storage/local_images/menu.png') }}') {
+        imgElement.setAttribute('src', '{{ asset('storage/local_images/close.png') }}');
         list.classList.add('top-[80px]');
         list.classList.add('opacity-100');
       } else {
-        imgElement.setAttribute('src', '{{ asset('images/menu.png') }}');
+        imgElement.setAttribute('src', '{{ asset('storage/local_images/menu.png') }}');
         list.classList.remove('top-[80px]');
         list.classList.remove('opacity-100');
       }
