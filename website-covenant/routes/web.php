@@ -22,31 +22,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Navbar-homepage
+Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('home', [FrontController::class, 'home'])->name('home');
-Route::get('kegiatan', [FrontController::class, 'kegiatan'])->name('kegiatan');
-Route::get('galleri', [FrontController::class, 'galleri'])->name('galleri');
-Route::get('tentang-kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
+Route::get('kegiatans', [FrontController::class, 'kegiatan'])->name('kegiatan');
+Route::get('gallery', [FrontController::class, 'galleri'])->name('galleri');
+Route::get('tentang-Kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
 Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
 Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 //end
-
-/*===== ROUTE USER PAGE ======*/
-Route::get('/', function (){
-    return view('home');
-});
-Route::get('/aktivitas', function (){
-    return view('aktivitas');
-});
-Route::get('/gallery', function (){
-    return view('galleri');
-});
-Route::get('/tentangkami', function (){
-    return view('tentangKami');
-});
-Route::get('/sukarelawan', function (){
-    return view('sukarelawan');
-});
 
 //galleri route
 Route::resource('galleri', GalleriController::class)->except(['show','edit','update']);
