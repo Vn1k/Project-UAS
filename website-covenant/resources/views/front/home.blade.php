@@ -1,38 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    @vite(['resources/css/app.css','resources/js/app.js'])
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="png" href="{{ asset('images/logo.png') }}">
-    <title>Home</title>
-</head>
-<body>
+
+@vite(['resources/css/app.css','resources/js/app.js'])
+
 @extends('layouts.app')
   
   @section('content')
-  <div class="min-h-screen">
- 
-        <div class="py-12 ">
-            <h2 class="mb-2 block font-sans text-4xl font-semibold leading-[1.3] tracking-normal text-blue-gray-900 antialiased">
-              INI HOME PAGE!!!
-            </h2>
-            <p class="block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
-                software like Aldus PageMaker including versions of Lorem Ipsum
-            </p>
-            <p class="block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
-                It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
-                software like Aldus PageMaker including versions of Lorem Ipsum
-            </p>    
-        </div>
+  <div class=" font-Kanit">
+    <div class="">
+      <div class="">
+          <div class="">
+              <img src="{{ asset('images/bannerHome.jpg') }}" class="d-block mx-auto" alt="...">
+          </div>
+      </div>
+    </div>
+
+    {{-- CONTAINER GEDE --}}
+    <div class="flex flex-col justify-center items-center px-24">
+          
   </div>
+  
+    
+    
+
+    
+ 
+
+        
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   @endsection
 </body>
 </html>

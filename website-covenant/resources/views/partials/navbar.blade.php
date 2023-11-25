@@ -1,6 +1,6 @@
 
 
-<nav class="font-Kanit p-2 w-screen bg-white shadow-xl md:flex md:items-center md:justify-between">
+<nav id="myNavbar" class="font-Kanit p-2 w-screen bg-white shadow-xl md:flex md:items-center md:justify-between fixed transition-all duration-500 z-40">
     <div class="flex justify-between items-center ">
       <a class="" href="home">
         <img class="cursor-pointer ml-14 h-14 inline"
@@ -34,6 +34,8 @@
   </nav>
 
   <script>
+    let prevScrollPos = window.pageYOffset;
+
     function Menu(imgElement) {
       let list = document.querySelector('ul');
       
@@ -47,4 +49,23 @@
         list.classList.remove('opacity-100');
       }
     }
+
+    function handleScroll() {
+      const currentScrollPos = window.pageYOffset;
+
+      // Check the scroll direction
+      if (prevScrollPos > currentScrollPos) {
+        // Scrolling up
+        document.getElementById('myNavbar').style.top = '0';
+      } else {
+        // Scrolling down
+        document.getElementById('myNavbar').style.top = '-80px';
+      }
+
+      prevScrollPos = currentScrollPos;
+    }
+
+    window.onscroll = function() {
+      handleScroll();
+    };
   </script>
