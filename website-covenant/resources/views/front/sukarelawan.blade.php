@@ -4,9 +4,10 @@
   
 @section('content')
 <div class="min-h-screen font-Kanit">
+
         <!-- Jumbotron -->
         <div class="mt-1 relative h-[500px] md:h-[500px] lg:h-[550px] xl:h-[580px] 2xl:h-[750px]  overflow-hidden bg-cover bg-no-repeat" style="background-position: 50%;
-              background-image: url('{{ asset('images/bannerVolunts.png') }}');
+              background-image: url('{{ asset('storage/local_images/bannerVolunts.png') }}');
               ;">
             <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-40"></div>
             <div class="absolute top-0 left-0 w-3/4 h-full bg-gradient-to-r  from-third to-transparen bg-opacity-100"></div>
@@ -39,8 +40,8 @@
             
             {{-- IMAGE AREA --}}
             <div class="flex md:w-11/12 lg:w-8/12 xl:w-6/12 2xl:w-6/12 justify-center">
-                <img class="w-4/5 sm:w-6/12 md:hidden h-full" src="{{ asset('images/Ibu_Jessica.png') }}" alt="ProfileIbuJessica">
-                <img class="w-full h-full hidden md:block" src="{{ asset('images/ibuJessica.png') }}" alt="ProfileIbuJessica">
+                <img class="w-4/5 sm:w-6/12 md:hidden h-full" src="{{ asset('storage/local_images/Ibu_Jessica.png') }}" alt="ProfileIbuJessica">
+                <img class="w-full h-full hidden md:block" src="{{ asset('storage/local_images/ibuJessica.png') }}" alt="ProfileIbuJessica">
             </div>
             {{-- END IMAGE AREA --}}
 
@@ -64,8 +65,8 @@
             
             {{-- IMAGE AREA --}}
             <div class="flex md:w-full lg:w-9/12 xl:w-6/12 justify-center">
-                <img class="w-4/5 sm:w-6/12 md:hidden h-full" src="{{ asset('images/bapak_polin.png') }}" alt="ProfileBapakPolin">
-                <img class="w-full h-full hidden md:block" src="{{ asset('images/bapakPolin.png') }}" alt="ProfileBapakPolin">
+                <img class="w-4/5 sm:w-6/12 md:hidden h-full" src="{{ asset('storage/local_images/bapak_polin.png') }}" alt="ProfileBapakPolin">
+                <img class="w-full h-full hidden md:block" src="{{ asset('storage/local_images/bapakPolin.png') }}" alt="ProfileBapakPolin">
             </div>
             {{-- END IMAGE AREA --}}
 
@@ -85,76 +86,21 @@
         <h2 class="text-center text-2xl  sm:text-xl lg:text-2xl xl:text-3xl font-semibold px-3 mt-[20%]">Pengajar Yayasan Rumah Belajar Covenant</h2>
         
         {{-- AREA GRID PENGAJAR --}}
-        <div class="mt-7 lg:mt-10 xl:mt-16 mb-14 2xl:mb-28 px-3 place-items-center grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-x-0 lg:mx-9 xl:mx-16 gap-5">
-            <div class="group w-11/12 lg:w-9/12 xl:w-10/12 transform hover:group-hover:bg-black-opacity-2 transition duration-1000 hover:scale-105 relative">
-                <div class="group-hover:opacity-100 cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-70 text-center flex flex-col justify-center items-center opacity-0 transition duration-700">
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-semibold">Maria Christy</p>
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl">Kota Tangerang</p>
+        
+        <div class="mt-7 lg:mt-10 xl:mt-16 mb-14 2xl:mb-28 px-3 place-items-center grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:gap-x-9 lg:mx-9 xl:mx-16 gap-5">
+            @foreach($volunteers as $data => $volunteer)
+            <div class="group w-11/12 lg:w-10/12 xl:w-10/12 2xl:w-full transform hover:group-hover:bg-black-opacity-2 transition duration-1000 hover:scale-105 relative">
+                <div class="rounded-b-xl group-hover:opacity-100 cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-70 text-center flex flex-col justify-center items-center opacity-0 transition duration-700">
+                    <p class="text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl font-semibold">{{$volunteer->nama}}</p>
+                    <p class="text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl">{{$volunteer->asal}}</p>
                 </div>
-                <img class="w-full h-full" src="{{ asset('images/volunt.png') }}" alt="">
+                <img class="w-full h-full rounded-xl" src="{{asset('storage/' . $volunteer->photo)}}" alt="">
             </div>
+            @endforeach
             
-
-            <div class="group w-11/12 lg:w-9/12 xl:w-10/12 transform hover:group-hover:bg-black-opacity-2 transition duration-1000 hover:scale-105 relative">
-                <div class="group-hover:opacity-100 cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-70 text-center flex flex-col justify-center items-center opacity-0 transition duration-700">
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-semibold">Maria Christy</p>
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl">Kota Tangerang</p>
-                </div>
-                <img class="w-full h-full" src="{{ asset('images/volunt.png') }}" alt="">
-            </div>
-            <div class="group w-11/12 lg:w-9/12 xl:w-10/12 transform hover:group-hover:bg-black-opacity-2 transition duration-1000 hover:scale-105 relative">
-                <div class="group-hover:opacity-100 cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-70 text-center flex flex-col justify-center items-center opacity-0 transition duration-700">
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-semibold">Maria Christy</p>
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl">Kota Tangerang</p>
-                </div>
-                <img class="w-full h-full" src="{{ asset('images/volunt.png') }}" alt="">
-            </div>
-            <div class="group w-11/12 lg:w-9/12 xl:w-10/12 transform hover:group-hover:bg-black-opacity-2 transition duration-1000 hover:scale-105 relative">
-                <div class="group-hover:opacity-100 cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-70 text-center flex flex-col justify-center items-center opacity-0 transition duration-700">
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-semibold">Maria Christy</p>
-                    <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl">Kota Tangerang</p>
-                </div>
-                <img class="w-full h-full" src="{{ asset('images/volunt.png') }}" alt="">
-            </div>
         </div>
+
     </div>
-
-            {{-- DIV AREA BAWAH --}}
-            {{-- <div class="flex flex-col items-center">
-                <h2 class="text-2xl font-bold my-24">Pengajar Yayasan Rumah Belajar Covenant</h2>
-                <div class="flex flex-row gap-10 items-center">
-                    <div class="card relative bg-white overflow-hidden shadow-md rounded-xl w-64 h-96 transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
-                        <img class="object-cover w-full h-full" src="{{ asset('images/volunt.png') }}" alt="profile-picture" />
-                        <div class="overlay cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-60 text-center flex flex-col justify-center items-center opacity-0 transition duration-500 hover:opacity-100">
-                            <p class="text-lg font-bold">Maria Christy</p>
-                            <p>Kota Tangerang</p>
-                        </div>
-                    </div>
-                    <div class="card relative bg-white overflow-hidden shadow-md rounded-xl w-64 h-96 transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
-                        <img class="object-cover w-full h-full" src="{{ asset('images/volunt.png') }}" alt="profile-picture" />
-                        <div class="overlay cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-60 text-center flex flex-col justify-center items-center opacity-0 transition duration-500 hover:opacity-100">
-                            <p class="text-lg font-bold">Maria Christy</p>
-                            <p>Kota Tangerang</p>
-                        </div>
-                    </div>
-                    <div class="card relative bg-white overflow-hidden shadow-md rounded-xl w-64 h-96 transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
-                        <img class="object-cover w-full h-full" src="{{ asset('images/volunt.png') }}" alt="profile-picture" />
-                        <div class="overlay cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-60 text-center flex flex-col justify-center items-center opacity-0 transition duration-500 hover:opacity-100">
-                            <p class="text-lg font-bold">Maria Christy</p>
-                            <p>Kota Tangerang</p>
-                        </div>
-                    </div>
-                    <div class="card relative bg-white overflow-hidden shadow-md rounded-xl w-64 h-96 transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
-                        <img class="object-cover w-full h-full" src="{{ asset('images/volunt.png') }}" alt="profile-picture" />
-                        <div class="overlay cursor-default absolute bottom-0 w-full h-1/3 bg-utama bg-opacity-60 text-center flex flex-col justify-center items-center opacity-0 transition duration-500 hover:opacity-100">
-                            <p class="text-lg font-bold">Maria Christy</p>
-                            <p>Kota Tangerang</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div> --}}
-
 
 </div> 
 @endsection

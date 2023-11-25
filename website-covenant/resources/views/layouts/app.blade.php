@@ -27,7 +27,7 @@
                 
                 <!-- Logo Area -->
                 <a class="flex ml-5 2xl:ml-36" href="/">
-                    <img class="h-12 w-12 md:w-14 md:h-14 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-32 2xl:h-32" src="{{ asset('images/logo.png') }}" alt="Logo">
+                    <img class="h-12 w-12 md:w-14 md:h-14 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-32 2xl:h-32" src="{{ asset('storage/local_images/logo.png') }}" alt="Logo">
                 </a>
 
                 <!-- Konten Tengah -->
@@ -40,10 +40,10 @@
                         IbuKota Jakarta 11730.
                     </p>
                     <div class="flex flex-grow mt-3 2xl:mt-">
-                        <button class="text-black text-center md:text-sm mr-2 w-28 border border-black rounded-full hover:bg-black hover:text-utama hover:transform hover:-translate-y-1 transition-transform duration-700
+                        <a href="https://wa.me/6282187227218" class="text-black text-center md:text-sm mr-2 w-28 border border-black rounded-full hover:bg-black hover:text-utama hover:transform hover:-translate-y-1 transition-transform duration-700
                         text-xs font-bold lg:w-36 lg:text-base 2xl:w-60 2xl:text-xl">
                             HUBUNGI KAMI
-                        </button>
+                        </a>
                         <div class="border h-6 rounded-sm border-black 2xl:block 2xl:h-9 2xl:ml-3"></div>
                         <div class="text-center  ml-3 2xl:mt-1 2xl:ml-6 hover:bg-black hover:w-16 2xl:hover:w-20 2xl:hover:ml-3 hover:text-utama hover:transform hover:border hover:border-black hover:rounded-full hover:-translate-y-1 transition-transform duration-700">
                             <a class="font-bold text-sm md:text-base 2xl:text-xl" href="">
@@ -57,16 +57,16 @@
                 <div class="flex-shrink-0 mr-4 md:mr-0 lg:mr-0 xl:mr-0 2xl:mr-7">
                     <div class="flex flex-col space-y-3 text-right">
                         <a href="" class="hover:transform hover:-translate-y-1 transition-transform duration-700">
-                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('images/instagram.png') }}" alt="Logo">
+                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('storage/local_images/instagram.png') }}" alt="Logo">
                         </a>
                         <a href="#" class="hover:transform hover:-translate-y-1 transition-transform duration-700">
-                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('images/twitter.png') }}" alt="Logo">
+                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('storage/local_images/twitter.png') }}" alt="Logo">
                         </a>
                         <a href="https://www.facebook.com/p/Panti-Asuhan-Rumah-Belajar-Covenant-100078999650380/" class="hover:transform hover:-translate-y-1 transition-transform duration-700">
-                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('images/facebook.png') }}" alt="Logo">
+                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('storage/local_images/facebook.png') }}" alt="Logo">
                         </a>
                         <a href="#" class="hover:transform hover:-translate-y-1 transition-transform duration-700">
-                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('images/youtube.png') }}" alt="Logo">
+                            <img class="h-6 w-6 md:h-8 md:w-8 xl:w-10 xl:h-10 2xl:h-12 2xl:w-12" src="{{ asset('storage/local_images/youtube.png') }}" alt="Logo">
                         </a>
                     </div>
                 </div>

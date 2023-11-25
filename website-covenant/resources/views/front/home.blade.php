@@ -4,7 +4,7 @@
 @extends('layouts.app')
   
   @section('content')
-  <div class=" font-Kanit">
+  <div class=" w-screen font-Kanit">
     <div class="">
       <div class="">
           <div class="">
