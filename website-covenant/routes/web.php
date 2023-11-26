@@ -35,4 +35,4 @@ Route::post('/image-compress', [GalleriController::class, 'compressImage']);
 //supporter route
 Route::resource('supporters', SupporterController::class);
 Route::get('dukungan-selesai', [SupporterController::class, 'showSupporter'])->name('dukungan-selesai');
-
+Route::get('dukungan-kuitansi/{id}', [SupporterController::class, 'generateReceipt'])->name('generate-pdf');
