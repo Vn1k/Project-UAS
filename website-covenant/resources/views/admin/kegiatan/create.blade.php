@@ -1,3 +1,5 @@
+@extends('layouts.navigation')
+@section('content')
 <h1>Kegiatan</h1>
 <form action="/kegiatans" method="post" enctype="multipart/form-data">
     @csrf
@@ -13,4 +15,4 @@
     <!-- Foto: <input type="file" name="foto"><br/> -->
     <button type="submit">Submit</button>
 </form>
-
+@endsection

@@ -67,18 +67,30 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::delete('admin/sponsor/{id}', [SponsorController::class, 'destroy'])->name('admin.sponsor.destroy');
 
     //kegiatan Resource Routes
-    Route::get('kegiatan', [KegiatanController::class, 'index']);
-    Route::get('kegiatan/{id}/edit', [KegiatanController::class, 'show']);
-    Route::post('kegiatan', [KegiatanController::class, 'store']);
-    Route::post('kegiatan/{id}', [KegiatanController::class, 'edit']);
-    Route::delete('kegiatan/{id}', [KegiatanController::class, 'destroy']);
+    Route::get('admin/kegiatan', [KegiatanController::class, 'index'])->name('admin.kegiatan.index');
+    Route::get('admin/kegiatan/{id}/edit', [KegiatanController::class, 'show'])->name('admin.kegiatan.show');
+    Route::post('admin/kegiatan', [KegiatanController::class, 'store'])->name('admin.kegiatan.store');
+    Route::post('admin/kegiatan/{id}', [KegiatanController::class, 'edit'])->name('admin.kegiatan.edit');
+    Route::delete('admin/kegiatan/{id}', [KegiatanController::class, 'destroy'])->name('admin.kegiatan.destroy');
+    
+    //Supporter Resource Routes
+    Route::resource('admin/supporters', SupporterController::class)->names([
+        'index' => 'supporter.index',
+        'create' => 'supporter.create',
+        'store' => 'supporter.store',
+        'show' => 'supporter.show',
+        'edit' => 'supporter.edit',
+        'update' => 'supporter.update',
+        'destroy' => 'supporter.destroy',
+    ]);
+    
 });
 
+Route::get('dukungan-selesai', [SupporterController::class, 'showSupporter'])->name('dukungan-selesai');
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
 require __DIR__ . '/adminauth.php';
 
 //supporter route
-Route::resource('supporters', SupporterController::class);
-Route::get('dukungan-selesai', [SupporterController::class, 'showSupporter'])->name('dukungan-selesai');
+
 

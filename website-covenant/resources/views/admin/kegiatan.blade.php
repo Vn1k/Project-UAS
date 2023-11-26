@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @extends('layouts.app')
+    @extends('layouts.navigation')
 
     @section('content')
     <div class="containerKegiatan">

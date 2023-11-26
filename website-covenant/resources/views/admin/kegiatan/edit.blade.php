@@ -1,3 +1,5 @@
+@extends('layouts.navigation')
+@section('content')
 @if($errors)
     <ul>
         @foreach($errors->all() as $error)
@@ -37,4 +39,4 @@
 
     <button type="submit">Submit</button>
 </form>
-
+@endsection
