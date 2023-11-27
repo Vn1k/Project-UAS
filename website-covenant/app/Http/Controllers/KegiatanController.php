@@ -69,7 +69,9 @@ class KegiatanController extends Controller
         $sponsor = Sponsor::all();
         $cover = Storage::url($kegiatan->cover);
         $photo = Storage::url($kegiatan->photo);
-        return view('admin.kegiatan.edit', ['kegiatan' => $kegiatan, 'volunteers' => $volunteer, 'sponsors' => $sponsor, 'cover' => $cover, 'photo' => $photo]);
+        $photo2 = Storage::url($kegiatan->photo2);
+        $photo3 = Storage::url($kegiatan->photo3);
+        return view('admin.kegiatan.edit', ['kegiatan' => $kegiatan, 'volunteers' => $volunteer, 'sponsors' => $sponsor, 'cover' => $cover, 'photo' => $photo, 'photo2' => $photo2, 'photo3' => $photo3]);
     }
 
     /**
@@ -83,6 +85,12 @@ class KegiatanController extends Controller
         $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
         $ext = $request->file('photo')->extension();
 
+        $pathPhoto2 = $request->file('photo2')->storePublicly('photos', 'public');
+        $ext = $request->file('photo2')->extension();
+
+        $pathPhoto3 = $request->file('photo3')->storePublicly('photos', 'public');
+        $ext = $request->file('photo3')->extension();
+  
         $kegiatan = Kegiatan::findOrFail($id);
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->tanggal = $request->tanggal;
@@ -91,6 +99,8 @@ class KegiatanController extends Controller
         $kegiatan->deskripsi = $request->deskripsi;
         $kegiatan->cover = $pathCover;
         $kegiatan->photo = $pathPhoto;
+        $kegiatan->photo2 = $pathPhoto2;
+        $kegiatan->photo3 = $pathPhoto3;
         $kegiatan->save();
         return redirect('/kegiatan');
     }

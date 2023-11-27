@@ -34,8 +34,10 @@
     </select>
     
     <br />
-    Cover: <input type="file" name="cover" value="{{asset($kegiatan->cover)}}" /><br />
-    Foto: <input type="file" name="photo" value="{{asset($kegiatan->photo)}}" /><br />
+    Cover: <input type="file" name="cover"><br />
+    Foto 1: <input type="file" name="photo"><br />
+    Foto 2: <input type="file" name="photo2"><br />
+    Foto 3: <input type="file" name="photo3"><br />
 
     <button type="submit">Submit</button>
 </form>
