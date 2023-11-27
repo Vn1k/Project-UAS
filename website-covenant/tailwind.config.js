@@ -11,7 +11,8 @@ module.exports = {
         utama : '#FAF096',
         second : '#D7CB6D',
         third : '#D9D5B8',
-        fourth: '#f45905'
+        fourth: '#f45905',
+        five: '#FFFDE7',
       },
       fontFamily:{
         Kanit: ["Kanit-Regular"]

@@ -1,53 +1,90 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\KegiatanSponsor;
+use App\Models\KegiatanVolunteer;
+use App\Models\Kegiatan;
+use App\Models\Sponsor;
 use App\Models\Galleri;
 use App\Models\Volunteer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Carbon;
+
 
 class FrontController extends Controller
 {
     public function home()
     {
-        return view('front.home');
+        
+        $jumlahKegiatan = Kegiatan::all()->count();
+        $jumlahVolunteer = Volunteer::all()->count();
+
+        $kegiatans = Kegiatan::where('tanggal', '>', Carbon::now())->get();
+
+        foreach ($kegiatans as $kegiatan) {
+            $waktu = Carbon::createFromFormat('H:i:s', $kegiatan->waktu);
+            $kegiatan->formattedTime = $waktu->format('H:i');
+        }
+
+        return view('front.home', [
+            'kegiatans' => $kegiatans,
+            'jumlahKegiatan' => $jumlahKegiatan,
+            'jumlahVolunteer' => $jumlahVolunteer,
+        ]);
     }
 
     public function kegiatan()
     {
-        return view('front.kegiatan');
+        $kegiatans = Kegiatan::all();
+        return view('front.kegiatan', ['kegiatans' => $kegiatans]);
     }
-    public function detailKegiatan()
+    public function detailKegiatan($id)
     {
-        return view('front.detailKegiatan');
+        $kegiatan = Kegiatan::with(['volunteers', 'sponsors'])->findOrFail($id);
+
+        return view('front.detailkegiatan', ['kegiatan' => $kegiatan]);
     }
 
     public function galleri()
     {
-        $images = Galleri::query()->latest()->paginate(40);
+        $images = Galleri::query()->latest()->get();
         $dataBagi = $this->bagikanData($images);
-        $bagian1 = $dataBagi[0];
-        $bagian2 = $dataBagi[1];
-        $bagian3 = $dataBagi[2];
-        $bagian4 = $dataBagi[3];
+        $bagian1 = $dataBagi['bagian1'];
+        $bagian2 = $dataBagi['bagian2'];
+        $bagian3 = $dataBagi['bagian3'];
+        $bagian4 = $dataBagi['bagian4'];
 
         return view('front.galleri', compact('bagian1', 'bagian2', 'bagian3', 'bagian4'));
     }
 
     private function bagikanData($data)
     {
-    $totalData = count($data);
+        $dataById = collect($data)->groupBy('id');
 
-    $jumlahPerBagian = floor($totalData / 4);
+        $jumlahBagian = 4;
+        $bagian = [];
 
-    $bagian1 = array_slice($data->items(), 0, $jumlahPerBagian);
-    $bagian2 = array_slice($data->items(), $jumlahPerBagian, $jumlahPerBagian);
-    $bagian3 = array_slice($data->items(), 2 * $jumlahPerBagian, $jumlahPerBagian);
-    $bagian4 = array_slice($data->items(), 3 * $jumlahPerBagian, $jumlahPerBagian);
-    
-    return array($bagian1, $bagian2, $bagian3, $bagian4);
+        for ($i = 0; $i < $jumlahBagian; $i++) {
+            $bagian[] = [];
+        }
+
+        $index = 0;
+
+        foreach ($dataById as $id => $items) {
+            foreach ($items as $item) {
+                $bagian[$index][] = $item;
+                $index = ($index + 1) % $jumlahBagian;
+            }
+        }
+
+        return [
+            'bagian1' => $bagian[0],
+            'bagian2' => $bagian[1],
+            'bagian3' => $bagian[2],
+            'bagian4' => $bagian[3],
+        ];
     }
-
 
     public function tentangKami()
     {

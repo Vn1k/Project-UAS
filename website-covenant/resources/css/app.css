@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Kanit-Regular";
+    src: local("Kanit-Regular"),
+        url(../Font/Kanit-Regular.ttf) format("truetype");
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -90,9 +96,4 @@ body {
 .btnFormKegiatan {
     position: absolute;
     left: 45%;
-}
-@font-face {
-    font-family: "Kanit-Regular";
-    src: local("Kanit-Regular"),
-        url(../Font/Kanit-Regular.ttf) format("truetype");
 }

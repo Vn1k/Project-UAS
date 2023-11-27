@@ -23,9 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //Navbar-homepage
 Route::get('/', [FrontController::class, 'home'])->name('home');
-Route::get('home', [FrontController::class, 'home'])->name('home');
 Route::get('kegiatans', [FrontController::class, 'kegiatan'])->name('kegiatan');
-Route::get('detailKegiatan', [FrontController::class, 'detailKegiatan'])->name('detailKegiatan');
+Route::get('detailkegiatan/{id}', [FrontController::class, 'detailKegiatan'])->name('detailkegiatan.show');
 Route::get('gallery', [FrontController::class, 'galleri'])->name('galleri');
 Route::get('tentang-Kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
 Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');

@@ -1,7 +1,7 @@
 
 @vite(['resources/css/app.css','resources/js/app.js'])
 
-@extends('layouts.app')
+@extends('layouts.appUser')
   
   @section('content')
   <div class="min-h-screen lg:px-10 xl:px-20">
