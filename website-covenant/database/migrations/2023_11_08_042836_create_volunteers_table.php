@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama', 50);
             $table->string('asal', 20);
-            $table->string('no_telepon', 13);
+            $table->string('no_telepon', 13)->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
         });

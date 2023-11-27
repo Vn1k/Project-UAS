@@ -173,7 +173,8 @@
 
 </style>
 <body>
-
+    @extends('layouts.navigation')
+    @section('content')
     <!-- ini si pop up image nya yeah -->
     <div class="popup-overlay" id="popupOverlay">
         <img src="{{ asset('storage/fotobukti/$student->photo') }}" class="popup-image" id="popupImage" alt="Popup Image">
@@ -439,5 +440,6 @@ picture
 
 
     </script>
+    @endsection
 </body>
 </html>
