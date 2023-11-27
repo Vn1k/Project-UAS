@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama', 50);
             $table->string('email',20);
             $table->string('alamat',50);
-            $table->string('no_telepon', 10);
+            $table->string('no_telepon', 13);
             $table->enum('donasi', ['uang_tunai', 'barang']);
             $table->string('photo')->nullable();
             $table->date('tanggal');
