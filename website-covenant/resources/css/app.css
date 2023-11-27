@@ -1,6 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Kanit-Regular";
+    src: local("Kanit-Regular"),
+        url(../Font/Kanit-Regular.ttf) format("truetype");
+}
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
 body {
@@ -13,8 +19,7 @@ body {
     justify-content: center;
 }
 
-.titleKegiatan
-{
+.titleKegiatan {
     font-size: 30px;
     align-items: center;
     justify-content: center;
@@ -26,22 +31,19 @@ body {
     width: 100%;
 }
 
-.containerKegiatan
-{
+.containerKegiatan {
     width: 100vw;
     position: relative;
     padding: 50px;
 }
 
-.formKegiatan
-{
+.formKegiatan {
     width: 203%;
     justify-content: center;
     align-items: center;
 }
 
-.cardForm
-{
+.cardForm {
     width: 50%;
     height: 260%;
     justify-content: center;
@@ -50,8 +52,7 @@ body {
     left: 24%;
 }
 
-.tableKegiatan
-{
+.tableKegiatan {
     position: absolute;
     width: 80%;
     justify-content: center;
@@ -60,47 +61,40 @@ body {
     left: 10%;
 }
 
-.formOleh
-{
+.formOleh {
     width: 40%;
     position: absolute;
     left: 56.5%;
 }
 
-.formWaktu
-{
+.formWaktu {
     width: 25%;
     position: absolute;
     left: 29.5%;
 }
 
-.formTanggal
-{
+.formTanggal {
     width: 25%;
     position: absolute;
 }
 
-.formDesc
-{
+.formDesc {
     position: absolute;
     width: 46%;
     left: 50.5%;
 }
 
-.formLokasi
-{
+.formLokasi {
     position: absolute;
     width: 46%;
 }
 
-.formRelawan
-{
+.formRelawan {
     position: absolute;
     width: 46%;
 }
 
-.btnFormKegiatan
-{
+.btnFormKegiatan {
     position: absolute;
     left: 45%;
 }
@@ -387,3 +381,4 @@ body {
 {
     margin-right: 47%;
 }
+

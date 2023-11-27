@@ -96,4 +96,11 @@ class GalleriController extends Controller
             'status' => 'success'
         ]);
     }
+
+    
+    public function indexUser()
+    {
+        $image = Galleri::query()->latest()->paginate(10);
+        return view('galleri', compact('image'));
+    }
 }
