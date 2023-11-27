@@ -25,10 +25,6 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-//volunteer route
-
-//sponsor route
-
 Route::redirect('/login', '/admin/login');
 
 Route::get('/admin', function () {
