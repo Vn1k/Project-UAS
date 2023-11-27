@@ -1,13 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 @font-face {
     font-family: "Kanit-Regular";
     src: local("Kanit-Regular"),
         url(../Font/Kanit-Regular.ttf) format("truetype");
 }
-@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 body {
     margin: 0;
@@ -99,13 +99,11 @@ body {
     left: 45%;
 }
 
-.contGAL
-{
+.contGAL {
     width: 50vw;
 }
 
-.tableGal
-{
+.tableGal {
     width: 50vw;
     justify-content: center;
     align-items: center;
@@ -113,43 +111,37 @@ body {
     left: 25%;
 }
 
-.titleGal
-{
+.titleGal {
     margin-top: 10%;
     font-size: 1.3rem;
     text-align: center;
-    background-color: #FAF096;
+    background-color: #faf096;
 }
 
-.inputIMG
-{
+.inputIMG {
     justify-content: center;
     position: relative;
     left: 21%;
 }
 
-.logoBIN
-{
+.logoBIN {
     justify-content: center;
     align-items: start;
     position: relative;
     left: -19%;
 }
 
-.imgBIN img
-{
+.imgBIN img {
     scale: 30%;
 }
 
-.formGAL
-{
+.formGAL {
     justify-content: center;
     position: relative;
     left: 35%;
 }
 
-.cardGAL
-{
+.cardGAL {
     width: 30vw;
     height: 20vh;
     border-radius: 10%;
@@ -157,27 +149,22 @@ body {
     left: 20%;
 }
 
-.fileGAL
-{
+.fileGAL {
     position: relative;
     left: 25%;
-    
 }
 
-.nameGAL
-{
+.nameGAL {
     font-size: x-large;
 }
 
-.btnFormGalleri
-{
+.btnFormGalleri {
     position: absolute;
     left: 45%;
     top: 60%;
 }
 
-.titlegalleri
-{
+.titlegalleri {
     font-size: 30px;
     align-items: center;
     justify-content: center;
@@ -187,21 +174,18 @@ body {
     left: 34%;
 }
 
-.titleSPONSOR
-{
+.titleSPONSOR {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
     margin-top: 60px;
 }
 
-.contSPONS
-{
+.contSPONS {
     border-radius: 100px;
 }
 
-.tableSPONS
-{
+.tableSPONS {
     width: 60vw;
     border-radius: 10px;
     align-items: center;
@@ -209,33 +193,27 @@ body {
     margin-left: 20%;
 }
 
-.tabsSPONS
-{
+.tabsSPONS {
     width: 60vw;
     border-radius: 10px;
 }
 
-.colSPONS
-{
+.colSPONS {
     border-radius: 10px;
     margin: 20%;
-    
 }
 
-.imgEDIT
-{
+.imgEDIT {
     position: relative;
     left: 20%;
 }
 
-.imgDEL
-{
+.imgDEL {
     position: relative;
     left: -135%;
 }
 
-.cardSPONS
-{
+.cardSPONS {
     width: 35vw;
     justify-content: center;
     align-items: center;
@@ -245,8 +223,7 @@ body {
     margin-bottom: 80px;
 }
 
-.btnSUBMITspons
-{
+.btnSUBMITspons {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -254,29 +231,25 @@ body {
     left: 45%;
 }
 
-.bgEDITSPONS
-{
-    background-color: #FAF096;
+.bgEDITSPONS {
+    background-color: #faf096;
 }
 
-.titleINS
-{
+.titleINS {
     font-weight: 500;
 }
 
-.contEDSPONS
-{
+.contEDSPONS {
     width: 40vw;
     justify-content: center;
     align-items: center;
     position: relative;
     left: 30%;
     top: 50%;
-    transform: translate(0%,150%);
+    transform: translate(0%, 150%);
 }
 
-.btnSUBMITEDspons
-{
+.btnSUBMITEDspons {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -285,19 +258,16 @@ body {
     font-weight: 700;
 }
 
-.photoVOL
-{
+.photoVOL {
     margin-right: 30px;
     width: 50%;
 }
 
-.asalVOL
-{
+.asalVOL {
     width: 50%;
 }
 
-.tabVOL
-{
+.tabVOL {
     width: 60vw;
     border-radius: 50%;
     justify-content: center;
@@ -305,8 +275,7 @@ body {
     margin-left: 20%;
 }
 
-.contEDVOL
-{
+.contEDVOL {
     width: 40vw;
     overflow-x: hidden;
     justify-content: center;
@@ -314,35 +283,30 @@ body {
     position: relative;
     left: 30%;
     top: 50%;
-    transform: translate(0%,80%);
+    transform: translate(0%, 80%);
 }
 
-.titleNAMEvol
-{
+.titleNAMEvol {
     margin-right: 8%;
     font-weight: 500;
 }
 
-.titleASALvol
-{
+.titleASALvol {
     margin-right: -1%;
     font-weight: 500;
 }
 
-.titleTELPvol
-{
+.titleTELPvol {
     margin-right: -15%;
     font-weight: 500;
 }
 
-.titlePHOTOvol
-{
+.titlePHOTOvol {
     margin-right: -15%;
     font-weight: 500;
 }
 
-.cardKEGIATAN
-{
+.cardKEGIATAN {
     width: 50vw;
     justify-content: center;
     align-items: center;
@@ -351,8 +315,7 @@ body {
     margin-top: 100px;
 }
 
-.btnSUBMITkegiatan
-{
+.btnSUBMITkegiatan {
     text-align: center;
     align-items: center;
     justify-content: center;
@@ -360,25 +323,20 @@ body {
     left: 45%;
     margin-top: 40px;
 }
-.jadwalKEG
-{
+.jadwalKEG {
     margin-right: 30px;
     width: 50%;
     height: 30px;
 }
 
-.dateKEG
-{
+.dateKEG {
     height: 44px;
 }
 
-.lokasiKEG
-{
+.lokasiKEG {
     height: 43px;
 }
 
-.labelVOL
-{
+.labelVOL {
     margin-right: 47%;
 }
-
