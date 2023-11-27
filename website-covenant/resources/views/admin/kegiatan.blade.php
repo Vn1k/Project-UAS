@@ -145,7 +145,13 @@
                                     Cover
                                 </th>
                                 <th scope="col" class="px-6 py-3">
-                                    Foto
+                                    Foto 1
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Foto 2
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Foto 3
                                 </th>
                                 <th scope="col" class="px-6 py-3">
                                     Action
@@ -193,6 +199,12 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px" />
+                                </td>
+                                <td class="px-6 py-4">
+                                    <img src="{{asset('storage/' . $event->photo2)}}" style="width: 300px" />
+                                </td>
+                                <td class="px-6 py-4">
+                                    <img src="{{asset('storage/' . $event->photo3)}}" style="width: 300px" />
                                 </td>
 
                                 <td class="px-6 py-4">
