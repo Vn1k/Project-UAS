@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('front.home');
 })->name('home');
 
 Route::redirect('/login', '/admin/login');
