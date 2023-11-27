@@ -12,35 +12,60 @@
             padding: 0;
         }
         .container {
-            width: 70vw;
+            width: 100vw;
             margin: 0 auto;
         }
         .confirmed-donation {
             text-align: center;
-            background-color: #32CD32; /* Green Background Color */
+            background-color: #C4FFB6; /* Green Background Color */
             color: #006400; /* Darker Green Font Color */
             border-radius: 10px; /* Border Radius */
-            padding: 20px;
-            width: 80vw;
+            padding: 5px 20px;
+            width: 40rem;
             margin: 0 auto;
         }
+
+        .kuitansi-container {
+            border: 0.1rem solid;
+            width: 35rem;
+            margin-top: 2rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .kuitansi-container p {
+            padding: 0 2rem;
+            overflow: hidden; /* Clear floats */
+            margin: 0; /* Remove default margins */
+        }
+
+        .kuitansi-container .label {
+            float: left; /* Align label to the left */
+        }
+
+        .kuitansi-container .content {
+            float: right; /* Align content to the right */
+        }
+
         hr {
             border: none;
-            border-top: 1px dotted #f00;
+            border-top: 1px dotted #060606;
             color: #060606;
             height: 1px;
-            width: 50%;
+            width: 90%;
         }
+
         .btn {
             display: inline-block;
             padding: 10px 20px;
             margin: 10px;
-            background-color: #32CD32; /* Green Background Color */
+            background-color: #C4FFB6; /* Green Background Color */
             color: #006400; /* Darker Green Font Color */
             border: none;
             border-radius: 5px;
             text-decoration: none;
         }
+
         .btn:hover {
             background-color: #228B22; /* Darker Green on Hover */
             color: #fff; /* White Font on Hover */
@@ -50,9 +75,27 @@
         @media screen and (max-width: 768px) {
             .container {
                 width: 90vw;
+                margin: 1em auto;
             }
             .confirmed-donation {
                 width: 90vw;
+            }
+            .kuitansi-container {
+                width: 90vw;
+            }
+            .kuitansi-container p {
+                padding: 0 1rem; /* Adjust padding */
+            }
+            .kuitansi-container .label {
+                float: none;
+                display: block; /* Reset label to display as block */
+                font-weight: bold;
+                text-align: left; /* Align label to left */
+            }
+            .kuitansi-container .content {
+                float: none;
+                display: block; /* Reset content to display as block */
+                text-align: right; /* Align content to right */
             }
         }
     </style>
@@ -68,16 +111,38 @@
         
         <div class="kuitansi-container">
             <center><h2 style="font-family: 'Kanit', sans-serif;">KUITANSI</h2></center>
+            <p>
+                <span class="label">Waktu:</span>
+                <span class="content">{{ $supporter->tanggal }}</span>
+            </p> 
             <hr>
-            <p>Waktu: {{ $supporter->tanggal }}</p>
-            <p>Nama: {{ $supporter->nama }}</p>
-            <p>Email: {{ $supporter->email }}</p>
-            <p>Alamat: {{ $supporter->alamat }}</p>
-            <p>No. Telp: {{ $supporter->no_telepon }}</p>
-            <p>Jenis Donasi: {{ $supporter->donasi }}</p>
+            <p>
+                <span class="label">Nama:</span>
+                <span class="content">{{ $supporter->nama }}</span>
+            </p> 
+            <hr>
+            <p>
+                <span class="label">Email:</span>
+                <span class="content">{{ $supporter->email }}</span>
+            </p> 
+            <hr>
+            <p>
+                <span class="label">Alamat:</span>
+                <span class="content">{{ $supporter->alamat }}</span>
+            </p>
+            <hr>
+            <p>
+                <span class="label">No. Telp:</span>
+                <span class="content">{{ $supporter->no_telepon }}</span>
+            </p>
+            <hr>
+            <p>
+                <span class="label">Jenis Donasi:</span>
+                <span class="content">{{ $supporter->donasi }}</span>
+            </p>
             <hr>
         </div>
-        
+        <br>
         <center><a href="{{ route('generate-pdf', ['id' => $supporter->id]) }}" class="btn">Buat Kuitansi</a></center>
         
     </div>
