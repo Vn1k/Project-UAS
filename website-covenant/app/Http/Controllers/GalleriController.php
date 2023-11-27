@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Galleri;
 use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class GalleriController extends Controller
      */
     public function index()
     {
-        $image = Galleri::query()->latest()->paginate(10);
+        $image = Galleri::latest()->paginate(10);
         return view('admin.galleri', compact('image'));
     }
 
@@ -22,7 +23,6 @@ class GalleriController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -48,8 +48,8 @@ class GalleriController extends Controller
         $image->save();
 
         return redirect()->back()->with([
-            'message'=> 'Image added successfully',
-            'status'=>'success'
+            'message' => 'Image added successfully',
+            'status' => 'success'
         ]);
     }
 
@@ -85,7 +85,7 @@ class GalleriController extends Controller
         $image = Galleri::findOrFail($id);
 
         $imagepath = public_path('storage/images/' . $image->image);
-        if(File::exists($imagepath)) {
+        if (File::exists($imagepath)) {
             File::delete($imagepath);
         }
 
@@ -95,5 +95,12 @@ class GalleriController extends Controller
             'message' => 'Image has been deleted',
             'status' => 'success'
         ]);
+    }
+
+    
+    public function indexUser()
+    {
+        $image = Galleri::query()->latest()->paginate(10);
+        return view('galleri', compact('image'));
     }
 }

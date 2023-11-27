@@ -37,7 +37,6 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
-
         $kegiatan = new Kegiatan();
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->tanggal = $request->jadwal;
@@ -45,7 +44,6 @@ class KegiatanController extends Controller
         $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
-
         $kegiatan->save();
 
         $kegiatanvolunteer = new KegiatanVolunteer();
