@@ -68,16 +68,3 @@
         }
     </script>
 @endsection
-
-
-
-
-{{-- <div class="grid gap-4">
-    @foreach($bagian1 as $item)
-        @if(isset($item['image']))
-            <div class="image-container ">
-                <img class="h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item['image']) }}" alt="">
-            </div>
-        @endif
-    @endforeach
-</div> --}}
