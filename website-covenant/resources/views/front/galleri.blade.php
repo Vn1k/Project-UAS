@@ -1,4 +1,3 @@
-
 @vite(['resources/css/app.css','resources/js/app.js'])
 @extends('layouts.appUser')
   
@@ -9,34 +8,35 @@
         <h1 class="text-xl lg:text-3xl font-bold py-10">Galleri</h1>
         {{-- AREA GRID GALLERY --}}
         <div class="mx-5 sm:mx-10 md:mx-10 lg:mx-15 xl:mx-24 2xl:mx-32 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="grid gap-4 ">
-                @foreach($bagian1 as $item)
+            <div class="">
+                @foreach($bagian1 as $item1)
                 <div class="image-container">
-                    <img class="h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item->image) }}" alt="">
+                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item1->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
-            <div class="grid gap-4 ">
-                @foreach($bagian2 as $item)
+            <div class="">
+                @foreach($bagian2 as $item2)
                 <div class="image-container">
-                    <img class="h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item->image) }}"alt="">
+                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item2->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
-            <div class="grid gap-4 ">
-                @foreach($bagian3 as $item)
-                <div class="image-container ">
-                    <img class="h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item->image) }}"alt="">
+            <div class="">
+                @foreach($bagian3 as $item3)
+                <div class="image-container">    
+                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item3->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
-            <div class="grid gap-4 ">
-                @foreach($bagian4 as $item)
-                <div class="image-container ">
-                    <img class="h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item->image) }}"alt="">
+            <div class="">
+                @foreach($bagian4 as $item4)
+                <div class="image-container">
+                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item4->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
+           
             
         </div>
     </div>
