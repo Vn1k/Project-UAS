@@ -26,7 +26,7 @@
                 <!-- <a href="/kegiatans/create">Create new kegiatan</a> -->
                 <!-- Blade Template for Kegiatan -->
                 <!-- <h1>Kegiatan</h1> -->
-                <form action="/kegiatan" method="post" enctype="multipart/form-data">
+                <form action="/admin/kegiatan" method="post" enctype="multipart/form-data">
                 <a class="cardKEGIATAN block m-10 p-10 bg-white border border-gray-500 rounded-xl shadow-xl">
                     @csrf 
                     <div class="mb-6">
@@ -174,9 +174,8 @@
                                 </td>
 
                                 <td class="px-6 py-4">
-                                    <a href="/kegiatan/{{ $event->id }}/edit"
-                                        class="font-medium text-white hover:underline">EDIT</a> |
-                                    <form action="/kegiatan/{{ $event->id }}" method="post">
+                                    <a href="/admin/kegiatan/{{ $event->id }}/edit" class="font-medium text-white hover:underline">EDIT</a> |
+                                    <form action="/admin/kegiatan/{{ $event->id }}" method="post">
                                         @method('DELETE')
                                         @csrf
                                         <button type="submit">DELETE</button>

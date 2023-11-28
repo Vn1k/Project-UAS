@@ -16,7 +16,7 @@
             @endforeach
         </ul>
     @endif
-        <form  action="/volunteer/{{$volunteer->id}}" method="post">
+        <form  action="/admin/volunteer/{{$volunteer->id}}" method="post">
             <a class="contEDVOL block m-10 p-10 items-center justify-center bg-white border border-gray-100 rounded-xl shadow-2xl">
                 @csrf 
                 <div class="mb-6 flex"> 

@@ -22,7 +22,7 @@
     @endif
 
     <div class="titleSPONSOR card-header">Upload Data Volunteers</div>
-    <form action="/volunteer" method="post" enctype="multipart/form-data">
+    <form action="/admin/volunteer" method="post" enctype="multipart/form-data">
         <a class="cardSPONS block m-10 p-10 bg-white border border-gray-500 rounded-xl shadow-xl">
             @csrf
             <div class="mb-6">
@@ -68,10 +68,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($volunteers as $volunteer)
+                @foreach($volunteers as $index => $volunteer)
                 <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {{$volunteer->id}}
+                        {{$index + 1}}
                     </td>
                     <td class="px-6 py-4">
                         {{$volunteer->nama}}
@@ -86,12 +86,12 @@
                         Photo
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap flex">
-                        <a href="/volunteer/{{$volunteer->id}}/show" class="text-blue-600 dark:text-blue-500 hover:underline">
+                        <a href="/admin/volunteer/{{$volunteer->id}}/edit" class="text-blue-600 dark:text-blue-500 hover:underline">
                             <img src="{{ asset('storage/aset/editing.png') }}" style="height: 25px; width: 25px; margin-right: 50px">
                         </a>
                         <!-- </td>
                             <td class="px-6 py-4 whitespace-nowrap"> -->
-                        <form action="/volunteer/{{$volunteer->id}}" method="post">
+                        <form action="/admin/volunteer/{{$volunteer->id}}" method="post">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="imgDEL text-red-600 dark:text-red-500 hover:underline">

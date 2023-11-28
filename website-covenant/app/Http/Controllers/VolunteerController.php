@@ -55,7 +55,7 @@ class VolunteerController extends Controller
         $volunteer->photo = $path;
         $volunteer->save();
 
-        return redirect('/volunteer');
+        return redirect('/admin/volunteer');
 
     }
 
@@ -93,7 +93,7 @@ class VolunteerController extends Controller
         $volunteer->no_telepon = $request->no_telepon;
         $volunteer->photo = $path;
         $volunteer->save();
-        return redirect('/volunteer');
+        return redirect('/admin/volunteer');
     }
 
     /**
@@ -116,6 +116,6 @@ class VolunteerController extends Controller
     {
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->delete();
-        return redirect('/volunteer');
+        return redirect('/admin/volunteer');
     }
 }

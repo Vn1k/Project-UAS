@@ -21,7 +21,7 @@ class SponsorController extends Controller
      */
     public function create()
     {
-        return view('sponsor.create');
+        //
     }
 
     /**
@@ -39,7 +39,7 @@ class SponsorController extends Controller
         $sponsor->penanggung_jawab = $request->penanggung_jawab;
         $sponsor->save();
 
-        return redirect('/sponsor');
+        return redirect('/admin/sponsor');
 
     }
 
@@ -66,7 +66,7 @@ class SponsorController extends Controller
         $sponsor->instansi = $request->instansi;
         $sponsor->penanggung_jawab = $request->penanggung_jawab;
         $sponsor->save();
-        return redirect('/sponsor');
+        return redirect('/admin/sponsor');
     }
 
     /**
@@ -88,6 +88,6 @@ class SponsorController extends Controller
     {
         $sponsor = Sponsor::findOrFail($id);
         $sponsor->delete();
-        return redirect('/sponsor');
+        return redirect('/admin/sponsor');
     }
 }

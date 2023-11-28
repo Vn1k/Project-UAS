@@ -16,7 +16,7 @@
             @endforeach
         </ul>
     @endif
-        <form  action="/sponsor/{{$sponsor->id}}" method="post">
+        <form  action="/admin/sponsor/{{$sponsor->id}}" method="post">
             <a class="contEDSPONS block m-10 p-10 items-center justify-center bg-white border border-gray-100 rounded-xl shadow-2xl">
                 @csrf 
                 <div class="mb-6 flex"> 

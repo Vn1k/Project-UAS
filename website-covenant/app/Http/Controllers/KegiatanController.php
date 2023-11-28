@@ -56,7 +56,7 @@ class KegiatanController extends Controller
         $kegiatansponsor->kegiatan_id = $kegiatan->id;
         $kegiatansponsor->save();
 
-        return redirect('/kegiatan');
+        return redirect('/admin/kegiatan');
     }
 
     /**
@@ -102,7 +102,7 @@ class KegiatanController extends Controller
         $kegiatan->photo2 = $pathPhoto2;
         $kegiatan->photo3 = $pathPhoto3;
         $kegiatan->save();
-        return redirect('/kegiatan');
+        return redirect('/admin/kegiatan');
     }
 
     /**
@@ -130,6 +130,6 @@ class KegiatanController extends Controller
         KegiatanVolunteer::where('kegiatan_id', $id)->delete();
         $kegiatan = Kegiatan::find($id);
         $kegiatan->delete();
-        return redirect('/kegiatan');
+        return redirect('/admin/kegiatan');
     }
 }
