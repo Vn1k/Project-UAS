@@ -34,8 +34,8 @@ class VolunteerController extends Controller
         $this->validate($request, [
             'nama' => 'required|max:50',
             'asal' => 'required|max:20',
-            'no_telepon' => 'required|max:13',
-            'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            'no_telepon' => 'required|max:13'
+            // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240'
         ]);
 
         $photo= $request->file('photo');

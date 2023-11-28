@@ -80,7 +80,7 @@ class KegiatanController extends Controller
         $photo = Storage::url($kegiatan->photo);
         $photo2 = Storage::url($kegiatan->photo2);
         $photo3 = Storage::url($kegiatan->photo3);
-        return view('admin.kegiatan.edit', ['kegiatan' => $kegiatan, 'volunteers' => $volunteer, 'sponsors' => $sponsor, 'cover' => $cover, 'photo' => $photo, 'photo2' => $photo2, 'photo3' => $photo3]);
+        return view('admin.editkegiatan', ['kegiatan' => $kegiatan, 'volunteers' => $volunteer, 'sponsors' => $sponsor, 'cover' => $cover, 'photo' => $photo, 'photo2' => $photo2, 'photo3' => $photo3]);
     }
 
     /**
@@ -95,6 +95,9 @@ class KegiatanController extends Controller
             'penyelenggara' => 'required|max:50',
             'lokasi'=> 'required|max:255',
             'deskripsi'=> 'required|max:255'
+            // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            // 'photo2' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            // 'photo3' => 'required|image|mimes:jpeg,png,jpg|max:10240'
         ]);
 
         $pathCover = $request->file('cover')->storePublicly('covers', 'public');

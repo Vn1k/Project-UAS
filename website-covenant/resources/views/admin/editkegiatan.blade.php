@@ -9,7 +9,7 @@
 @endif
 
 <h1>Edit Kegiatan</h1>
-<form action="/kegiatan/{{$kegiatan->id}}" method="post" enctype="multipart/form-data">
+<form action="/admin/kegiatan/{{$kegiatan->id}}" method="post" enctype="multipart/form-data">
     @csrf
     Nama Kegiatan: <input type="text" name="nama_kegiatan" value="{{$kegiatan->nama_kegiatan}}" /><br />
     Tanggal: <input type="date" name="tanggal" value="{{$kegiatan->tanggal}}" /><br />
