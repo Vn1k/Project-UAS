@@ -262,7 +262,7 @@ img {
   }
   .bg-illustration {
     float: none;
-    background: url('{{ asset("storage/asset/admin-bg.jpg") }}' ) center center;
+    background: url('{{ asset("asset/admin-bg.jpg") }}') center center;
     background-size: cover;
     -webkit-animation: slideIn 0.8s ease-in-out forwards;
             animation: slideIn 0.8s ease-in-out forwards;
@@ -370,7 +370,9 @@ img {
 </style>
 <div class="parent clearfix">
     <div class="bg-illustration">
-        <img src="{{ asset('storage/asset/logo-covenant.svg') }}" alt="logo">
+      <a href="{{ url('/') }}">
+        <img src="{{ asset('asset/logo-covenant.svg') }}" alt="logo">
+      </a>
     </div>
 
     <div class="login">

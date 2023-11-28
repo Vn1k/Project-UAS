@@ -49,7 +49,7 @@
                         </a>
                         <div class="border xl:border-2 h-8 rounded-sm border-black 2xl:block 2xl:h-9"></div>
                         <div class="px-2 py-1 xl:py-2 xl:px-4 text-center hover:bg-black hover:text-utama hover:transform hover:border hover:border-black hover:rounded-full hover:-translate-y-1 transition-transform duration-700">
-                            <a class="font-bold text-sm sm:text-base lg:text-lg xl:text-xl" href="">
+                            <a class="font-bold text-sm sm:text-base lg:text-lg xl:text-xl" href="{{ route('admin.login') }}">
                                 ADMIN
                             </a>
                         </div>

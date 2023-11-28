@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\GalleriController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\SponsorController;
@@ -21,9 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+//Navbar-homepage
+Route::get('/', [FrontController::class, 'home'])->name('home');
+Route::get('kegiatans', [FrontController::class, 'kegiatan'])->name('kegiatan');
+Route::get('detailkegiatan/{id}', [FrontController::class, 'detailKegiatan'])->name('detailkegiatan.show');
+Route::get('gallery', [FrontController::class, 'galleri'])->name('galleri');
+Route::get('tentang-Kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
+Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
+Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 Route::redirect('/login', '/admin/login');
 
