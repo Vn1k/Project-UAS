@@ -11,12 +11,12 @@
 <h1>Edit Kegiatan</h1>
 <form action="/admin/kegiatan/{{$kegiatan->id}}" method="post" enctype="multipart/form-data">
     @csrf
-    Nama Kegiatan: <input type="text" name="nama_kegiatan" value="{{$kegiatan->nama_kegiatan}}" /><br />
-    Tanggal: <input type="date" name="tanggal" value="{{$kegiatan->tanggal}}" /><br />
-    Waktu: <input type="time" name="waktu" value="{{$kegiatan->waktu}}" /><br />
-    Oleh: <input type="text" name="penyelenggara" value="{{$kegiatan->penyelenggara}}" /><br />
-    Lokasi: <input type="text" name="lokasi" value="{{$kegiatan->lokasi}}" /><br />
-    Deskripsi: <input type="text" name="deskripsi" value="{{$kegiatan->deskripsi}}" ><br />
+    Nama Kegiatan <input type="text" name="nama_kegiatan" value="{{$kegiatan->nama_kegiatan}}" /><br />
+    Tanggal <input type="date" name="tanggal" value="{{$kegiatan->tanggal}}" /><br />
+    Waktu <input type="time" name="waktu" value="{{$kegiatan->waktu}}" /><br />
+    Oleh <input type="text" name="penyelenggara" value="{{$kegiatan->penyelenggara}}" /><br />
+    Lokasi <input type="text" name="lokasi" value="{{$kegiatan->lokasi}}" /><br />
+    Deskripsi <input type="text" name="deskripsi" value="{{$kegiatan->deskripsi}}" ><br />
     Volunteer
     <select name="volunteer_id">
         @foreach ($volunteers as $volunteer)
@@ -48,13 +48,13 @@
     <input type="file" name="photo"><br />
     <div>
         Current Foto 2
-        <img src="{{asset('storage/' . $kegiatan->photo)}}" style="width: 300px">
+        <img src="{{asset('storage/' . $kegiatan->photo2)}}" style="width: 300px">
     </div> 
     Foto 2 
     <input type="file" name="photo2"><br />
     <div>
         Current Foto 3
-        <img src="{{asset('storage/' . $kegiatan->photo)}}" style="width: 300px">
+        <img src="{{asset('storage/' . $kegiatan->photo3)}}" style="width: 300px">
     </div> 
     Foto 3 
     <input type="file" name="photo3"><br />
