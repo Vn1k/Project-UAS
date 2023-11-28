@@ -35,14 +35,15 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     required>
             </div>
-            <button type="submit"
-                class="btnSUBMITspons text-black justify-center items-center align-middle bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <div class="btnSUBMITspons">
+                <button type="submit" class="btnSUBMITspons text-black justify-center items-center align-middle bg-yellow-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            </div>
         </a>
     </form>
 
-    <div class="tableSPONS overflow-x-auto">
+    <div class="tableSPONS overflow-x-auto shadow-md sm:rounded-lg">
         <table class="tabsSPONS w-100 text-sm text-center text-gray-900 bg-yellow-200 border border-grey-800 shadow-xl">
-            <thead class="w-100 text-lg text-gray-700 uppercase bg-yellow-200 rounded-3xl">
+            <thead class="w-100 text-lg text-gray-700 uppercase bg-yellow-200 dark:bg-gray-700 dark:text-gray-400 rounded-xl shadow-2xl">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         No.

@@ -213,6 +213,8 @@ body {
 {
     width: 60vw;
     border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .colSPONS
@@ -239,10 +241,10 @@ body {
     width: 35vw;
     justify-content: center;
     align-items: center;
-    position: relative;
-    left: 30%;
     margin-top: 100px;
     margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .btnSUBMITspons
@@ -250,8 +252,7 @@ body {
     text-align: center;
     align-items: center;
     justify-content: center;
-    position: relative;
-    left: 45%;
+    margin-top: 10px;
 }
 
 .bgEDITSPONS
