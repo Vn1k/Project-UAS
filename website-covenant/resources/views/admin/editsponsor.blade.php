@@ -15,7 +15,8 @@
                 <li>{{$error}}</li>
             @endforeach
         </ul>
-    @endif
+        @endif
+        
         <form  action="/admin/sponsor/{{$sponsor->id}}" method="post">
             <a class="contEDSPONS block m-10 p-10 items-center justify-center bg-white border border-gray-100 rounded-xl shadow-2xl">
                 @csrf 

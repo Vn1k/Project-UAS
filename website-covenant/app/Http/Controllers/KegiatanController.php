@@ -39,8 +39,8 @@ class KegiatanController extends Controller
     {
         $this->validate($request, [
             'nama_kegiatan' => 'required|max:255',
-            'tanggal' => 'required|date',
-            'waktu' => 'required|date_format',
+            'tanggal' => 'required|date:Y-m-d',
+            'waktu' => 'required|date_format:H:i:s',
             'penyelenggara' => 'required|max:50',
             'lokasi'=> 'required|max:255',
             'deskripsi'=> 'required|max:255'
@@ -90,8 +90,8 @@ class KegiatanController extends Controller
     {
         $this->validate($request, [
             'nama_kegiatan' => 'required|max:255',
-            'tanggal' => 'required|date',
-            'waktu' => 'required|date_format',
+            'tanggal' => 'required|date:Y-m-d',
+            'waktu' => 'required|date_format:H:i:s',
             'penyelenggara' => 'required|max:50',
             'lokasi'=> 'required|max:255',
             'deskripsi'=> 'required|max:255'

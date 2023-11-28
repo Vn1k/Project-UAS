@@ -34,11 +34,30 @@
     </select>
     
     <br />
-    Cover: <input type="file" name="cover"><br />
-    Foto 1: <input type="file" name="photo"><br />
-    Foto 2: <input type="file" name="photo2"><br />
-    Foto 3: <input type="file" name="photo3"><br />
-
+    <div>
+        Current Cover
+        <img src="{{asset('storage/' . $kegiatan->cover)}}" style="width: 300px">
+    </div>
+    Cover 
+    <input type="file" name="cover"><br />
+    <div>
+        Current Foto 1
+        <img src="{{asset('storage/' . $kegiatan->photo)}}" style="width: 300px">
+    </div>    
+    Foto 1 
+    <input type="file" name="photo"><br />
+    <div>
+        Current Foto 2
+        <img src="{{asset('storage/' . $kegiatan->photo)}}" style="width: 300px">
+    </div> 
+    Foto 2 
+    <input type="file" name="photo2"><br />
+    <div>
+        Current Foto 3
+        <img src="{{asset('storage/' . $kegiatan->photo)}}" style="width: 300px">
+    </div> 
+    Foto 3 
+    <input type="file" name="photo3"><br />
     <button type="submit">Submit</button>
 </form>
 @endsection

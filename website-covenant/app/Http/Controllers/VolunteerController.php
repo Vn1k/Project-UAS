@@ -78,7 +78,7 @@ class VolunteerController extends Controller
             'nama' => 'required|max:50',
             'asal' => 'required|max:20',
             'no_telepon' => 'required|max:13',
-            'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
+            // 'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         if($request->file('photo')!=null){
