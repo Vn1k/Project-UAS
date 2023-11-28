@@ -37,6 +37,15 @@ class KegiatanController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nama_kegiatan' => 'required|max:255',
+            'tanggal' => 'required|date',
+            'waktu' => 'required|date_format',
+            'penyelenggara' => 'required|max:50',
+            'lokasi'=> 'required|max:255',
+            'deskripsi'=> 'required|max:255'
+        ]);
+
         $kegiatan = new Kegiatan();
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->tanggal = $request->jadwal;
@@ -79,6 +88,15 @@ class KegiatanController extends Controller
      */
     public function edit(Request $request, string $id)
     {
+        $this->validate($request, [
+            'nama_kegiatan' => 'required|max:255',
+            'tanggal' => 'required|date',
+            'waktu' => 'required|date_format',
+            'penyelenggara' => 'required|max:50',
+            'lokasi'=> 'required|max:255',
+            'deskripsi'=> 'required|max:255'
+        ]);
+
         $pathCover = $request->file('cover')->storePublicly('covers', 'public');
         $ext = $request->file('cover')->extension();
 
