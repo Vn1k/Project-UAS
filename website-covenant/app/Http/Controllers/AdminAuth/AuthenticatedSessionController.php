@@ -9,15 +9,36 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Carbon\Carbon;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    public function greetings()
+    {
+        $currentTime = Carbon::now();
+        $hour = $currentTime->hour;
+
+        if ($hour < 3) {
+            $greetings = 'Selamat Malam';
+        } elseif ($hour < 11) {
+            $greetings = 'Selamat Pagi';
+        } elseif ($hour < 15) {
+            $greetings = 'Selamat Siang';
+        } elseif ($hour < 18) {
+            $greetings = 'Selamat Malam';
+        }
+
+        return $greetings;
+    }
+
     /**
      * Display the login view.
      */
     public function create(): View
     {
-        return view('admin.auth.login');
+        $greetings = $this->greetings();
+        return view('admin.auth.login', ['greetings' => $greetings]);
     }
 
     /**
