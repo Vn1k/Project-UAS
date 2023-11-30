@@ -19,6 +19,8 @@ class AuthenticatedSessionController extends Controller
         $currentTime = Carbon::now();
         $hour = $currentTime->hour;
 
+        $greetings = 'Selamat Malam'; // Nilai default
+
         if ($hour < 3) {
             $greetings = 'Selamat Malam';
         } elseif ($hour < 11) {
@@ -26,7 +28,7 @@ class AuthenticatedSessionController extends Controller
         } elseif ($hour < 15) {
             $greetings = 'Selamat Siang';
         } elseif ($hour < 18) {
-            $greetings = 'Selamat Malam';
+            $greetings = 'Selamat Sore';
         }
 
         return $greetings;
