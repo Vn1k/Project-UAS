@@ -45,29 +45,29 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <table>
-                    <thead>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-sm text-gray-700 uppercase bg-utama  dark:text-gray-400">
                         <tr>
-                            <th>
-                                Images
+                            <th scope="col" class="px-6 py-3">
+                                Image
                             </th>
-                            <th>
+                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($image as $item)
-                        <tr>
-                            <td>
+                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 @if($item->image)
                                 <img src="{{ asset('storage/images/'.$item->image) }}" class="rounded w-96 h-96">
                                 @else
                                 <span>No image found!</span>
                                 @endif
-                                <!-- </td>
-                <td class="logoBIN px-6 py-4 text-right"> -->
+                            </td>
+                            <td class="px-6 py-4">
                                 @if($item->image)
                                 <form action="{{ route('galleri.destroy', ['galleri' => $item->id]) }}" method="POST" style="display: inline;">
                                     @csrf
