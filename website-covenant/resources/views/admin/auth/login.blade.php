@@ -280,14 +280,16 @@
       backgroundElement.classList.remove('greetings-night', 'greetings-morning', 'greetings-afternoon', 'greetings-evening');
 
       // Tentukan kelas baru berdasarkan waktu
-      if (currentTime < 3 || currentTime >= 18) {
+      if (currentTime < 3) {
         backgroundElement.classList.add('greetings-night');
       } else if (currentTime < 11) {
         backgroundElement.classList.add('greetings-morning');
       } else if (currentTime < 15) {
         backgroundElement.classList.add('greetings-afternoon');
-      } else {
+      } else if (currentTime < 18) {
         backgroundElement.classList.add('greetings-evening');
+      } else {
+        backgroundElement.classList.add('greetings-night');
       }
     }
 
