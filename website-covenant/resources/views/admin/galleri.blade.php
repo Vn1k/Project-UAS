@@ -33,7 +33,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                            <form action="{{ route('galleri.store') }}" method="post" enctype="multipart/form-data" class="dropzone border-2 border-gray-300 border-dashed rounded-lg" id="myDropzone">
+                            <form action="{{ route('galleri.store') }}" method="post" enctype="multipart/form-data" class="dropzone border-2 border-gray-300 border-dashed rounded-lg my-10" id="myDropzone">
                                 @csrf
                                 <div class="fallback">
                                     <input type="file" name="image" id="user_avatar" @error('image') is-invalid @enderror>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-10">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead class="text-sm text-gray-700 uppercase bg-utama  dark:text-gray-400">
                         <tr>
