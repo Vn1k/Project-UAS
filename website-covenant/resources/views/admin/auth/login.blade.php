@@ -9,8 +9,6 @@
     transition: 0.3s;
   }
 
-  html {}
-
   body {
     overflow: hidden;
     height: 100vh;
