@@ -130,7 +130,7 @@
       width: 50%;
       font-size: 15px;
       letter-spacing: 1px;
-      font-weight: 400;
+      font-weight: 300;
     }
 
     button {

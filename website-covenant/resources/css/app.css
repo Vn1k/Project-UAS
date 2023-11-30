@@ -169,24 +169,6 @@ body {
     font-size: x-large;
 }
 
-.btnFormGalleri
-{
-    position: absolute;
-    left: 45%;
-    top: 60%;
-}
-
-.titlegalleri
-{
-    font-size: 30px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 700;
-    position: relative;
-    left: 34%;
-}
-
 .titleSPONSOR
 {
     font-size: 2rem;
