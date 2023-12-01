@@ -34,7 +34,6 @@ Route::get('detailkegiatan/{id}', [FrontController::class, 'detailKegiatan'])->n
 Route::get('gallery', [FrontController::class, 'galleri'])->name('galleri');
 Route::get('tentang-Kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
 Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
-Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
 
 Route::redirect('/login', '/admin/login');
 
@@ -105,20 +104,14 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::resource('admin/supporters', SupporterController::class)->names([
         'index' => 'supporter.index',
         'create' => 'supporter.create',
-        'store' => 'supporter.store',
         'show' => 'supporter.show',
         'edit' => 'supporter.edit',
         'update' => 'supporter.update',
         'destroy' => 'supporter.destroy',
     ]);
-    
 });
+Route::post('dukungan', [SupporterController::class, 'store'])->name('supporter.store');
 
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
 require __DIR__ . '/adminauth.php';
-
-//supporter route
-Route::post('/supporter/store', [FrontController::class, 'store_dukungan'])->name('supporter.store');
-Route::get('dukungan-selesai', [FrontController::class, 'showSupporter'])->name('dukungan-selesai');
-Route::get('dukungan-kuitansi/{id}', [FrontController::class, 'generateReceipt'])->name('generate-pdf');

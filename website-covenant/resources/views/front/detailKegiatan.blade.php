@@ -10,7 +10,6 @@
             margin-right: 20px; 
             margin-botton : 20px;
             margin-top : 20px;
-            
           }
         }
       </style>

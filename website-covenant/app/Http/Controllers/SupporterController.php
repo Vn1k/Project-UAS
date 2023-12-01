@@ -31,44 +31,6 @@ class SupporterController extends Controller
      */
     public function store(Request $request)
     {
-        // // Validate the incoming data
-        // $validatedData = $request->validate([
-        //     'nama' => 'required',
-        //     'email' => 'required|email',
-        //     'alamat' => 'required',
-        //     'no_telepon' => 'required',
-        //     'bentuk_donasi' => 'required',
-        //     'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        //     'keterangan' => 'required',
-        //     'agree' => 'required',
-        // ]);        
-
-        // // Create a new Supporter instance and fill it with the validated data
-        // $supporter = new Supporter();
-        // $supporter->nama = $validatedData['nama'];
-        // $supporter->tanggal = now(); // You may adjust the timestamp accordingly
-        // $supporter->email = $validatedData['email'];
-        // $supporter->alamat = $validatedData['alamat'];
-        // $supporter->no_telepon = $validatedData['no_telepon'];
-        // $supporter->donasi = $validatedData['bentuk_donasi'];
-        // $supporter->pesan = $validatedData['keterangan'];
-
-        // // Save the Supporter instance to get its ID
-        // $supporter->save();
-
-        // // Get the ID of the newly created supporter
-        // $supporterId = $supporter->id;
-
-        // // Generate a unique file name using the supporter's ID and save the uploaded file
-        // $filePath = $request->file('bukti_transfer')->storeAs('public/fotobukti/fotobukti_'. $supporterId . '.jpg');
-
-        // // Update the supporter's photo field with the file path
-        // $supporter->photo = $filePath;
-        // $supporter->save();
-
-        // // Redirect to 'dukungan-selesai' with supporter data
-        // return redirect()->route('dukungan-selesai', ['supporter' => $supporter]);
-
         // Validate the incoming data
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
@@ -79,7 +41,7 @@ class SupporterController extends Controller
             'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'keterangan' => 'required|string',
             'agree' => 'required|accepted',
-        ]);        
+        ]);
 
         // Create a new Supporter instance and fill it with the validated data
         $supporter = new Supporter();
@@ -105,8 +67,13 @@ class SupporterController extends Controller
         $supporter->save();
 
         // Redirect to 'dukungan-selesai' with supporter data
-        return redirect()->route('dukungan-selesai', ['supporter' => $supporter]);
+        return redirect()->route('front.dukungan-selesai', ['supporter' => $supporter]);
+    }
 
+    public function showSupporter(Request $request)
+    {
+        $supporters = Supporter::all();
+        return view('admin.supporter', ['supporters' => $supporters]);
     }
 
 
@@ -141,15 +108,6 @@ class SupporterController extends Controller
     {
         //
     }
-
-    public function showSupporter(Request $request)
-    {
-        $supporterId = $request->query('supporter'); // Retrieve supporter ID from the URL parameter
-        $supporter = Supporter::find($supporterId); // Retrieve supporter data based on the ID
-
-        return view('dukungan-selesai', ['supporter' => $supporter]);
-    }
-
 
     public function generateReceipt(string $id)
     {
