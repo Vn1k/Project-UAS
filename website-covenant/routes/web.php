@@ -9,6 +9,11 @@ use App\Http\Controllers\SupporterController;
 use App\Http\Controllers\VolunteerController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Models\Sponsor;
+use App\Models\Galleri;
+use App\Models\Volunteer;
+use App\Models\Kegiatan;
+use App\Models\Supporter;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +46,12 @@ Route::get('/admin', function () {
 Route::middleware(['auth:admin', 'verified'])->group(function () {
     // Admin Dashboard
     Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
+        $countspon = Sponsor::count();
+        $countvoult = Volunteer::count();
+        $countsupp = Supporter::count();
+        $countkegiatan = Kegiatan::count();
+        $countgaleri = Galleri::count();
+        return view('admin.dashboard', compact('countspon','countvoult','countsupp','countkegiatan','countgaleri'));
     })->name('admin.dashboard');
 
     // Galleri Resource Routes
