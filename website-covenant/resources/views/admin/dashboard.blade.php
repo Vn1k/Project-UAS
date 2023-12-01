@@ -12,38 +12,38 @@
     @section('content')
     <div class="p-4 sm:ml-64">
         <div class="p-4">
-            <div class="mb-5 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Welcome</div>
-            <div class="grid md:grid-cols-5 md:gap-5 font-medium font-kanit">
-                <a class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <div class="mb-5 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Welcome back, {{ Auth::user()->name }}</div>
+            <div class="grid md:grid-cols-5 md:gap-5 sm:gap-5 font-medium font-kanit">
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:text-white hover:bg-hover dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div class="flex flex-col items-center justify-center">
                         <dt class="mb-2 text-3xl font-extrabold">{{ $countspon }}</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Sponsor</dd>
+                        <span class="text-gray-500 dark:text-gray-400 hover:text-white">Sponsor</span>
                     </div>
-                </a>
-                <a class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                </div>
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:text-white hover:bg-hover dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div class="flex flex-col items-center justify-center">
                         <dt class="mb-2 text-3xl font-extrabold">{{$countvoult}}</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Volunteer</dd>
+                        <span class="text-gray-500 dark:text-gray-400 hover:text-white">Volunteer</span>
                     </div>
-                </a>
-                <a class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                </div>
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:text-white hover:bg-hover dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div class="flex flex-col items-center justify-center">
                         <dt class="mb-2 text-3xl font-extrabold">{{$countkegiatan}}</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Kegiatan</dd>
+                        <span class="text-gray-500 dark:text-gray-400 hover:text-white">Kegiatan</span>
                     </div>
-                </a>
-                <a class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                </div>
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:text-white hover:bg-hover dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div class="flex flex-col items-center justify-center">
                         <dt class="mb-2 text-3xl font-extrabold">{{$countgaleri}}</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Galleri</dd>
+                        <span class="text-gray-500 dark:text-gray-400 hover:text-white">Galleri</span>
                     </div>
-                </a>
-                <a class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                </div>
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow  hover:text-white hover:bg-hover dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                     <div class="flex flex-col items-center justify-center">
                         <dt class="mb-2 text-3xl font-extrabold">{{$countsupp}}</dt>
-                        <dd class="text-gray-500 dark:text-gray-400">Supporter</dd>
+                        <span class="text-gray-500 dark:text-gray-400 hover:text-white">Supporter</span>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
