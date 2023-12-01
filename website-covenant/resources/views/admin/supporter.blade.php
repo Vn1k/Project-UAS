@@ -12,6 +12,10 @@
         background-color: white;
     }
 
+    .title{
+        font-size: large;
+    }
+
     .container {
         font-family: 'Kanit', sans-serif;
         max-width: 80vw; /* Set a maximum width for the container */
@@ -231,7 +235,7 @@
                                 {{$supporter->pesan}}
                             </div>
                             <div class="photo-cell">
-                                <img src="{{ asset('storage/fotobukti/fotobukti_' . $supporter->id . '.jpg') }}" alt="Photo" class="popup-trigger">
+                                <img src="{{ asset('storage/fotobukti/fotobukti_' . $supporter->id . '.jpg') }}" loading=”lazy” alt="Photo" class="popup-trigger">
                             </div>
                         </div>
                     </td>
@@ -242,7 +246,7 @@
 
 
     </div>
-picture
+
     <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
         const photoCells = document.querySelectorAll('.photo-cell');
