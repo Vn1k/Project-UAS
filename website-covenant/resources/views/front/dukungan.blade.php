@@ -1,93 +1,14 @@
+@vite(['resources/css/app.css','resources/js/app.js'])
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donation Form</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&display=swap">
     <style>
-        .container {
-            font-family: 'Kanit', sans-serif;
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #DCC22F;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        h2 {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-        }
-
-        input[type="file"] {
-            margin-bottom: 15px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        button[type="submit"] {
-            background-color: #F4DFBE;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 3px;
-            font-size: 16px;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-
-        .rekening-info {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .rekening-info h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-            text-align: center;
-        }
-
-        .rekening-info p {
-            margin-bottom: 5px;
-            font-size: 16px;
-            text-align: center;
-        }
-
-
-
         .input-file {
             display: inline-block;
             position: relative;
@@ -98,7 +19,7 @@
             color: #555;
             padding: 8px 12px;
             cursor: pointer;
-            width: 100%; 
+            width: 100%;
         }
 
 
@@ -113,7 +34,7 @@
             width: 100%;
         }
 
-      
+
         .input-file span {
             margin-left: 10px;
             font-size: 14px;
@@ -127,30 +48,24 @@
 </head>
 
 <body>
-    <h2 class="text-center mt-5 mb-5">Support</h2>
-
-    <div class="container grid-rows-2 gap-4 ">
-        <div class="bg-sky-500/50">1</div>
-        <div class="bg-red-500/50">2</div>
-    </div>
-
-
-
-    <div class="container grid-rows-2 gap-4">
+    @extends('layouts.appUser')
+    @section('content')
+    <h2>Support</h2>
+    <div>
         <form action="{{ route('supporter.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <!-- INI DIV YG ATAS -->
-            <div class="grid grid-cols-2 gap-4">
-                <div class="grid grid-rows-6 gap-4">
-                    <div class="form-group">
+            <div>
+                <div>
+                    <div>
                         @error('nama')
-                        <span style="color: red;">{{ $message }}</span>
+                        <span>{{ $message }}</span>
                         @enderror
                         <label for="nama">Nama:</label>
                         <input type="text" name="nama" value="{{ old('nama') }}">
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         @error('email')
                         <span style="color: red;">{{ $message }}</span>
                         @enderror
@@ -158,7 +73,7 @@
                         <input type="email" name="email" value="{{ old('email') }}">
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         @error('alamat')
                         <span style="color: red;">{{ $message }}</span>
                         @enderror
@@ -166,7 +81,7 @@
                         <textarea name="alamat">{{ old('alamat') }}</textarea>
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         @error('no_telepon')
                         <span style="color: red;">{{ $message }}</span>
                         @enderror
@@ -174,7 +89,7 @@
                         <input type="text" name="no_telepon" value="{{ old('no_telepon') }}">
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         <label for="bentuk_donasi">Bentuk Donasi:</label>
                         <select name="bentuk_donasi">
                             <option value="uang_tunai">Uang Tunai</option>
@@ -182,7 +97,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div>
                         @error('bukti_transfer')
                         <span style="color: red;">{{ $message }}</span>
                         @enderror
@@ -240,6 +155,7 @@
             label.textContent = fileName;
         });
     </script>
+    @endsection
 </body>
 
 </html>
