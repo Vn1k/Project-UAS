@@ -18,7 +18,7 @@
         @include('partials.navbar')
         
         {{-- CONTENT PER PAGE  --}}
-        <main class="flex-1 mt-12">
+        <main class="flex-1">
             @yield('content')
         </main>
         

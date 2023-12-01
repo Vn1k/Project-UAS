@@ -24,7 +24,7 @@
       <li class="mx-4 my-6 md:my-0">
         <a href="{{ url('sukarelawan') }}" class="text-lg 2xl:text-xl  hover:text-second duration-500">Sukarelawan</a>
       </li>
-      <li class=" md:ml-4">
+      <li class=" md:ml-4 2xl:mx-4 ">
         <a href="dukungan" class="bg-utama  border-2 border-black text-black text-lg  rounded-full duration-500 px-5 py-1 mx-2 md:mx-0 hover:bg-second ">
           Dukungan
         </a>

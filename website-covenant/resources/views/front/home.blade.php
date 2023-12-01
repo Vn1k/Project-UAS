@@ -7,9 +7,9 @@
   <div class=" w-screen font-Kanit">
 
     <!-- Jumbotron -->
-      <div id="default-carousel" class="mt-7 relative w-screen " data-carousel="slide">
+      <div id="default-carousel" class="relative w-screen " data-carousel="slide">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-sm sm:h-[475px] lg:h-[540px] xl:h-[600px] 2xl:h-[700px]">
+        <div class="relative h-56 overflow-hidden rounded-sm sm:h-[475px] lg:h-[615px] 2xl:h-[786px]">
           
           {{-- LAYER AND TEXT --}}
           <div class="flex justify-center absolute w-full h-full">
