@@ -68,7 +68,7 @@
                                 {{$sponsor->penanggung_jawab}}
                             </td>
                             <td class="px-8 py-4 whitespace-nowrap flex gap-6">
-                                <a href="{{ route('admin.sponsor.show', ['sponsor' => $sponsor->id]) }}" class="text-blue-600 dark:text-blue-500 hover:underline">
+                                <a href="{{ route('admin.sponsor.show', ['sponsor' => $sponsor->id]) }}" class="text-blue-600 dark:text-blue-500 hover:underline"> 
                                     <Span>Edit</Span>
                                 </a>
                                 <form action="{{ route('admin.sponsor.destroy', ['sponsor' => $sponsor->id]) }}" method="post">

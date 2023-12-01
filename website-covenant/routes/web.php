@@ -89,7 +89,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         'destroy' => 'admin.kegiatan.destroy',
     ]);
     
-    Route::put('admin/kegiatan/{kegiatan}', [KegiatanController::class, 'update'])->name('admin.sponsor.update');
+    Route::put('admin/kegiatan/{kegiatan}', [KegiatanController::class, 'update'])->name('admin.kegiatan.update');
 
     //Supporter Resource Routes
     Route::resource('admin/supporters', SupporterController::class)->names([

@@ -24,6 +24,7 @@
             @endif
 
             <form action="{{ route('admin.sponsor.update', ['sponsor' => $sponsor->id]) }}" method="post" enctype="multipart/form-data" class="max-w-md mx-auto my-10">
+
                 @csrf
                 @method('PUT')
                 <div class="relative z-0 w-full mb-5 group">
