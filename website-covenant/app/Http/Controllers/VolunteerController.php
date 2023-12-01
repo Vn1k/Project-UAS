@@ -55,7 +55,7 @@ class VolunteerController extends Controller
         $volunteer->photo = $path;
         $volunteer->save();
 
-        return redirect('/volunteer');
+        return redirect()->route('admin.volunteer.index');
 
     }
 
@@ -93,7 +93,7 @@ class VolunteerController extends Controller
         $volunteer->no_telepon = $request->no_telepon;
         $volunteer->photo = $path;
         $volunteer->save();
-        return redirect('/volunteer');
+        return redirect()->route('admin.volunteer.index');
     }
 
     /**
@@ -106,7 +106,7 @@ class VolunteerController extends Controller
         $volunteer->asal = $request->asal;
         $volunteer->no_telepon = $request->no_telepon;
         $volunteer->save();
-        return redirect('/admin');
+        return redirect()->route('admin.volunteer.index');
     }
 
     /**
@@ -116,6 +116,6 @@ class VolunteerController extends Controller
     {
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->delete();
-        return redirect('/volunteer');
+        return redirect()->route('admin.volunteer.index');
     }
 }
