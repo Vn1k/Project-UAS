@@ -47,10 +47,7 @@ class GalleriController extends Controller
         $image->image = $filename;
         $image->save();
 
-        return redirect()->back()->with([
-            'message' => 'Image added successfully',
-            'status' => 'success'
-        ]);
+        return response()->json(['success' => 'Image added successfully']);
     }
 
     /**

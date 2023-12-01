@@ -21,6 +21,7 @@ export default {
         third: '#D9D5B8',
         fourth: '#f45905',
         five: '#FFFDE7',
+        hover: '#a8a58d',
       },
       fontFamily: {
         Kanit: ["Kanit-Regular"]

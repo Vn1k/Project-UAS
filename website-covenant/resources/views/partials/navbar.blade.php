@@ -38,12 +38,12 @@
     function Menu(imgElement) {
       let list = document.querySelector('ul');
       
-      if (imgElement.getAttribute('src') === '{{ asset('local_images/menu.png') }}') {
-        imgElement.setAttribute('src', '{{ asset('local_images/close.png') }}');
+      if (imgElement.getAttribute('src') === '{{ asset("local_images/menu.png") }}') {
+        imgElement.setAttribute('src', '{{ asset("local_images/close.png") }}');
         list.classList.add('top-[80px]');
         list.classList.add('opacity-100');
       } else {
-        imgElement.setAttribute('src', '{{ asset('local_images/menu.png') }}');
+        imgElement.setAttribute('src', '{{ asset("local_images/menu.png") }}');
         list.classList.remove('top-[80px]');
         list.classList.remove('opacity-100');
       }

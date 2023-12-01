@@ -1,416 +1,301 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
     * {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
+      margin: 0;
+      padding: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      font-family: 'Kanit', sans-serif;
+    }
 
-body {
-  background-color: #fff;
-  font-family: Montserrat;
-  overflow-x: hidden;
-}
+    body {
+      overflow-x: hidden;
+      height: 100vh;
+      margin: 0;
+    }
 
-article,
-aside,
-details,
-figure,
-footer,
-header,
-main,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
+    .bg-illustration {
+      background-image: url('/asset/admin-bg.jpg');
+      background-position: left center;
+      animation: slideIn 2s ease-out;
+      /* Menambahkan animasi slideIn dengan durasi 1 detik dan efek ease-out */
+      padding: 2rem;
+    }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a {
-  -ms-word-wrap: break-word;
-  word-wrap: break-word;
-  text-decoration: none;
-}
+    @keyframes slideIn {
+      from {
+        transform: translateX(-100%);
+        /* Mulai dari posisi di luar layar sebelah kiri */
+      }
 
-img {
-  border: none;
-}
+      to {
+        transform: translateX(0);
+        /* Posisi akhir, tanpa translasi horizontal */
+      }
+    }
 
-*:focus {
-  outline: none;
-}
+    .parent {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
+    /* columns mobile */
+    .parent>* {
+      width: 100%;
+      padding: 2rem;
+    }
 
-.bg-illustration {
-  position: relative;
-  height: 100vh;
-  width: 1194px;
-  background: url('{{ asset("storage/asset/admin-bg.jpg") }}' ) no-repeat center center scroll;
-  background-size: cover;
-  float: left;
-  -webkit-animation: bgslide 2.3s forwards;
-          animation: bgslide 2.3s forwards;
-}
-.bg-illustration img {
-  width: 100px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  height: auto;
-  margin: 19px 0 0 25px;
-}
+    @media(max-width:767px) {
+      .bg-illustration {
+        background-position: center center;
+        background-size: cover;
+      }
 
-@-webkit-keyframes bgslide {
-  from {
-    left: -100%;
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    width: 1194px;
-    opacity: 1;
-  }
-}
+      a {
+        display: flex;
+        justify-content: center;
+      }
 
-@keyframes bgslide {
-  from {
-    left: -100%;
-    width: 0;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    width: 1194px;
-    opacity: 1;
-  }
-}
+      .login {
+        width: 100%;
+        /* Mengambil lebar 100% pada layar < 767px */
+        text-align: center;
+        /* Mengatur teks ke tengah */
+        /* Menghapus padding atau atur menjadi 0 */
+        align-items: stretch;
+      }
 
+      .ExP>input {
+        width: 100%;
+      }
+    }
 
-.login {
-  max-height: 100vh;
-  overflow-Y: auto;
-  float: left;
-  margin: 0 auto;
-  width: calc(100% - 1194px);
-}
-.login .container {
-  width: 505px;
-  margin: 0 auto;
-  position: relative;
-}
-.login .container h1 {
-  margin-top: 100px;
-  font-size: 35px;
-  font-weight: bolder;
-}
-.login .container .login-form {
-  margin-top: 112px;
-}
-.login .container .login-form form {
-  display: -ms-grid;
-  display: grid;
-}
-.login .container .login-form form input {
-  font-size: 16px;
-  font-weight: normal;
-  background: rgba(57, 57, 57, 0.07);
-  margin: 12.5px 0;
-  height: 68px;
-  border: none;
-  padding: 0 30px;
-  border-radius: 10px;
-}
-.login .container .login-form form button[type=submit] {
-  background: -webkit-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-  background: -o-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-  background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
-  border: none;
-  margin-top: 124px;
-  margin-bottom: 20px;
-  width: 241px;
-  height: 58px;
-  text-transform: uppercase;
-  color: white;
-  border-radius: 10px;
-  position: relative;
-  z-index: 2;
-  font-weight: bold;
-  font-size: 20px;
-}
-.login .container .login-form form button[type=submit]:hover::after {
-  opacity: 1;
-}
-.login .container .login-form form button[type=submit]::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border-radius: 10px;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  -webkit-transition: 0.3s ease-in-out;
-  -o-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
-  right: 0;
-  bottom: 0;
-  background: -webkit-gradient(linear, left bottom, left top, from(#09203f), to(#537895));
-  background: -webkit-linear-gradient(bottom, #09203f 0%, #537895 100%);
-  background: -o-linear-gradient(bottom, #09203f 0%, #537895 100%);
-  background: linear-gradient(to top, #09203f 0%, #537895 100%);
-}
-.login .container .remember-form {
-  position: relative;
-  margin-top: -30px;
-}
-.login .container .remember-form input[type=checkbox] {
-  margin-top: 9px;
-}
-.login .container .remember-form span {
-  font-size: 18px;
-  font-weight: normal;
-  position: absolute;
-  top: 32px;
-  color: #3B3B3B;
-  margin-left: 15px;
-}
-.login .container .forget-pass {
-  position: absolute;
-  right: 0;
-  margin-top: 189px;
-}
-.login .container .forget-pass a {
-  font-size: 16px;
-  position: relative;
-  font-weight: normal;
-  color: #918F8F;
-}
-.login .container .forget-pass a::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  border-radius: 100px;
-  background: -webkit-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-  background: -o-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-  background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
-  bottom: -4px;
-  left: 0;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-  opacity: 0;
-  right: 0;
-}
-.login .container .forget-pass a:hover::after {
-  opacity: 1;
-}
+    @media(min-width:768px) {
 
-@media only screen and (min-width: 1024px) and (max-width: 1680px) {
-  .bg-illustration {
-    width: 50%;
-    -webkit-animation: none;
-            animation: none;
-  }
+      .parent>.login {
+        width: calc(100% / 3);
+        height: 100vh;
+      }
 
-  .login {
-    width: 50%;
-  }
-}
-/* Display 12", iPad PRO Portrait, iPad landscape */
-@media only screen and (max-width: 1024px) {
-  body {
-    overflow-x: hidden;
-  }
+      .parent>.bg-illustration {
+        width: calc(100% / 3 * 2);
+        height: 100vh;
+      }
 
-  @-webkit-keyframes slideIn {
-    from {
-      left: -100%;
+    }
+
+    .login {
+      display: flex;
+      height: 100vh;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: center;
       opacity: 0;
+      transform: scale(0.5);
+      /* Atur skala awal menjadi 0.5 (setengah dari ukuran normal) */
+      animation: zoomIn 1s ease-out forwards;
+      text-align: center;
     }
-    to {
-      left: 0;
-      opacity: 1;
-    }
-  }
 
-  @keyframes slideIn {
-    from {
-      left: -100%;
-      opacity: 0;
-    }
-    to {
-      left: 0;
-      opacity: 1;
-    }
-  }
-  .bg-illustration {
-    float: none;
-    background: url('{{ asset("storage/asset/admin-bg.jpg") }}' ) center center;
-    background-size: cover;
-    -webkit-animation: slideIn 0.8s ease-in-out forwards;
-            animation: slideIn 0.8s ease-in-out forwards;
-    width: 100%;
-    height: 190px;
-    text-align: center;
-  }
-  .bg-illustration img {
-    width: 100px;
-    height: auto;
-    margin: 20px auto !important;
-    text-align: center;
-  }
-  .bg-illustration .burger-btn {
-    left: 33px;
-    top: 29px;
-    display: block;
-    position: absolute;
-  }
-  .bg-illustration .burger-btn span {
-    display: block;
-    height: 4px;
-    margin: 6px;
-    background-color: #fff;
-  }
-  .bg-illustration .burger-btn span:nth-child(1) {
-    width: 37px;
-  }
-  .bg-illustration .burger-btn span:nth-child(2) {
-    width: 28px;
-  }
-  .bg-illustration .burger-btn span:nth-child(3) {
-    width: 20px;
-  }
+    @keyframes zoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.5);
+      }
 
-  .login {
-    float: none;
-    margin: 0 auto;
-    width: 100%;
-  }
-  .login .container {
-    -webkit-animation: slideIn 0.8s ease-in-out forwards;
-            animation: slideIn 0.8s ease-in-out forwards;
-    width: 85%;
-    float: none;
-  }
-  .login .container h1 {
-    font-size: 25px;
-    margin-top: 40px;
-  }
-  .login .container .login-form {
-    margin-top: 90px;
-  }
-  .login .container .login-form form input {
-    height: 45px;
-  }
-  .login .container .login-form form button[type=submit] {
-    height: 45px;
-    margin-top: 100px;
-  }
-  .login .container .login-form .remember-form {
-    position: relative;
-    margin-top: -14px;
-  }
-  .login .container .login-form .remember-form span {
-    font-size: 16px;
-    margin-top: 22px;
-    top: inherit;
-  }
+      to {
+        opacity: 1;
+        transform: scale(1);
+        /* Skala akhir setara dengan ukuran normal */
+      }
+    }
 
-  .forget-pass {
-    position: absolute;
-    right: inherit;
-    left: 0;
-    bottom: -40px;
-    margin: 0 !important;
-  }
-  .forget-pass a {
-    font-size: 16px;
-    position: relative;
-    font-weight: normal;
-    color: #918F8F;
-  }
-  .forget-pass a::after {
-    content: "";
-    position: absolute;
-    height: 2px;
-    width: 100%;
-    border-radius: 100px;
-    background: -webkit-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-    background: -o-linear-gradient(110deg, #f794a4 0%, #fdd6bd 100%);
-    background: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
-    bottom: -4px;
-    left: 0;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
-    transition: 0.3s;
-    opacity: 0;
-    right: 0;
-  }
-  .forget-pass a:hover::after {
-    opacity: 1;
-  }
-}
-</style>
-<div class="parent clearfix">
+    .ExP>input {
+      padding: 15px 15px 15px 15px;
+      margin: 10px 0px 10px 0px;
+      border: none;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      width: 50%;
+      font-size: 15px;
+      letter-spacing: 1px;
+      font-weight: 300;
+    }
+
+    button {
+      padding: 15px 15px 15px 15px;
+      margin: 10px 0px 10px 0px;
+      border: none;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
+      width: 50%;
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-bottom: 5rem;
+      font-size: calc(32px + 0.390625vw);
+      font-weight: 500;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: calc(24px + 0.390625vw);
+    }
+
+    img {
+      width: calc(100px + 0.390625vw);
+      /* Contoh: 20% dari lebar parent ditambah 10px */
+      height: calc(100px + 0.390625vw);
+      /* Contoh: 20% dari tinggi parent ditambah 10px */
+    }
+
+    .rmme {
+      font-weight: 400;
+    }
+
+    .greetings-night {
+      color: white;
+      background: #012459;
+      background: -moz-linear-gradient(top, #012459 0%, #001322 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #012459), color-stop(100%, #001322));
+      background: -webkit-linear-gradient(top, #012459 0%, #001322 100%);
+      background: -o-linear-gradient(top, #012459 0%, #001322 100%);
+      background: -ms-linear-gradient(top, #012459 0%, #001322 100%);
+      background: linear-gradient(to bottom, #012459 0%, #001322 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#012459', endColorstr='#001322', GradientType=0);
+    }
+
+    .greetings-morning {
+      color: #050505;
+      background: #efeebc;
+      background: -moz-linear-gradient(top, #efeebc 0%, #61d0cf 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efeebc), color-stop(100%, #61d0cf));
+      background: -webkit-linear-gradient(top, #efeebc 0%, #61d0cf 100%);
+      background: -o-linear-gradient(top, #efeebc 0%, #61d0cf 100%);
+      background: -ms-linear-gradient(top, #efeebc 0%, #61d0cf 100%);
+      background: linear-gradient(to bottom, #efeebc 0%, #61d0cf 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#efeebc', endColorstr='#61d0cf', GradientType=0);
+    }
+
+    .greetings-afternoon {
+      color: #050505;
+      background: #fdc352;
+      background: -moz-linear-gradient(top, #fdc352 0%, #e8ed92 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdc352), color-stop(100%, #e8ed92));
+      background: -webkit-linear-gradient(top, #fdc352 0%, #e8ed92 100%);
+      background: -o-linear-gradient(top, #fdc352 0%, #e8ed92 100%);
+      background: -ms-linear-gradient(top, #fdc352 0%, #e8ed92 100%);
+      background: linear-gradient(to bottom, #fdc352 0%, #e8ed92 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdc352', endColorstr='#e8ed92', GradientType=0);
+    }
+
+    .greetings-evening {
+      color: white;
+      background: #f18448;
+      background: -moz-linear-gradient(top, #f18448 0%, #ffd364 100%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f18448), color-stop(100%, #ffd364));
+      background: -webkit-linear-gradient(top, #f18448 0%, #ffd364 100%);
+      background: -o-linear-gradient(top, #f18448 0%, #ffd364 100%);
+      background: -ms-linear-gradient(top, #f18448 0%, #ffd364 100%);
+      background: linear-gradient(to bottom, #f18448 0%, #ffd364 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f18448', endColorstr='#ffd364', GradientType=0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="parent greetings-night" id="backgroundElement">
     <div class="bg-illustration">
-        <img src="{{ asset('storage/asset/logo-covenant.svg') }}" alt="logo">
+      <a href="{{ url('/') }}">
+        <img src="{{ asset('asset/logo-covenant.svg') }}" alt="logo">
+      </a>
     </div>
 
     <div class="login">
-        <div class="container">
-            <h1>Login to access to<br />your account</h1>
+      <div class="container">
+        <div class="login-greetings">
+          <h1>{{ $greetings }}</h1>
+          <h2>Login to access to<br />your account</h2>
+        </div>
+        <div class="login-form">
+          <x-auth-session-status :status="session('status')" />
+          <form method="POST" action="{{ route('admin.login') }}">
+            @csrf
 
-            <div class="login-form">
-            <x-auth-session-status class="mb-4" :status="session('status')" />
-                <form method="POST" action="{{ route('admin.login') }}">
-                    @csrf
-
-                    <!-- Email Address -->
-                    <div>
-                        <x-text-input id="email" aria-placeholder="Email" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-                        <x-input-error :messages="$errors->get('email')" />
-                    </div>
-
-                    <!-- Password -->
-                    <div class="mt-4">
-                        <x-text-input id="password" placeholder="Password" type="password" name="password" required autocomplete="current-password" />
-
-                        <x-input-error :messages="$errors->get('password')" />
-                    </div>
-
-                    <!-- Remember Me -->
-                    <div>
-                        <label for="remember_me">
-                            <input id="remember_me" type="checkbox" name="remember">
-                            <span>{{ __('Remember me') }}</span>
-                        </label>
-                    </div>
-
-                    <div>
-                        <x-primary-button>
-                            {{ __('Log in') }}
-                        </x-primary-button>
-                    </div>
-                </form>
+            <!-- Email Address -->
+            <div class="ExP">
+              <x-text-input id="email" aria-placeholder="Email" placeholder="Email" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+              <x-input-error :messages="$errors->get('email')" />
             </div>
 
+            <!-- Password -->
+            <div class="ExP">
+              <x-text-input id="password" placeholder="Password" type="password" name="password" required autocomplete="current-password" />
+
+              <x-input-error :messages="$errors->get('password')" />
+            </div>
+
+            <!-- Remember Me -->
+            <div class="rmme">
+              <label for="remember_me">
+                <input id="remember_me" type="checkbox" name="remember">
+                <span>{{ __('Remember me') }}</span>
+              </label>
+            </div>
+
+            <div>
+              <x-primary-button>
+                {{ __('Log in') }}
+              </x-primary-button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+
+  <script>
+    // Fungsi untuk mengubah latar belakang berdasarkan waktu
+    function changeBackground() {
+      var currentTime = new Date().getHours();
+      var backgroundElement = document.getElementById('backgroundElement');
+
+      // Hapus semua kelas latar belakang saat ini
+      backgroundElement.classList.remove('greetings-night', 'greetings-morning', 'greetings-afternoon', 'greetings-evening');
+
+      // Tentukan kelas baru berdasarkan waktu
+      if (currentTime < 3) {
+        backgroundElement.classList.add('greetings-night');
+      } else if (currentTime < 11) {
+        backgroundElement.classList.add('greetings-morning');
+      } else if (currentTime < 15) {
+        backgroundElement.classList.add('greetings-afternoon');
+      } else if (currentTime < 18) {
+        backgroundElement.classList.add('greetings-evening');
+      } else {
+        backgroundElement.classList.add('greetings-night');
+      }
+    }
+
+    // Panggil fungsi untuk mengatur latar belakang saat halaman dimuat
+    changeBackground();
+  </script>
+</body>
+
+</html>
