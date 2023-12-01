@@ -8,6 +8,11 @@
     <title>Admin List Supporter</title>
 </head>
 <style>
+
+    .photo-cell img{
+        width: 100px;
+    }
+
     /* Mengdesign si itu, si... si photo pencet trus muncul di tengah lho */
     .popup-overlay {
         display: none;

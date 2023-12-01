@@ -114,11 +114,11 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     
 });
 
-Route::get('dukungan-selesai', [SupporterController::class, 'showSupporter'])->name('dukungan-selesai');
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
 require __DIR__ . '/adminauth.php';
 
 //supporter route
-
-Route::get('dukungan-kuitansi/{id}', [SupporterController::class, 'generateReceipt'])->name('generate-pdf');
+Route::post('/supporter/store', [FrontController::class, 'store_dukungan'])->name('supporter.store');
+Route::get('dukungan-selesai', [FrontController::class, 'showSupporter'])->name('dukungan-selesai');
+Route::get('dukungan-kuitansi/{id}', [FrontController::class, 'generateReceipt'])->name('generate-pdf');

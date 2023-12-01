@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submission Successful</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Kanit', sans-serif;
@@ -54,7 +53,7 @@
 <body>
     <div class="container">       
         <div class="kuitansi-container">
-            <center><h2 style="font-family: 'Kanit', sans-serif;">KUITANSI</h2></center>
+            <center><h2>KUITANSI</h2></center>
             <p>
                 <span class="label">Waktu:</span>
                 <span class="content">{{ $supporter->tanggal }}</span>

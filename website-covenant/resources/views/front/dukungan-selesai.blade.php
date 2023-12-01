@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submission Successful</title>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
-    <!-- <style>
+    <style>
         body {
             font-family: 'Kanit', sans-serif;
             margin: 0;
@@ -98,7 +98,7 @@
                 text-align: right; /* Align content to right */
             }
         }
-    </style> -->
+    </style>
 </head>
 
 <body>
