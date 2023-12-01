@@ -121,4 +121,4 @@ require __DIR__ . '/adminauth.php';
 
 //supporter route
 
-
+Route::get('dukungan-kuitansi/{id}', [SupporterController::class, 'generateReceipt'])->name('generate-pdf');
