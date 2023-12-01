@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400&display=swap">
     <style>
-        /* .container {
-            background-color: #f4f4f4;
-        } */
-
-        /* .container {
+        .container {
             font-family: 'Kanit', sans-serif;
             max-width: 600px;
             margin: 30px auto;
@@ -20,7 +16,7 @@
             background-color: #DCC22F;
             border: 1px solid #ddd;
             border-radius: 5px;
-        } */
+        }
 
         h2 {
             margin-bottom: 20px;
