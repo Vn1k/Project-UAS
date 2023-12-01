@@ -79,30 +79,9 @@ class KegiatanController extends Controller
      */
     public function edit(Request $request, string $id)
     {
-        $pathCover = $request->file('cover')->storePublicly('covers', 'public');
-        $ext = $request->file('cover')->extension();
-
-        $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
-        $ext = $request->file('photo')->extension();
-
-        $pathPhoto2 = $request->file('photo2')->storePublicly('photos', 'public');
-        $ext = $request->file('photo2')->extension();
-
-        $pathPhoto3 = $request->file('photo3')->storePublicly('photos', 'public');
-        $ext = $request->file('photo3')->extension();
-  
+   
         $kegiatan = Kegiatan::findOrFail($id);
-        $kegiatan->nama_kegiatan = $request->nama_kegiatan;
-        $kegiatan->jadwal = $request->jadwal;
-        $kegiatan->waktu = $request->waktu;
-        $kegiatan->lokasi = $request->lokasi;
-        $kegiatan->deskripsi = $request->deskripsi;
-        $kegiatan->cover = $pathCover;
-        $kegiatan->photo = $pathPhoto;
-        $kegiatan->photo2 = $pathPhoto2;
-        $kegiatan->photo3 = $pathPhoto3;
-        $kegiatan->save();
-        return redirect()->route('admin.kegiatan.index');
+        return redirect()->route('admin.kegiatan.index', ['kegiatan' => $kegiatan]);
     }
 
     /**
@@ -111,11 +90,44 @@ class KegiatanController extends Controller
     public function update(Request $request, string $id)
     {
         $kegiatan = Kegiatan::findOrFail($id);
+
+
+        $pathCover = $kegiatan->cover;
+        $pathPhoto = $kegiatan->photo;
+        $pathPhoto2 = $kegiatan->photo2;
+        $pathPhoto3 = $kegiatan->photo3;
+    
+        // Check if cover file is present
+        if ($request->hasFile('cover')) {
+            $pathCover = $request->file('cover')->storePublicly('covers', 'public');
+        }
+    
+        // Check if photo file is present
+        if ($request->hasFile('photo')) {
+            $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
+        }
+    
+        // Check if photo2 file is present
+        if ($request->hasFile('photo2')) {
+            $pathPhoto2 = $request->file('photo2')->storePublicly('photos', 'public');
+        }
+    
+        // Check if photo3 file is present
+        if ($request->hasFile('photo3')) {
+            $pathPhoto3 = $request->file('photo3')->storePublicly('photos', 'public');
+        }
+
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
+        $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->jadwal = $request->jadwal;
         $kegiatan->waktu = $request->waktu;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
+        $kegiatan->cover = $pathCover;
+        $kegiatan->photo = $pathPhoto;
+        $kegiatan->photo2 = $pathPhoto2;
+        $kegiatan->photo3 = $pathPhoto3;
+        
         $kegiatan->save();
 
         return redirect()->route('admin.kegiatan.index');

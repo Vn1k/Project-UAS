@@ -152,16 +152,16 @@
                                 @endforeach
                             </td>
                             <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->cover)}}" style="width: 300px" />
+                                <img src="{{asset('storage/' . $event->cover)}}" style="width: 50px" />
                             </td>
                             <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->photo)}}" style="width: 300px" />
+                                <img src="{{asset('storage/' . $event->photo)}}" style="width: 50px" />
                             </td>
                             <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->photo2)}}" style="width: 300px" />
+                                <img src="{{asset('storage/' . $event->photo2)}}" style="width: 50px" />
                             </td>
                             <td class="px-6 py-4">
-                                <img src="{{asset('storage/' . $event->photo3)}}" style="width: 300px" />
+                                <img src="{{asset('storage/' . $event->photo3)}}" style="width: 50px" />
                             </td>
 
                             <td class="px-6 py-4">
