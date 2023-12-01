@@ -18,7 +18,7 @@
         <div class="p-4">
             <div class="mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Upload Data Kegiatan</div>
 
-            <form action="/kegiatan" method="post" enctype="multipart/form-data" class="max-w-md mx-auto my-10">
+            <form action="{{ route('admin.kegiatan.store') }}" method="post" enctype="multipart/form-data" class="max-w-md mx-auto my-10">
                 @csrf
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="text" id="nama_kegiatan" name="nama_kegiatan" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-third peer" placeholder=" " required />
@@ -55,8 +55,8 @@
                         </select>
                     </div>
                     <div class="relative z-0 w-full mb-5 group">
-                        <label for="underline_select" class="sr-only">Underline select</label>
-                        <select id="underline_select" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <label for="sponsor_id" class="sr-only">Sponsor select</label>
+                        <select id="sponsor_id" name="sponsor_id" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             <option selected>Sponsor - Penanggung Jawab</option>
                             @foreach ($sponsors as $sponsor)
                             <option value='{{$sponsor->id}}'>{{$sponsor->instansi}} - {{$sponsor->penanggung_jawab}}</option>
@@ -117,7 +117,7 @@
                     </thead>
                     <tbody>
                         @foreach($kegiatans as $index => $event)
-                        <tr>
+                        <tr class="text-black">
                             <td class="px-6 py-4">
                                 {{ $index + 1}}
                             </td>
@@ -165,17 +165,16 @@
                             </td>
 
                             <td class="px-6 py-4">
-                                <a href="/kegiatan/{{ $event->id }}/edit" class="font-medium text-white hover:underline">edit</a> |
-                            
-                                <form action="/kegiatan/{{ $event->id }}" method="post">
+                                <a href="{{ route('admin.kegiatan.show', ['kegiatan' => $event->id]) }}"class="text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+
+                                <form action="{{ route('admin.kegiatan.destroy', ['kegiatan' => $event->id]) }}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="imgDEL text-red-600 dark:text-red-500 hover:underline">
-                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                                            <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                                        </svg>
+                                    <button type="submit" class="text-red-600 dark:text-red-500 hover:underline">
+                                        <span>Hapus</span>
                                     </button>
                                 </form>
+
                             </td>
                         </tr>
                         @endforeach

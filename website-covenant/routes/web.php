@@ -54,8 +54,8 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         'update' => 'galleri.update',
         'destroy' => 'galleri.destroy',
     ]);
-    //Volunteer Resource Routes
 
+    //Volunteer Resource Routes
     Route::resource('admin/volunteer', VolunteerController::class)->names([
         'index' => 'admin.volunteer.index',
         'create' => 'admin.volunteer.create',
@@ -67,6 +67,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
 
     Route::put('admin/volunteer/{volunteer}', [VolunteerController::class, 'update'])->name('admin.volunteer.update');
 
+    //Sponsor Resource Routes
     Route::resource('admin/sponsor', SponsorController::class)->names([
         'index' => 'admin.sponsor.index',
         'create' => 'admin.sponsor.create',
@@ -79,12 +80,17 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     Route::put('admin/sponsor/{sponsor}', [SponsorController::class, 'update'])->name('admin.sponsor.update');
 
     //kegiatan Resource Routes
-    Route::get('admin/kegiatan', [KegiatanController::class, 'index'])->name('admin.kegiatan.index');
-    Route::get('admin/kegiatan/{id}/edit', [KegiatanController::class, 'show'])->name('admin.kegiatan.show');
-    Route::post('admin/kegiatan', [KegiatanController::class, 'store'])->name('admin.kegiatan.store');
-    Route::post('admin/kegiatan/{id}', [KegiatanController::class, 'edit'])->name('admin.kegiatan.edit');
-    Route::delete('admin/kegiatan/{id}', [KegiatanController::class, 'destroy'])->name('admin.kegiatan.destroy');
+    Route::resource('admin/kegiatan', KegiatanController::class)->names([
+        'index' => 'admin.kegiatan.index',
+        'create' => 'admin.kegiatan.create',
+        'store' => 'admin.kegiatan.store',
+        'show' => 'admin.kegiatan.show',
+        'edit' => 'admin.kegiatan.edit',
+        'destroy' => 'admin.kegiatan.destroy',
+    ]);
     
+    Route::put('admin/kegiatan/{kegiatan}', [KegiatanController::class, 'update'])->name('admin.sponsor.update');
+
     //Supporter Resource Routes
     Route::resource('admin/supporters', SupporterController::class)->names([
         'index' => 'supporter.index',

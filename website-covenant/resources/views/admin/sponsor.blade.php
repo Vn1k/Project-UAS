@@ -55,7 +55,7 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="dark:text-gray-400">
                         @foreach($sponsors as $sponsor)
                         <tr>
                             <td class="px-6 py-4">

@@ -39,7 +39,7 @@ class KegiatanController extends Controller
     {
         $kegiatan = new Kegiatan();
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
-        $kegiatan->tanggal = $request->jadwal;
+        $kegiatan->jadwal = $request->jadwal;
         $kegiatan->waktu = $request->waktu;
         $kegiatan->penyelenggara = $request->penyelenggara;
         $kegiatan->lokasi = $request->lokasi;
@@ -56,7 +56,7 @@ class KegiatanController extends Controller
         $kegiatansponsor->kegiatan_id = $kegiatan->id;
         $kegiatansponsor->save();
 
-        return redirect('/kegiatan');
+        return redirect()->route('admin.kegiatan.index');
     }
 
     /**
@@ -93,7 +93,7 @@ class KegiatanController extends Controller
   
         $kegiatan = Kegiatan::findOrFail($id);
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
-        $kegiatan->tanggal = $request->tanggal;
+        $kegiatan->jadwal = $request->jadwal;
         $kegiatan->waktu = $request->waktu;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
@@ -102,7 +102,7 @@ class KegiatanController extends Controller
         $kegiatan->photo2 = $pathPhoto2;
         $kegiatan->photo3 = $pathPhoto3;
         $kegiatan->save();
-        return redirect('/kegiatan');
+        return redirect()->route('admin.kegiatan.index');
     }
 
     /**
@@ -112,13 +112,13 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::findOrFail($id);
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
-        $kegiatan->tanggal = $request->tanggal;
+        $kegiatan->jadwal = $request->jadwal;
         $kegiatan->waktu = $request->waktu;
         $kegiatan->lokasi = $request->lokasi;
         $kegiatan->deskripsi = $request->deskripsi;
         $kegiatan->save();
 
-        return redirect('/kegiatan');
+        return redirect()->route('admin.kegiatan.index');
     }
 
     /**
@@ -130,6 +130,6 @@ class KegiatanController extends Controller
         KegiatanVolunteer::where('kegiatan_id', $id)->delete();
         $kegiatan = Kegiatan::find($id);
         $kegiatan->delete();
-        return redirect('/kegiatan');
+        return redirect()->route('admin.kegiatan.index');
     }
 }
