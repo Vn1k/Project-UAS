@@ -24,7 +24,7 @@
         <div class="p-4">
             <div class="mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Upload Data Sponsor</div>
 
-            <form action="#" method="post" enctype="multipart/form-data" class="max-w-md mx-auto my-10">
+            <form action="{{ route('admin.sponsor.store') }}" method="post" enctype="multipart/form-data" class="max-w-md mx-auto my-10">
                 @csrf
                 <div class="relative z-0 w-full mb-5 group">
                     <input type="text" name="instansi" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-third peer" placeholder=" " required />
@@ -67,19 +67,15 @@
                             <td class="px-6 py-4">
                                 {{$sponsor->penanggung_jawab}}
                             </td>
-                            <td class="px-8 py-4 whitespace-nowrap flex">
-                                <a href="/volunteer/{{ $volunteer->id }}/show" class="text-blue-600 dark:text-blue-500 hover:underline">
-                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 14">
-                                        <path d="M10 0C4.612 0 0 5.336 0 7c0 1.742 3.546 7 10 7 6.454 0 10-5.258 10-7 0-1.664-4.612-7-10-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-                                    </svg>
+                            <td class="px-8 py-4 whitespace-nowrap flex gap-6">
+                                <a href="{{ route('admin.sponsor.show', ['sponsor' => $sponsor->id]) }}" class="text-blue-600 dark:text-blue-500 hover:underline">
+                                    <Span>Edit</Span>
                                 </a>
-                                <form action="/volunteer/{{ $volunteer->id }}" method="post">
-                                    @method('DELETE')
+                                <form action="{{ route('admin.sponsor.destroy', ['sponsor' => $sponsor->id]) }}" method="post">
                                     @csrf
-                                    <button type="submit" class="imgDEL text-red-600 dark:text-red-500 hover:underline">
-                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                                            <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                                        </svg>
+                                    @method('delete')
+                                    <button type="submit" class="text-red-600 dark:text-red-500 hover:underline">
+                                        <span>Hapus</span>
                                     </button>
                                 </form>
                             </td>

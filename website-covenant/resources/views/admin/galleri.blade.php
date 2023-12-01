@@ -40,7 +40,7 @@
                                 </div>
                             </form>
 
-                            <button id="customSubmitBtn" class="py-2 px-8 bg-utama rounded-xl mt-5 shadow-lg font-medium" style="display:none;">Submit</button>
+                            <button id="customSubmitBtn" class="py-2 px-8 bg-utama rounded-xl my-5 shadow-lg font-medium" style="display:none;">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -72,10 +72,8 @@
                                 <form action="{{ route('galleri.destroy', ['galleri' => $item->id]) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit">
-                                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-                                            <path d="M17 4h-4V2a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v2H1a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6h1a1 1 0 1 0 0-2ZM7 2h4v2H7V2Zm1 14a1 1 0 1 1-2 0V8a1 1 0 0 1 2 0v8Zm4 0a1 1 0 0 1-2 0V8a1 1 0 0 1 2 0v8Z" />
-                                        </svg>
+                                    <button type="submit" class="text-red-600 dark:text-red-500 text-base font-medium hover:underline">
+                                        <span>Hapus</span>
                                     </button>
                                 </form>
                                 @endif
@@ -90,25 +88,6 @@
     @endsection
     <script src="https://cdn.jsdelivr.net/npm/dropzone@5.9.2/dist/dropzone.js"></script>
 
-
-    <!-- <script>
-        Dropzone.options.myDropzone = {
-            paramName: 'image',
-            maxFilesize: 10,
-            acceptedFiles: 'image/*',
-            init: function() {
-                this.on('success', function(file, response) {
-                    // Handle success, e.g., show a success message
-                    console.log(response.success);
-                });
-
-                this.on('error', function(file, errorMessage) {
-                    // Handle error, e.g., show an error message
-                    console.log(errorMessage);
-                });
-            }
-        };
-    </script> -->
     <script>
         Dropzone.options.myDropzone = {
             paramName: 'image',

@@ -55,18 +55,28 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         'destroy' => 'galleri.destroy',
     ]);
     //Volunteer Resource Routes
-    Route::get('admin/volunteer', [VolunteerController::class, 'index'])->name('admin.volunteer.index');
-    Route::get('admin/volunteer/{id}/show', [VolunteerController::class, 'show'])->name('admin.volunteer.show');
-    Route::post('admin/volunteer', [VolunteerController::class, 'store'])->name('admin.volunteer.store');
-    Route::post('admin/volunteer/{id}', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
-    Route::delete('admin/volunteer/{id}', [VolunteerController::class, 'destroy'])->name('admin.volunteer.destroy');
 
-    //sponsor Resource Routes
-    Route::get('admin/sponsor', [SponsorController::class, 'index'])->name('admin.sponsor.index');
-    Route::get('admin/sponsor/{id}/show', [SponsorController::class, 'show'])->name('admin.sponsor.show');
-    Route::post('admin/sponsor', [SponsorController::class, 'store'])->name('admin.sponsor.store');
-    Route::post('admin/sponsor/{id}', [SponsorController::class, 'edit'])->name('admin.sponsor.edit');
-    Route::delete('admin/sponsor/{id}', [SponsorController::class, 'destroy'])->name('admin.sponsor.destroy');
+    Route::resource('admin/volunteer', VolunteerController::class)->names([
+        'index' => 'admin.volunteer.index',
+        'create' => 'admin.volunteer.create',
+        'store' => 'admin.volunteer.store',
+        'show' => 'admin.volunteer.show',
+        'edit' => 'admin.volunteer.edit',
+        'destroy' => 'admin.volunteer.destroy',
+    ]);
+
+    Route::put('admin/volunteer/{volunteer}', [VolunteerController::class, 'update'])->name('admin.volunteer.update');
+
+    Route::resource('admin/sponsor', SponsorController::class)->names([
+        'index' => 'admin.sponsor.index',
+        'create' => 'admin.sponsor.create',
+        'store' => 'admin.sponsor.store',
+        'show' => 'admin.sponsor.show',
+        'edit' => 'admin.sponsor.edit',
+        'destroy' => 'admin.sponsor.destroy',
+    ]);
+
+    Route::put('admin/sponsor/{sponsor}', [SponsorController::class, 'update'])->name('admin.sponsor.update');
 
     //kegiatan Resource Routes
     Route::get('admin/kegiatan', [KegiatanController::class, 'index'])->name('admin.kegiatan.index');

@@ -38,12 +38,12 @@ class VolunteerController extends Controller
             'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
-        $photo= $request->file('photo');
+        $photo = $request->file('photo');
         $filename = time() . '.' . $photo->extension();
-    
+
         // Process and compress the image
         $compressedImage = Image::make($photo)->encode('jpg', 75);
-    
+
         // Save the compressed image
         $path = 'photos/' . $filename;
         $compressedImage->save(public_path('storage/' . $path));
@@ -56,7 +56,6 @@ class VolunteerController extends Controller
         $volunteer->save();
 
         return redirect()->route('admin.volunteer.index');
-
     }
 
     /**
@@ -74,26 +73,10 @@ class VolunteerController extends Controller
      */
     public function edit(Request $request, string $id)
     {
-        $this->validate($request, [
-            'nama' => 'required|max:50',
-            'asal' => 'required|max:20',
-            'no_telepon' => 'required|max:13',
-            'photo' => 'required|image|mimes:jpeg,png,jpg|max:10240',
-        ]);
-
-        if($request->file('photo')!=null){
-            $path = $request->file('photo')->storePublicly('photos', 'public');
-        }else{
-            $path = null;
-        }
-
+    
         $volunteer = Volunteer::findOrFail($id);
-        $volunteer->nama = $request->nama;
-        $volunteer->asal = $request->asal;
-        $volunteer->no_telepon = $request->no_telepon;
-        $volunteer->photo = $path;
-        $volunteer->save();
-        return redirect()->route('admin.volunteer.index');
+
+        return redirect()->route('admin.volunteer.index', ['volunteer' => $volunteer]);
     }
 
     /**
@@ -101,13 +84,21 @@ class VolunteerController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->validate($request, [
+            'nama' => 'required|max:50',
+            'asal' => 'required|max:20',
+            'no_telepon' => 'required|max:13',
+        ]);
+
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->nama = $request->nama;
         $volunteer->asal = $request->asal;
         $volunteer->no_telepon = $request->no_telepon;
         $volunteer->save();
+
         return redirect()->route('admin.volunteer.index');
     }
+
 
     /**
      * Remove the specified resource from storage.

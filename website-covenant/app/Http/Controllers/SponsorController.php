@@ -39,8 +39,7 @@ class SponsorController extends Controller
         $sponsor->penanggung_jawab = $request->penanggung_jawab;
         $sponsor->save();
 
-        return redirect('/sponsor');
-
+        return redirect()->route('admin.sponsor.index');
     }
 
     /**
@@ -57,16 +56,8 @@ class SponsorController extends Controller
      */
     public function edit(Request $request, string $id)
     {
-        $this->validate($request, [
-            'instansi' => 'required|max:255',
-            'penanggung_jawab' => 'required|max:50'
-        ]);
-
         $sponsor = Sponsor::findOrFail($id);
-        $sponsor->instansi = $request->instansi;
-        $sponsor->penanggung_jawab = $request->penanggung_jawab;
-        $sponsor->save();
-        return redirect('/sponsor');
+        return view('admin.editsponsor', ['sponsor' => $sponsor]);
     }
 
     /**
@@ -74,11 +65,17 @@ class SponsorController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $this->validate($request, [
+            'instansi' => 'required|max:255',
+            'penanggung_jawab' => 'required|max:50',
+        ]);
+    
         $sponsor = Sponsor::findOrFail($id);
         $sponsor->instansi = $request->instansi;
         $sponsor->penanggung_jawab = $request->penanggung_jawab;
         $sponsor->save();
-        return redirect('/admin');
+    
+        return redirect()->route('admin.sponsor.index');
     }
 
     /**
@@ -88,6 +85,6 @@ class SponsorController extends Controller
     {
         $sponsor = Sponsor::findOrFail($id);
         $sponsor->delete();
-        return redirect('/sponsor');
+        return redirect()->route('admin.sponsor.index');
     }
 }
