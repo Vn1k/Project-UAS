@@ -88,16 +88,37 @@ class VolunteerController extends Controller
             'nama' => 'required|max:50',
             'asal' => 'required|max:20',
             'no_telepon' => 'required|max:13',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
         ]);
 
         $volunteer = Volunteer::findOrFail($id);
         $volunteer->nama = $request->nama;
         $volunteer->asal = $request->asal;
         $volunteer->no_telepon = $request->no_telepon;
+
+        if ($request->hasFile('photo')) {
+            // Process and compress the updated image
+            $photo = $request->file('photo');
+            $filename = time() . '.' . $photo->extension();
+
+            // Compress the image
+            $compressedImage = Image::make($photo)->encode('jpg', 75);
+
+            // Save the compressed image
+            $path = 'photos/' . $filename;
+            $compressedImage->save(public_path('storage/' . $path));
+
+            // Delete the previous image file
+            Storage::delete($volunteer->photo);
+
+            $volunteer->photo = $path;
+        }
+
         $volunteer->save();
 
         return redirect()->route('admin.volunteer.index');
     }
+
 
 
     /**
