@@ -34,8 +34,15 @@ Route::get('detailkegiatan/{id}', [FrontController::class, 'detailKegiatan'])->n
 Route::get('gallery', [FrontController::class, 'galleri'])->name('galleri');
 Route::get('tentang-Kami', [FrontController::class, 'tentangKami'])->name('tentangKami');
 Route::get('sukarelawan', [FrontController::class, 'sukarelawan'])->name('sukarelawan');
+Route::get('dukungan', [FrontController::class, 'dukungan'])->name('dukungan');
+
+Route::post('proses_dukungan', [FrontController::class, 'storeDukungan'])->name('proses_dukungan');
+Route::get('dukungan-selesai/{id}', [FrontController::class, 'showDukunganSelesai'])->name('dukungan-selesai');
+Route::get('/generate-pdf/{id}', [FrontController::class, 'generateReceipt'])->name('generate-pdf');
+
 
 Route::redirect('/login', '/admin/login');
+
 
 Route::get('/admin', function () {
     return redirect()->route('admin.dashboard');
@@ -110,8 +117,8 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
         'destroy' => 'supporter.destroy',
     ]);
 });
-Route::post('dukungan', [SupporterController::class, 'store'])->name('supporter.store');
 
 Route::post('/admin/logout', [AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
 
 require __DIR__ . '/adminauth.php';
+

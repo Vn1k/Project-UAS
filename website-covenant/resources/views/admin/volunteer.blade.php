@@ -63,8 +63,9 @@
 
             <!-- For PopUp Images -->
             <div class="popup-overlay" id="popupOverlay">
-                <img src="{{ asset('storage/fotobukti/$student->photo') }}" class="popup-image" id="popupImage" alt="Popup Image">
+                <img class="popup-image" id="popupImage" alt="Popup Image">
             </div>
+            <!-- ---------------- -->
 
             <div class="mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Upload Data Volunteers</div>
 

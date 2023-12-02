@@ -17,7 +17,7 @@
         <div class="flex flex-row opacity-0 text-left rounded-b-xl group-hover:opacity-100 cursor-default absolute bottom-0 w-full h-4/6 bg-gradient-to-t  from-utama to-transparen transition duration-700">
           <div class="text-lg absolute bottom-0 ml-3 mb-3 sm:ml-5 sm:mb-7">
             <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl font-semibold">{{ $kegiatan->nama_kegiatan }}</p>
-            <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl">{{ $kegiatan->tanggal }}</p>
+            <p class="text-sm lg:text-base xl:text-lg 2xl:text-xl">{{ $kegiatan->jadwal }}</p>
           </div>
         </div>
         {{-- IMAGE --}}

@@ -14,7 +14,7 @@
         }
       </style>
       
-    <div class="mt-5 w-screen mb-20 font-Kanit flex flex-col items-center">
+    <div class="mt-20 w-screen mb-20 font-Kanit flex flex-col items-center">
         <div class="flex flex-col items-center pt-10">
             <h1 class="text-3xl font-bold">Kegiatan</h1>
         </div>

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('supporters', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 50);
-            $table->string('email',20);
-            $table->string('alamat',50);
+            $table->string('email',50);
+            $table->string('alamat',255);
             $table->string('no_telepon', 13);
             $table->enum('donasi', ['uang_tunai', 'barang']);
             $table->string('photo')->nullable();

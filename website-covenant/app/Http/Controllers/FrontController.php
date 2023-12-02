@@ -14,7 +14,6 @@ use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Validator;
 
-
 class FrontController extends Controller
 {
     public function home()
@@ -29,6 +28,9 @@ class FrontController extends Controller
         foreach ($kegiatans as $kegiatan) {
             $waktu = Carbon::createFromFormat('H:i:s', $kegiatan->waktu);
             $kegiatan->formattedTime = $waktu->format('H:i');
+
+            $tanggal = Carbon::createFromFormat('Y-m-d', $kegiatan->jadwal);
+            $kegiatan->formattedDate = $tanggal->format('d F Y');
         }
 
         return view('front.home', [
@@ -101,4 +103,81 @@ class FrontController extends Controller
         $volunteer = Volunteer::all();
         return view('front.sukarelawan', ['volunteers' => $volunteer]);
     }
+
+    public function dukungan()
+    {
+        return view('front.dukungan');
+    }
+
+    // Function untuk dukungan
+    public function storeDukungan(Request $request)
+    {
+        // Validate the incoming data
+        $validatedData = $request->validate([
+            'nama' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'alamat' => 'required|string|max:255',
+            'no_telepon' => 'required|string|max:20',
+            'bentuk_donasi' => 'required|string|max:255',
+            'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'keterangan' => 'required|string',
+            'agree' => 'required|accepted',
+        ]);
+
+        // Create a new Supporter instance and fill it with the validated data
+        $supporter = new Supporter();
+        $supporter->nama = $validatedData['nama'];
+        $supporter->tanggal = now(); // You may adjust the timestamp accordingly
+        $supporter->email = $validatedData['email'];
+        $supporter->alamat = $validatedData['alamat'];
+        $supporter->no_telepon = $validatedData['no_telepon'];
+        $supporter->donasi = $validatedData['bentuk_donasi'];
+        $supporter->pesan = $validatedData['keterangan'];
+
+        // Save the Supporter instance to get its ID
+        $supporter->save();
+
+        // Get the ID of the newly created supporter
+        $supporterId = $supporter->id;
+
+        // Generate a unique file name using the supporter's ID and save the uploaded file
+        $filePath = $request->file('bukti_transfer')->storeAs('public/fotobukti/fotobukti_' . $supporterId . '.jpg');
+
+        // Update the supporter's photo field with the file path
+        $supporter->photo = $filePath;
+        $supporter->save();
+
+        // Redirect to 'dukungan-selesai' with supporter data
+        return redirect()->route('dukungan-selesai', ['id' => $supporter->id]);
+    }
+
+
+    
+    public function showDukunganSelesai($id)
+    {
+        // Retrieve supporter data based on the ID
+        $supporter = Supporter::findOrFail($id);
+        
+        // Load the 'dukungan-selesai' view and pass supporter data
+        return view('front.dukungan-selesai', ['supporter' => $supporter]);
+    }
+    
+    /**
+     * Display the specified resource.
+    */
+
+
+    // public function show_dukungan(string $id)
+    // {
+    //     $pdf = Pdf::loadView('dukungan-kuitansi', compact('supporter'));
+    // }
+
+    public function generateReceipt(string $id)
+    {
+        $supporter = Supporter::findOrFail($id);
+        $pdf = PDF::loadView('front.dukungan-kuitansi', compact('supporter'));
+        return $pdf->stream('front.dukungan-kuitansi.pdf');
+    }
+
+
 }
