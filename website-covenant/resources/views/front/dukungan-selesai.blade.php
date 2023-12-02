@@ -125,7 +125,7 @@
             <hr>
             <p>
                 <span class="label">Nama:</span>
-                <span class="content">{{ $supporter->nama }}</span>
+                <span class="content">{{ substr($supporter->nama, 0, 1) . str_repeat('*', max(strlen($supporter->nama) - 1, 0)) }}</span>
             </p> 
             <hr>
             <!-- <p>
