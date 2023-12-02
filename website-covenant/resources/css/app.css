@@ -1,13 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 @font-face {
     font-family: "Kanit-Regular";
     src: local("Kanit-Regular"),
         url(../Font/Kanit-Regular.ttf) format("truetype");
 }
-@import "node_modules/font-awesome/scss/font-awesome.scss";
 
 body {
     margin: 0;

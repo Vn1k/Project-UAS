@@ -18,7 +18,7 @@ export default {
       colors: {
         utama: '#FAF096',
         second: '#D7CB6D',
-        third: '#D9D5B8',
+        third: '#D8D5B8',
         fourth: '#f45905',
         five: '#FFFDE7',
         hover: '#a8a58d',
@@ -30,8 +30,7 @@ export default {
     },
   },
 
-  plugins: [forms],
-  plugins: [
+  plugins: [forms,
     require('flowbite/plugin')
   ],
 };

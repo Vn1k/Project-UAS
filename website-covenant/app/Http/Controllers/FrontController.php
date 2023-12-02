@@ -5,6 +5,7 @@ use App\Models\KegiatanSponsor;
 use App\Models\KegiatanVolunteer;
 use App\Models\Kegiatan;
 use App\Models\Sponsor;
+use App\Models\Supporter;
 use App\Models\Galleri;
 use App\Models\Volunteer;
 use App\Models\Supporter;
@@ -22,8 +23,9 @@ class FrontController extends Controller
         
         $jumlahKegiatan = Kegiatan::all()->count();
         $jumlahVolunteer = Volunteer::all()->count();
+        $jumlahSupporter = Supporter::all()->count();
 
-        $kegiatans = Kegiatan::where('jadwal', '>', Carbon::now())->get();
+        $kegiatans = Kegiatan::where('tanggal', '>', Carbon::now())->get();
 
         foreach ($kegiatans as $kegiatan) {
             $waktu = Carbon::createFromFormat('H:i:s', $kegiatan->waktu);
@@ -34,12 +36,13 @@ class FrontController extends Controller
             'kegiatans' => $kegiatans,
             'jumlahKegiatan' => $jumlahKegiatan,
             'jumlahVolunteer' => $jumlahVolunteer,
+            'jumlahSupporter' => $jumlahSupporter,
         ]);
     }
 
     public function kegiatan()
     {
-        $kegiatans = Kegiatan::all();
+        $kegiatans = Kegiatan::whereNotNull('cover')->get();
         return view('front.kegiatan', ['kegiatans' => $kegiatans]);
     }
     public function detailKegiatan($id)
