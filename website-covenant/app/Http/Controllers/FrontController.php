@@ -24,7 +24,7 @@ class FrontController extends Controller
         $jumlahVolunteer = Volunteer::all()->count();
         $jumlahSupporter = Supporter::all()->count();
 
-        $kegiatans = Kegiatan::where('tanggal', '>', Carbon::now())->get();
+        $kegiatans = Kegiatan::where('jadwal', '>', Carbon::now())->get();
 
         foreach ($kegiatans as $kegiatan) {
             $waktu = Carbon::createFromFormat('H:i:s', $kegiatan->waktu);
