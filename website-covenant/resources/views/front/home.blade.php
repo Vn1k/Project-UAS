@@ -13,12 +13,12 @@
           
           {{-- LAYER AND TEXT --}}
           <div class="flex justify-center absolute w-full h-full">
-            <div class=" absolute w-full h-full bg-white opacity-50 z-30"></div>
+            <div class=" absolute w-full h-full bg-white opacity-60 z-30"></div>
           
             {{-- AREA TEXT --}}
             <div data-aos="fade-up" data-aos-duration="850" data-aos-once="true" class="mt-[5%] 2xl:mt-[3%] text-center flex flex-col items-center justify-center z-40">
               <h1 class="text-base sm:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-extrabold">SERVING GOD'S PURPOSE IN OUR GENERATION</h1>
-              <img class="my-2 w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32" src="{{ asset('local_images/logo.png') }}">
+              <img class="md:my-3 lg:my-4 my-4 w-16 h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 xl:w-28 xl:h-28 2xl:w-32 2xl:h-32" src="{{ asset('local_images/logo.png') }}">
               <h1 class="text-base sm:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl font-extrabold">YAYASAN PENDIDIKAN COVENANT INDONESIA</h1>
             </div>
             {{-- END OF AREA TEXT --}}
@@ -112,16 +112,16 @@
         <div  class="mt-2 flex flex-col text-center items-center">
             <img class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-10 lg:h-10" src="{{ asset('local_images/iconVolunteer.png') }}" alt="">
             <p class="mt-1 lg:mt-2 2xl:mt-1 text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold">{{ $jumlahVolunteer }}</p>
-            <p class="text-sm sm:text-base lg:text-base lg:mt-1 2xl:mt-0 lg:font-semibold font-normal">Volunteer</p>
+            <p class="text-sm sm:text-base lg:text-base lg:mt-1 2xl:mt-0 lg:font-semibold font-normal">Sukarelawan</p>
         </div>
       </div>
       {{-- END OF AREA LIVE TRACKER --}}
        
       <h1 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-24 sm:mt-32 md:mt-36 xl:mt-44 2xl:mt-52 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">Jadwal Kegiatan</h1>
       {{-- AREA JADWAL --}}
-      <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col mt-5 sm:mt-10 md:mt-12 gap-3">
+      <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="  flex flex-col mt-5 sm:mt-10 md:mt-12 gap-3">
         {{-- ITEM --}}
-        <div class="flex flex-col w-[367px] sm:w-[680px] sm:max-w-screen-sm md:max-w-none md:w-[700px] lg:w-[850px] xl:w-[1000px]">
+        <div class=" mx-4 flex flex-col w-[350px] sm:w-[500px] sm:max-w-screen-sm md:max-w-none md:w-[700px] lg:w-[850px] xl:w-[1000px]">
           @foreach($kegiatans as $kegiatan)
           <div id="{{ $kegiatan->id }}" class="mt-4 2xl:mt-8 px-3 py-1 md:py-2 lg:py-3 lg:px-4 xl:py-5 xl:px-7 text-sm md:text-lg lg:text-xl md:font-semibold flex flex-row justify-between items-center cursor-pointer rounded-2xl bg-utama" onclick="toggleOverlay({{ $kegiatan->id }})">
               <p class="font-medium md:font-semibold">{{ $kegiatan->nama_kegiatan }} </p>
@@ -132,7 +132,7 @@
             
               <div class="mt-2 sm:mt-4 md:mt-6 flex flex-row justify-between ">
                   <div class="">
-                      <p>{{ $kegiatan->tanggal }}</p>
+                      <p>{{ $kegiatan->formattedDate }}</p>
                       <p>Oleh <span class="font-bold">{{ $kegiatan->penyelenggara }}</span></p>
                       <p>Di {{ $kegiatan->lokasi }}</p>
                   </div>
