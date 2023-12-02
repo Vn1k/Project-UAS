@@ -1,3 +1,4 @@
+@vite(['resources/css/app.css','resources/js/app.js'])
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -102,6 +103,8 @@
 </head>
 
 <body>
+    @extends('layouts.appUser')
+    @section('content')
     <div class="container">
         <center><h1 style="font-family: 'Kanit', sans-serif;">DUKUNGAN</h1></center>
         <div class="confirmed-donation">
@@ -146,5 +149,6 @@
         <center><a href="{{ route('generate-pdf', ['id' => $supporter->id]) }}" class="btn">Buat Kuitansi</a></center>
         
     </div>
+    @endsection
 </body>
 </html>

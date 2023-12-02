@@ -56,9 +56,20 @@
 <body>
     @extends('layouts.appUser')
     @section('content')
+
+
     <div class="w-screen font-kanit mt-24 px-10">
         <h1 class="text-xl lg:text-3xl font-bold py-10 text-center">Dukungan</h1>
-        <form action="{{ route('supporter.store') }}" method="POST" enctype="multipart/form-data" class="max-w-7xl mx-auto p-5 rounded">
+        <!-- ERROR CHECK -->
+        @if($errors)
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        @endif
+        <!-- ------------ -->
+        <form action="{{ route('proses_dukungan') }}" method="POST" enctype="multipart/form-data" class="max-w-7xl mx-auto p-5 rounded">
             @csrf
             <div class="grid md:grid-cols-2 md:gap-6 ">
                 <!-- Left Column -->
@@ -114,7 +125,7 @@
             </div>
 
             <div class="relative z-0 w-full mt-2 mb-2 group">
-                <input id="checkbox-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required>
+                <input id="checkbox-1" type="checkbox" name="agree" value="1" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required>
                 <label for="checkbox-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                     <span class="text-justify">Saya setuju untuk memberikan data pribadi saya untuk keperluan donasi Rumah Belajar Covenant, dan saya percaya bahwa data ini akan digunakan secara bertanggung jawab oleh pihak terkait.</span>
                 </label>
