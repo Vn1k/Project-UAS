@@ -124,7 +124,7 @@
                 <span class="content">{{ $supporter->nama }}</span>
             </p> 
             <hr>
-            <p>
+            <!-- <p>
                 <span class="label">Email:</span>
                 <span class="content">{{ $supporter->email }}</span>
             </p> 
@@ -137,7 +137,7 @@
             <p>
                 <span class="label">No. Telp:</span>
                 <span class="content">{{ $supporter->no_telepon }}</span>
-            </p>
+            </p> -->
             <hr>
             <p>
                 <span class="label">Jenis Donasi:</span>
