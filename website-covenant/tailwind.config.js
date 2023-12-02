@@ -23,6 +23,7 @@ export default {
         five: '#FFFDE7',
         hover: '#a8a58d',
         butek: '#f9f9f9',
+        ijo: '#C4FFB6'
       },
       fontFamily: {
         Kanit: ["Kanit-Regular"]
