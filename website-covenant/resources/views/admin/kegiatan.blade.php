@@ -9,13 +9,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
     <title>Kegiatan</title>
 </head>
+<style>
+    
+    .photo-cell img{
+        cursor: pointer;
+    }
+    .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out; /* Modified transition */
+    }
 
+    .popup-image {
+        height: 80vh;
+        width: auto;
+        display: none;
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Modified transition */
+        transform: scale(0.8);
+    }
+
+    .popup-overlay.active, .popup-image.active {
+        display: flex;
+        opacity: 1;
+    }
+</style>
 <body>
     @extends('layouts.navigation')
 
     @section('content')
     <div class="p-4 sm:ml-64">
         <div class="p-4">
+            <!-- For PopUp Images -->
+            <div class="popup-overlay" id="popupOverlay">
+                <img class="popup-image" id="popupImage" alt="Popup Image">
+            </div>
+            <!-- ---------------- -->
             <div class="mb-4 text-4xl text-center font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">Upload Data Kegiatan</div>
 
             <form action="{{ route('admin.kegiatan.store') }}" method="post" enctype="multipart/form-data" class="max-w-md mx-auto my-10">
@@ -151,16 +193,16 @@
                                 <br />
                                 @endforeach
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="photo-cell px-6 py-4">
                                 <img src="{{asset('storage/' . $event->cover)}}" style="width: 50px" />
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="photo-cell px-6 py-4">
                                 <img src="{{asset('storage/' . $event->photo)}}" style="width: 50px" />
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="photo-cell px-6 py-4">
                                 <img src="{{asset('storage/' . $event->photo2)}}" style="width: 50px" />
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="photo-cell px-6 py-4">
                                 <img src="{{asset('storage/' . $event->photo3)}}" style="width: 50px" />
                             </td>
 
@@ -185,6 +227,43 @@
     </div>
 
     @endsection
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const photoCells = document.querySelectorAll('.photo-cell');
+
+            photoCells.forEach(cell => {
+                const image = cell.querySelector('img');
+
+                image.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const imageUrl = this.src; // Get the clicked image URL
+                    showPopup(imageUrl);
+                });
+            });
+
+            function showPopup(imageUrl) {
+                const popupOverlay = document.getElementById('popupOverlay');
+                const popupImage = document.getElementById('popupImage');
+
+                popupImage.src = imageUrl;
+                popupOverlay.classList.add('active');
+                popupImage.classList.add('active');
+
+                popupOverlay.addEventListener('click', closePopup);
+            }
+
+            function closePopup() {
+                const popupOverlay = document.getElementById('popupOverlay');
+                const popupImage = document.getElementById('popupImage');
+
+                popupOverlay.classList.remove('active');
+                popupImage.classList.remove('active');
+
+                popupOverlay.removeEventListener('click', closePopup);
+            }
+        });
+    </script>
 
 </body>
 

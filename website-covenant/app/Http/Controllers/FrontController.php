@@ -14,7 +14,6 @@ use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Validator;
 
-
 class FrontController extends Controller
 {
     public function home()
@@ -165,7 +164,9 @@ class FrontController extends Controller
     
     /**
      * Display the specified resource.
-     */
+    */
+
+
     // public function show_dukungan(string $id)
     // {
     //     $pdf = Pdf::loadView('dukungan-kuitansi', compact('supporter'));
