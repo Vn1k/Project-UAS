@@ -5,34 +5,34 @@
 <div class="w-screen mt-20 font-Kanit">
     {{-- AREA CONTENT --}}
     <div class="mx-5 my-8 flex flex-col items-center">
-        <h1 class="text-xl lg:text-3xl font-bold py-10">Galleri</h1>
+        <h1 class="text-xl sm:text-2xl md:text-3xl font-bold py-10">Galleri</h1>
         {{-- AREA GRID GALLERY --}}
-        <div class="mx-5 sm:mx-10 md:mx-10 lg:mx-15 xl:mx-24 2xl:mx-32 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="mx-5 sm:mx-10 md:mx-10 lg:mx-15 xl:mx-24 2xl:mx-32 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-5">
             <div class="">
                 @foreach($bagian1 as $item1)
                 <div class="image-container">
-                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item1->image) }}" alt="">
+                    <img class="my-5 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item1->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
             <div class="">
                 @foreach($bagian2 as $item2)
                 <div class="image-container">
-                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item2->image) }}" alt="">
+                    <img class="my-5 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item2->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
             <div class="">
                 @foreach($bagian3 as $item3)
                 <div class="image-container">    
-                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item3->image) }}" alt="">
+                    <img class="my-5 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item3->image) }}" alt="">
                 </div>
                 @endforeach
             </div>
             <div class="">
                 @foreach($bagian4 as $item4)
                 <div class="image-container">
-                    <img class="mx-0 py-0 my-4 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item4->image) }}" alt="">
+                    <img class="my-5 px-0 h-auto max-w-full rounded-lg cursor-pointer transform hover:bg-black-opacity-2 transition duration-300 hover:scale-105" src="{{ asset('storage/images/'.$item4->image) }}" alt="">
                 </div>
                 @endforeach
             </div>

@@ -39,7 +39,13 @@
         <div class="mx-auto w-full max-w-screen-xl">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-36 justify-center">
                 <div class=" p card relative bg-white overflow-hidden shadow-md rounded-xl transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
-                    <img class="object-cover w-full h-full" src="{{ asset('storage/'. $kegiatan->photo) }}" alt="profile-picture" />
+                    <img class="object-cover w-full h-full" src="{{ asset('storage/'. $kegiatan->photo) }}" alt="Foto Kegiatan" />
+                </div>
+                <div class=" p card relative bg-white overflow-hidden shadow-md rounded-xl transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
+                    <img class="object-cover w-full h-full" src="{{ asset('storage/'. $kegiatan->photo2) }}" alt="Foto Kegiatan" />
+                </div>
+                <div class=" p card relative bg-white overflow-hidden shadow-md rounded-xl transform hover:bg-black-opacity-2 transition duration-700 hover:scale-105">
+                    <img class="object-cover w-full h-full" src="{{ asset('storage/'. $kegiatan->photo3) }}" alt="Foto Kegiatan" />
                 </div>
             </div>
         </div>
