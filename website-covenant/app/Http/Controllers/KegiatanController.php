@@ -9,6 +9,7 @@ use App\Models\Volunteer;
 use Illuminate\Http\Request;
 use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class KegiatanController extends Controller
 {
@@ -91,7 +92,6 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::findOrFail($id);
 
-
         $pathCover = $kegiatan->cover;
         $pathPhoto = $kegiatan->photo;
         $pathPhoto2 = $kegiatan->photo2;
@@ -99,21 +99,33 @@ class KegiatanController extends Controller
     
         // Check if cover file is present
         if ($request->hasFile('cover')) {
+            if ($pathCover !== null) {
+                File::delete(public_path('storage/' . $pathCover));
+            }
             $pathCover = $request->file('cover')->storePublicly('covers', 'public');
         }
-    
+
         // Check if photo file is present
         if ($request->hasFile('photo')) {
+            if ($pathPhoto !== null) {
+                File::delete(public_path('storage/' . $pathPhoto));
+            }
             $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
         }
-    
+
         // Check if photo2 file is present
         if ($request->hasFile('photo2')) {
+            if ($pathPhoto2 !== null) {
+                File::delete(public_path('storage/' . $pathPhoto2));
+            }
             $pathPhoto2 = $request->file('photo2')->storePublicly('photos', 'public');
         }
-    
+
         // Check if photo3 file is present
         if ($request->hasFile('photo3')) {
+            if ($pathPhoto3 !== null) {
+                File::delete(public_path('storage/' . $pathPhoto3));
+            }
             $pathPhoto3 = $request->file('photo3')->storePublicly('photos', 'public');
         }
 

@@ -30,9 +30,10 @@
                     <label for="nama" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-hover peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nama Kegiatan</label>
                 </div>
                 <div class="grid md:grid-cols-3 md:gap-6">
-                    <div class="relative z-0 w-full mb-5 group">
-                        <input type="date" id="jadwal" name="jadwal" value="{{$kegiatan->tanggal}}" aria-describedby="user_avatar_help" id="user_avatar" required class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                    </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <input type="date" id="jadwal" name="jadwal" value="{{ \Carbon\Carbon::parse($kegiatan->tanggal)->format('Y-m-d') }}" aria-describedby="user_avatar_help" required class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                </div>
+
                     <div class="relative z-0 w-full mb-5 group">
                         <input type="time" id="waktu" value="{{$kegiatan->waktu}}" name="waktu" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                     </div>
@@ -50,21 +51,22 @@
                     <label class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-hover peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Deskripsi</label>
                 </div>
                 <div class="grid md:grid-cols-2 md:gap-6">
-                    <div class="relative z-0 w-full mb-5 group">
-                        <label for="underline_select" class="sr-only">Underline select</label>
-                        <select id="volunteer" name="volunteer_id" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                            <option selected>Sukarelawan</option>
-                            @foreach ($volunteers as $volunteer)
-                            <option value='{{$volunteer->id}}'>{{$volunteer->nama}}</option>
-                            @endforeach
-                        </select>
-                    </div>
+                <div class="relative z-0 w-full mb-5 group">
+                    <label for="volunteer" class="sr-only">Select Volunteer</label>
+                    <select id="volunteer" name="volunteer_id" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                        <option value="" disabled selected>Select Volunteer</option>
+                        @foreach ($volunteers as $volunteer)
+                            <option value='{{ $volunteer->id }}' @if ($volunteer->id == $kegiatan->volunteer_id) selected @endif>{{ $volunteer->nama }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                     <div class="relative z-0 w-full mb-5 group">
                         <label for="sponsor_id" class="sr-only">Sponsor select</label>
                         <select id="sponsor_id" name="sponsor_id" class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
                             <option selected>Sponsor - Penanggung Jawab</option>
                             @foreach ($sponsors as $sponsor)
-                            <option value='{{$sponsor->id}}'>{{$sponsor->instansi}} - {{$sponsor->penanggung_jawab}}</option>
+                            <option value='{{ $sponsor->id }}' @if ($sponsor->id == $kegiatan->sponsor_id) selected @endif>{{ $sponsor->instansi }} - {{ $sponsor->penanggung_jawab }}</option>
                             @endforeach
                         </select>
                     </div>

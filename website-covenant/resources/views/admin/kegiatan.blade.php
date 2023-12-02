@@ -30,7 +30,7 @@
     }
 
     .popup-image {
-        height: 80vh;
+        height: auto;
         width: auto;
         display: none;
         max-width: 80%;
@@ -38,7 +38,7 @@
         border-radius: 5px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         opacity: 0;
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Modified transition */
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         transform: scale(0.8);
     }
 
