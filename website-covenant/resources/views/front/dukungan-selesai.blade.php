@@ -115,6 +115,10 @@
         <div class="kuitansi-container">
             <center><h2 style="font-family: 'Kanit', sans-serif;">KUITANSI</h2></center>
             <p>
+                <span class="label">ID:</span>
+                <span class="content">{{ $supporter->id }}</span>
+            </p> 
+            <p>
                 <span class="label">Waktu:</span>
                 <span class="content">{{ $supporter->tanggal }}</span>
             </p> 
