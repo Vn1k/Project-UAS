@@ -119,7 +119,7 @@ class FrontController extends Controller
             'alamat' => 'required|string|max:255',
             'no_telepon' => 'required|string|max:20',
             'bentuk_donasi' => 'required|string|max:255',
-            'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif|max:10240',
             'keterangan' => 'required|string',
             'agree' => 'required|accepted',
         ]);

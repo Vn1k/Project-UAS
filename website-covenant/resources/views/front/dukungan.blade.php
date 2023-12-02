@@ -64,7 +64,7 @@
         @if($errors)
             <ul>
                 @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
+                    <li class="text-center text-xl text-red-800 rounded-lg">{{$error}}</li>
                 @endforeach
             </ul>
         @endif
