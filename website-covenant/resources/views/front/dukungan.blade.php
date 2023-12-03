@@ -79,7 +79,10 @@
                         <div class="relative z-0 w-full group">
                             <h3>Nomor Rekening untuk Donasi:</h3>
                             <p>096301047892539 - Bank BRI</p>
-                            <p>Rumah Belajar Covenant</p>
+                            <p>A.N Rumah Belajar Covenant</p>
+                            <br>
+                            <p>6860302487 - Bank BCA</p>
+                            <p>A.N Jessica</p>                            
                         </div>
                     </div>
                 </div>
