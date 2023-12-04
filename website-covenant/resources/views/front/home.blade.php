@@ -119,7 +119,7 @@
        
       <h1 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-24 sm:mt-32 md:mt-36 xl:mt-44 2xl:mt-52 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">Jadwal Kegiatan</h1>
       {{-- AREA JADWAL --}}
-      <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="  flex flex-col mt-5 sm:mt-10 md:mt-12 gap-3">
+      <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col mt-5 sm:mt-10 md:mt-12 gap-3">
         {{-- ITEM --}}
         <div class=" mx-4 flex flex-col w-[350px] sm:w-[500px] sm:max-w-screen-sm md:max-w-none md:w-[700px] lg:w-[850px] xl:w-[1000px]">
           @foreach($kegiatans as $kegiatan)
