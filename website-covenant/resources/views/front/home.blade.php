@@ -153,7 +153,7 @@
 
     {{-- END OF AREA LIVE TRACKER --}}
 
-    <h1 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-24 sm:mt-32 md:mt-36 xl:mt-44 2xl:mt-52 text-2xl text-center sm:text-3xl md:text-3xl lg:text-3xl font-bold">Jadwal Kegiatan yang akan datang</h1>
+    <h1 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-24 sm:mt-32 md:mt-36 xl:mt-44 2xl:mt-52 text-xl text-center sm:text-3xl md:text-3xl lg:text-3xl font-bold">Jadwal Kegiatan yang akan datang</h1>
     {{-- AREA JADWAL --}}
     <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col mt-5 sm:mt-10 md:mt-12 gap-3">
       {{-- ITEM --}}
@@ -191,7 +191,7 @@
       
     </div>
 
-    <h2 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-12 text-lg sm:mt-28 md:mt-36 lg:mt-48 2xl:mt-52 sm:text-xl  md:text-2xl lg:text-3xl font-bold">Kerja Sama</h2>
+    <h2 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-12 text-xl sm:mt-28 md:mt-36 lg:mt-48 2xl:mt-52 sm:text-2xl  md:text-2xl lg:text-3xl font-bold">Kerja Sama</h2>
     {{-- AREA KERJA SAMA --}}
     <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mb-7 2xl:mb-20 mt-6 sm:mt-11 md:mt-16 lg:mt-20 xl:mt-24 2xl:mt-24 flex flex-col items-center justify-center">
       <img class="w-[100px] h-[47px] sm:-w[140px] sm:h-[55px] md:w-[180px] md:h-[85px]" src="{{ asset('local_images/logo_umn.png') }}" alt="">
