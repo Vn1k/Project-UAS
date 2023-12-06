@@ -2,6 +2,38 @@
 
 @extends('layouts.appUser')
 
+<style>
+  /* flexbox container */
+.left-sidebar-flexbox {
+    display:flex;
+    flex-wrap:wrap;
+    margin: 20px;
+}
+
+/* columns (mobile) */
+.left-sidebar-flexbox > * {
+    width:100%;
+    padding:2rem;
+}
+
+/* background colors */
+.left-sidebar-flexbox > .main-content {background:#FAFAFA}
+
+/* tablet breakpoint */
+@media (min-width:768px) {
+    .left-sidebar-flexbox > .header {
+        order:-2; /* header first */
+    }
+    .left-sidebar-flexbox > .left-sidebar {
+        /* left sidebar before main content */
+        order:-1;
+        width:calc(100% / 3);
+    }
+    .left-sidebar-flexbox > .main-content {
+        width:calc(100% / 3 * 2);
+    }
+}
+</style>
 @section('content')
 <div class=" w-screen font-Kanit">
 
@@ -125,33 +157,38 @@
     {{-- AREA JADWAL --}}
     <div data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col mt-5 sm:mt-10 md:mt-12 gap-3">
       {{-- ITEM --}}
-      <div class=" mx-4 flex flex-col w-[350px] sm:w-[500px] sm:max-w-screen-sm md:max-w-none md:w-[700px] lg:w-[850px] xl:w-[1000px]">
-        @foreach($kegiatans as $kegiatan)
-        <div id="{{ $kegiatan->id }}" class="mt-4 2xl:mt-8 px-3 py-1 md:py-2 lg:py-3 lg:px-4 xl:py-5 xl:px-7 text-sm md:text-lg lg:text-xl md:font-semibold flex flex-row justify-between items-center cursor-pointer rounded-2xl bg-utama" onclick="toggleOverlay({{ $kegiatan->id }})">
-          <p class="font-medium md:font-semibold">{{ $kegiatan->nama_kegiatan }} </p>
-          <p class="">+</p>
-        </div>
-        {{-- OVERLAY DETAIL --}}
-        <div id="a{{ $kegiatan->id }}" class="overlay md:text-base lg:text-lg lg:font-normal  hidden relative px-2 pb-3 md:px-3 md:pb-4 lg:px-7 lg:pb-10 rounded-b-lg text-xs flex flex-col w-full bg-five transition-transform duration-500 ease-in-out">
+      <div class=" grid-cols-2 flex flex-col w-[350px] sm:w-[500px] sm:max-w-screen-sm md:max-w-none md:w-[700px] lg:w-[850px] xl:w-[1000px]">
+       @foreach($kegiatans as $kegiatan)
 
-          <div class="mt-2 sm:mt-4 md:mt-6 flex flex-row justify-between ">
-            <div class="">
-              <p>{{ $kegiatan->formattedDate }}</p>
-              <p>Oleh <span class="font-bold">{{ $kegiatan->penyelenggara }}</span></p>
-              <p>Di {{ $kegiatan->lokasi }}</p>
+      <div class="left-sidebar-flexbox shadow-xl">
+        <div class="left-sidebar flex flex-col justify-center bg-utama"> <!-- col-span-1 sets the column span to 1 -->
+          <p class="text-3xl font-extrabold text-center">{{ $kegiatan->formattedTime }}</p>
+          <p class="text-lg font-medium text-center">{{ $kegiatan->formattedDate }}</p>
+        </div>
+        <div class="main-content flex flex-col justify-between gap-3 leading-normal"> <!-- col-span-1/2 sets the column span to half -->
+          <div class="flex mb-2 justify-between">
+            <div class="mr-4">
+              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $kegiatan->nama_kegiatan }}</h5>
+              <p class="my-2">{{ $kegiatan->deskripsi }}</p>
             </div>
-            <p>
-              {{ $kegiatan->formattedTime }} WIB
-            </p>
+            <div>
+              <p>{{ $kegiatan->penyelenggara }}</p>
+            </div>
           </div>
-          <div class="mt-4 sm:mt-6 md:mt-9 w-44 sm:w-full ">
-            <p>{{ $kegiatan->deskripsi }}</p>
+          <div class="flex gap-2">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+              <path d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+            </svg>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $kegiatan->lokasi }}</p>
           </div>
         </div>
-        @endforeach
       </div>
 
 
+      @endforeach
+      </div>
+
+      
     </div>
 
     <h2 data-aos="fade-up" data-aos-duration="1050" data-aos-once="true" class="mt-12 text-lg sm:mt-28 md:mt-36 lg:mt-48 2xl:mt-52 sm:text-xl  md:text-2xl lg:text-3xl font-bold">Kerja Sama</h2>
