@@ -1,7 +1,16 @@
 
 @vite(['resources/css/app.css','resources/js/app.js'])
 @extends('layouts.appUser')
-  
+  <style>
+    @media screen and (max-width: 767px) {
+    .a {
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+    .b {
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    }
+}
+  </style>
 @section('content')
 <div class="min-h-screen flex flex-col justify-center font-Kanit">
 
@@ -15,13 +24,13 @@
                 
                 <div data-aos="fade-down" data-aos-once="true" data-aos-duration="1000" class="flex ml-4 xl:w-[620px] h-full items-start  mt-[30%]  sm:mt-[21%] md:mt-[16%] lg:mt-[18%] xl:mt-[10%] 2xl:mt-[13%] sm:px-5 md:px-7 xl:px-12">
                     <div class="text-left max-w-screen-md text-black">
-                        <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold tracking-wider " style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
+                        <h1 class="a text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold tracking-wider " style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                         THESE ARE<br /><span>OUR VOLUNTEERS</span>
                         </h1>
-                        <p class="text-lg md:text-xl xl:text-2xl 2xl:text-3xl font-semibold mt-[7%] sm:mt-[5%] lg:mt-[3%] xl:mt-[6%]" style="text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);">
+                        <p class="a text-lg md:text-xl xl:text-2xl 2xl:text-3xl font-semibold mt-[7%] sm:mt-[5%] lg:mt-[3%] xl:mt-[6%]" style="text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);">
                             Who We Are
                         </p>
-                        <p class="text-white text-sm sm:text-md md:text-base lg:text-lg 2xl:text-xl  mt-2 w-[45%] sm:w-[41%] xl:w-[60%] 2xl:w-[75%]" style="text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);">
+                        <p class="a text-white text-sm sm:text-md md:text-base lg:text-lg 2xl:text-xl  mt-2 w-[45%] sm:w-[41%] xl:w-[60%] 2xl:w-[75%]" style="text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);">
                             Kami bersama bersatu, demi menolong masa depan anak-anak yang seharusnya mendapatkan hak yang sama seperti anak yang lain.
                         </p>
                     </div>
@@ -49,9 +58,9 @@
                 <div class="md:w-[450px] lg:w-[550px] xl:w-[891px] mt-8 md:px-0 md:ml-10 md:mt-0 lg:ml-14 xl:ml-20 text-left flex flex-col">
                     <h3 class="text-base sm:text-lg md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold md:mt-0">Jessica Laura M.pd</h3>
                     <p class="mt-5 md:mt-3 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg 2xl:text-xl font-light">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-                        aliquip ex ea commodo consequat. 
+                        Saya peduli terhadap anak-anak jalanan yang kurang mampu dalam belajar. 
+                        Maka dari situ saya membuat panti asuhan rumah belajar Covenant. 
+                        Saya percaya setiap anak memiliki hak untuk masa depan yang lebih baik, dan itulah yang ingin kami wujudkan melalui panti asuhan rumah belajar Covenant.
                     </p>
                 </div>
             </div>
@@ -72,8 +81,8 @@
                 <div class="md:w-[450px] lg:w-[550px] xl:w-[891px] mt-8 md:px-0 md:mr-10 lg:mr-14 xl:mr-16 2xl:mr-20 md:mt-0 text-left md:text-right flex flex-col">
                     <h3 class="text-base sm:text-lg md:text-lg lg:text-xl  xl:text-2xl 2xl:text-3xl font-bold md:mt-0 ">Polin Tua Trimanstar Silalahi</h3>
                     <p class="mt-5 text-sm sm:text-base md:text-sm lg:text-base xl:text-lg 2xl:text-xl  font-light">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Dengan tekad dan semangat, kami berusaha menciptakan ruang belajar yang aman dan nyaman di Panti asuhan rumah belajar Covenant. Kami yakin bahwa pendidikan adalah kunci untuk membuka pintu masa depan, 
+                        dan itulah yang ingin kami berikan kepada anak-anak yang kurang beruntung.
                     </p>
                 </div>
                 {{-- END TEXT AREA --}}

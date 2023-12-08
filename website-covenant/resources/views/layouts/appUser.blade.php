@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div id="app" class="min-h-screen flex flex-col">
+    <div id="app" class="min-h-screen flex flex-col max-w-screen overflow-x-hidden">
         {{-- NAVBAR --}}
         @include('partials.navbar')
         
