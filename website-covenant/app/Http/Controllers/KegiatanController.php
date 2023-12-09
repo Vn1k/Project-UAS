@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Kegiatan;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 
 class KegiatanController extends Controller
 {
@@ -92,42 +93,59 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::findOrFail($id);
 
+        // Function to handle image compression
+        function compressAndSaveImage($image, $path)
+        {
+            $filename = time() . '.' . $image->extension();
+            $compressedImage = Image::make($image)->encode('jpg', 100);
+            $compressedImage->save(public_path('storage/' . $path . $filename));
+            return $path . $filename;
+        }
+
         $pathCover = $kegiatan->cover;
         $pathPhoto = $kegiatan->photo;
         $pathPhoto2 = $kegiatan->photo2;
         $pathPhoto3 = $kegiatan->photo3;
-    
+
         // Check if cover file is present
         if ($request->hasFile('cover')) {
             if ($pathCover !== null) {
-                File::delete(public_path('storage/' . $pathCover));
+                Storage::delete($pathCover);
             }
-            $pathCover = $request->file('cover')->storePublicly('covers', 'public');
+            $pathCover = compressAndSaveImage($request->file('cover'), 'covers/');
         }
 
         // Check if photo file is present
         if ($request->hasFile('photo')) {
             if ($pathPhoto !== null) {
-                File::delete(public_path('storage/' . $pathPhoto));
+                Storage::delete($pathPhoto);
             }
-            $pathPhoto = $request->file('photo')->storePublicly('photos', 'public');
+            $pathPhoto = compressAndSaveImage($request->file('photo'), 'photos/');
         }
 
         // Check if photo2 file is present
         if ($request->hasFile('photo2')) {
             if ($pathPhoto2 !== null) {
-                File::delete(public_path('storage/' . $pathPhoto2));
+                Storage::delete($pathPhoto2);
             }
-            $pathPhoto2 = $request->file('photo2')->storePublicly('photos', 'public');
+            $pathPhoto2 = compressAndSaveImage($request->file('photo2'), 'photos/');
         }
 
         // Check if photo3 file is present
         if ($request->hasFile('photo3')) {
             if ($pathPhoto3 !== null) {
-                File::delete(public_path('storage/' . $pathPhoto3));
+                Storage::delete($pathPhoto3);
             }
-            $pathPhoto3 = $request->file('photo3')->storePublicly('photos', 'public');
+            $pathPhoto3 = compressAndSaveImage($request->file('photo3'), 'photos/');
         }
+
+        // Update the database with the new file paths
+        $kegiatan->cover = $pathCover;
+        $kegiatan->photo = $pathPhoto;
+        $kegiatan->photo2 = $pathPhoto2;
+        $kegiatan->photo3 = $pathPhoto3;
+        $kegiatan->save();
+
 
         $kegiatan->nama_kegiatan = $request->nama_kegiatan;
         $kegiatan->penyelenggara = $request->penyelenggara;
@@ -152,8 +170,30 @@ class KegiatanController extends Controller
     {
         KegiatanSponsor::where('kegiatan_id', $id)->delete();
         KegiatanVolunteer::where('kegiatan_id', $id)->delete();
-        $kegiatan = Kegiatan::find($id);
+        
+        $kegiatan = Kegiatan::findOrFail($id);
+
+        $kegiatanCovers = public_path('storages/covers/' . $kegiatan->cover);
+        if (File::exists($kegiatanCovers)) {
+            File::delete($kegiatanCovers);
+        }
+        $kegiatanPhotos = public_path('storages/photos/' . $kegiatan->photo);
+        if (File::exists($kegiatanPhotos)) {
+            File::delete($kegiatanPhotos);
+        }
+
+        $kegiatanPhotos2 = public_path('storages/photos/' . $kegiatan->photo2);
+        if (File::exists($kegiatanPhotos2)) {
+            File::delete($kegiatanPhotos2);
+        }
+
+        $kegiatanPhotos3 = public_path('storages/photos/' . $kegiatan->photo3);
+        if (File::exists($kegiatanPhotos3)) {
+            File::delete($kegiatanPhotos3);
+        }
+
         $kegiatan->delete();
         return redirect()->route('admin.kegiatan.index');
     }
+
 }
