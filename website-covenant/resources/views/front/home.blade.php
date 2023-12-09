@@ -129,21 +129,22 @@
     </div>
 
     {{-- AREA LIVE TRACKER --}}
-    <div data-aos="flip-up" data-aos-duration="1050" data-aos-once="true" class="p sm:py-1 lg:py-3 lg:px-6 2xl:py-2 sm:w-full md:w-10/12 lg:w-9/12 2xl:w-7/12 mt-12 sm:mt-32 md:mt-36 lg:mt-36 xl:mt-44 2xl:mt-56 flex flex-row justify-center lg:gap-20 gap-5 sm:gap-x-14">
+    <div class="sm:py-1 lg:py-3 lg:px-6 2xl:py-2 sm:w-full md:w-10/12 lg:w-9/12 2xl:w-7/12 mt-12 sm:mt-32 md:mt-36 lg:mt-36 xl:mt-44 2xl:mt-56 flex flex-row justify-center lg:gap-20 gap-5 sm:gap-x-14">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-10">
-        <div class="flex flex-col justify-around items-center gap-7 max-w-7xl p-6 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 ">
+
+        <div data-aos="flip-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col justify-around items-center gap-7 max-w-7xl p-6 bg-white border border-gray-200 shadow dark:bg-gray-800 dark:border-gray-700 ">
           <p class="text-center text-5xl font-bold">{{ $jumlahKegiatan }}</p>
           <img class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-10 lg:h-10" src="{{ asset('local_images/iconKegiatan.png') }}" alt="">
           <p class="text-2xl font-semibold">Kegiatan</p>
         </div>
 
-        <div class="flex flex-col justify-around gap-7 items-center max-w-md p-6 bg-white border border-gray-200 shadow  dark:bg-gray-800 dark:border-gray-700 ">
+        <div data-aos="flip-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col justify-around gap-7 items-center max-w-md p-6 bg-white border border-gray-200 shadow  dark:bg-gray-800 dark:border-gray-700 ">
           <p class="text-center text-5xl font-bold">{{ $jumlahSupporter }}</p>
           <img class="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-10 lg:h-10" src="{{ asset('local_images/iconHearth.png') }}" alt="">
           <p class="text-2xl font-semibold ">Supporter</p>
         </div>
 
-        <div class="flex flex-col justify-around gap-7 items-center max-w-md p-6 bg-white border border-gray-200 shadow  dark:bg-gray-800 dark:border-gray-700 ">
+        <div data-aos="flip-up" data-aos-duration="1050" data-aos-once="true" class="flex flex-col justify-around gap-7 items-center max-w-md p-6 bg-white border border-gray-200 shadow  dark:bg-gray-800 dark:border-gray-700 ">
           <p class="text-center text-5xl font-bold">{{ $jumlahVolunteer }}</p>
           <img class="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 lg:w-10 lg:h-10" src="{{ asset('local_images/iconVolunteer.png') }}" alt="">
           <p class="text-2xl font-semibold ">Sukarelawan</p>
