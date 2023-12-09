@@ -140,16 +140,21 @@ class FrontController extends Controller
         // Get the ID of the newly created supporter
         $supporterId = $supporter->id;
 
-        // Generate a unique file name using the supporter's ID and save the uploaded file
-        $filePath = $request->file('bukti_transfer')->storeAs('public/fotobukti/fotobukti_' . $supporterId . '.jpg');
+        // Generate a unique file name using the supporter's ID and save the uploaded file to public path
+        $photo = $request->file('bukti_transfer');
+        $filename = 'fotobukti_' . $supporterId . '.' . $photo->extension();
+        $photo->move(public_path('fotobukti'), $filename);
 
         // Update the supporter's photo field with the file path
-        $supporter->photo = $filePath;
+        $supporter->photo = 'fotobukti/' . $filename;
         $supporter->save();
 
         // Redirect to 'dukungan-selesai' with supporter data
         return redirect()->route('dukungan-selesai', ['id' => $supporter->id]);
     }
+
+
+
 
 
     
