@@ -80,6 +80,9 @@
                     </ul>
                 </div>
                 <div class="text-center mt-5">
+                    Lakukan <i>Screenshot</i> sebagai bukti pembayaran anda.
+                </div>
+                <div class="text-center mt-5">
                     Kembali ke beranda dalam <span id="timer"></span> detik.
                 </div>
             </div>
@@ -91,7 +94,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Set the duration of the timer in seconds
-            var timerDuration = 15; // Adjust this value as needed
+            var timerDuration = 30; // Adjust this value as needed
 
             // Function to update the timer display
             function updateTimerDisplay() {
