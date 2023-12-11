@@ -106,8 +106,11 @@ class SupporterController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $supporter = Supporter::find($id);
+        $supporter->delete();
+        return redirect('/admin/supporters');
     }
+
 
     public function generateReceipt(string $id)
     {

@@ -134,6 +134,8 @@
                 </label>
             </div>
 
+            <input type="text" name="honeypot" style="display:none;">
+
 
             <button type="submit" class="text-black bg-third hover:bg-hover focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-full px-5 py-2.5 text-center  dark:bg-third dark:hover:bg-utama dark:focus:ring-blue-800 mt-5">Submit</button>
         </form>

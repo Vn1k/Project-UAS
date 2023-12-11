@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kegiatan', 50);
-            $table->string('penyelenggara', 20);
+            $table->string('penyelenggara', 50);
             $table->date('jadwal');
             $table->time('waktu');
             $table->string('cover')->nullable();
