@@ -133,6 +133,14 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td class="px-6 py-4">
+                                    <!-- Delete button using the resource route -->
+                                    <form action="{{ route('supporter.destroy', $supporter->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this supporter?')" class="text-red-600 hover:text-red-900 focus:outline-none">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
